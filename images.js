@@ -16,10 +16,10 @@ const GALLERY = [
   {
     file: "images/img01.png",
     series: "I",
-    title_jp: "百鬼夜行",
-    title_en: "Night Parade of Demons",
-    story_jp: "竹林の奥、提灯の灯が揺れる道に、百の鬼が列をなして歩む夜がある。その名を百鬼夜行という。返り血に塗れた侍・蒼牙は、一人その道に立ちはだかった。鬼たちの眼が光る。しかし蒼牙は刃を下げず、ただ前を向いた。",
-    story_en: "Deep within the bamboo grove, a hundred demons march in procession — the legendary Hyakki Yako. Soga, a samurai stained with battle, stood alone in their path. The demons' eyes gleamed. Yet Soga did not lower his blade. He simply faced forward."
+    title_jp: "竹林の鬼狩り",
+    title_en: "Demon Hunter of the Bamboo Grove",
+    story_jp: "雨に濡れた竹林の奥、提灯に照らされた「百鬼夜行」の文字が揺れる。侍・影牙は刃を抜き、静かに息を整えた。左右の竹から無数の鬼と亡者が這い出でる——目玉の妖、角を持つ鬼、黒髪の幽霊。しかし影牙は動じない。「俺を喰らいたければ、かかってこい」。石段の先、鳥居だけが静かにそこにあった。",
+    story_en: "Deep within a rain-soaked bamboo grove, a paper lantern sways bearing the words "Night Parade of a Hundred Demons." The samurai Kagekiba draws his blade and steadies his breath. From the bamboo on all sides, countless demons crawl forth — eyeball spirits, horned oni, black-haired ghosts. Yet Kagekiba does not flinch. "If you want to devour me, then come." Beyond the stone steps, the torii gate stood silent and waiting."
   },
   {
     file: "images/img02.png",
