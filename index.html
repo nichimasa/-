@@ -10,9 +10,7 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{--ink:#0a0608;--deep:#110a0e;--crimson:#8b1a2f;--crimson-bright:#c0263e;--gold:#c8a96e;--gold-dim:#8a6e3e;--ash:#b8a898;--paper:#f0e8d8}
 html{scroll-behavior:smooth}
-body{cursor:none;font-family:"Noto Serif JP",serif;background:var(--ink);color:var(--ash);overflow-x:hidden}
-#cursor{position:fixed;width:10px;height:10px;background:var(--crimson-bright);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s;mix-blend-mode:screen}
-#cursor-ring{position:fixed;width:32px;height:32px;border:1px solid var(--crimson-bright);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .3s,height .3s,opacity .3s;opacity:.5}
+body{font-family:"Noto Serif JP",serif;background:var(--ink);color:var(--ash);overflow-x:hidden}
 .petals-wrap{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:10}
 .petal{position:absolute;width:6px;height:6px;background:var(--crimson);border-radius:50% 0 50% 0;opacity:0;animation:fall linear infinite}
 @keyframes fall{0%{opacity:0;transform:translateY(-20px) rotate(0deg)}10%{opacity:.5}90%{opacity:.2}100%{opacity:0;transform:translateY(100vh) rotate(720deg) translateX(60px)}}
@@ -58,8 +56,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:1.5rem 4vw;display:f
 .section-title-jp{font-family:"Shippori Mincho B1",serif;font-size:clamp(1.8rem,3.5vw,3rem);color:var(--paper);letter-spacing:.12em;line-height:1.2}
 .section-title-en{font-family:"IM Fell English",serif;font-style:italic;font-size:.85rem;color:var(--gold-dim);letter-spacing:.2em;margin-top:.2rem;opacity:.8}
 .gallery-count{font-family:"IM Fell English",serif;font-style:italic;font-size:4.5rem;color:var(--crimson);opacity:.18;line-height:1}
-.gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
-.gallery-item{position:relative;overflow:hidden;background:#1a0f14;cursor:none;aspect-ratio:3/4}
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.gallery-item{position:relative;overflow:hidden;background:#1a0f14;aspect-ratio:3/4;text-decoration:none;display:block}
 .gallery-item:nth-child(3n+1){aspect-ratio:2/3}.gallery-item:nth-child(3n+2){aspect-ratio:3/4}.gallery-item:nth-child(3n){aspect-ratio:4/5}
 .gallery-item img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(.82) saturate(1.1);transition:transform .9s cubic-bezier(.25,.46,.45,.94),filter .5s}
 .gallery-item:hover img{transform:scale(1.07);filter:brightness(.68) saturate(1.4)}
@@ -76,10 +74,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:1.5rem 4vw;display:f
 .gallery-caption-hint::before{content:"";width:10px;height:1px;background:var(--ash);opacity:.55}
 .gallery-num{position:absolute;top:1rem;right:1rem;font-family:"IM Fell English",serif;font-style:italic;font-size:1.2rem;color:white;opacity:.15;z-index:3;transition:opacity .3s}
 .gallery-item:hover .gallery-num{opacity:.45}
-.modal-overlay{position:fixed;inset:0;z-index:2000;background:rgba(5,2,4,.93);backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;padding:2rem;opacity:0;pointer-events:none;transition:opacity .4s ease}
-.modal-overlay.active{opacity:1;pointer-events:all}
-.modal{display:grid;grid-template-columns:1fr 1fr;max-width:1000px;width:100%;max-height:90vh;background:var(--deep);border:1px solid rgba(139,26,47,.4);position:relative;overflow:hidden;transform:translateY(20px) scale(.97);transition:transform .4s ease}
-.modal-overlay.active .modal{transform:translateY(0) scale(1)}
+
+/* ── MODAL (CSS :target) ── */
+.modal-overlay{position:fixed;inset:0;z-index:2000;background:rgba(5,2,4,.93);backdrop-filter:blur(10px);display:none;align-items:center;justify-content:center;padding:2rem}
+.modal-overlay:target{display:flex}
+.modal{display:grid;grid-template-columns:1fr 1fr;max-width:1000px;width:100%;max-height:90vh;background:var(--deep);border:1px solid rgba(139,26,47,.4);position:relative;overflow:hidden}
 .modal-img-wrap{position:relative;overflow:hidden;background:#0d0509;min-height:400px}
 .modal-img-wrap img{width:100%;height:100%;object-fit:contain;display:block;max-height:90vh}
 .modal-img-wrap::after{content:"";position:absolute;inset:0;background:linear-gradient(to right,transparent 80%,var(--deep) 100%);pointer-events:none}
@@ -89,18 +88,36 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:1.5rem 4vw;display:f
 .modal-title-jp{font-family:"Shippori Mincho B1",serif;font-size:clamp(1.6rem,2.8vw,2.6rem);color:var(--paper);letter-spacing:.15em;line-height:1.2;margin-bottom:.2rem;text-shadow:0 2px 20px rgba(139,26,47,.4)}
 .modal-title-en{font-family:"IM Fell English",serif;font-style:italic;font-size:.92rem;color:var(--gold);letter-spacing:.2em;margin-bottom:1.75rem;opacity:.85}
 .modal-divider{width:36px;height:1px;background:linear-gradient(to right,var(--crimson-bright),transparent);margin-bottom:1.5rem}
+
+/* CSS タブ切り替え */
 .lang-tabs{display:flex;gap:0;margin-bottom:1.25rem;border-bottom:1px solid rgba(139,26,47,.25)}
-.lang-tab{font-family:"IM Fell English",serif;font-style:italic;font-size:.75rem;letter-spacing:.18em;color:var(--ash);padding:.5rem 1.2rem .6rem;cursor:none;border:none;background:transparent;border-bottom:2px solid transparent;margin-bottom:-1px;transition:all .3s;opacity:.5}
-.lang-tab.active{color:var(--gold);border-bottom-color:var(--crimson-bright);opacity:1}
+.lang-tab{font-family:"IM Fell English",serif;font-style:italic;font-size:.75rem;letter-spacing:.18em;color:var(--ash);padding:.5rem 1.2rem .6rem;cursor:pointer;border:none;background:transparent;border-bottom:2px solid transparent;margin-bottom:-1px;transition:all .3s;opacity:.5;user-select:none}
 .lang-tab:hover{opacity:.8;color:var(--paper)}
-.story-panel{display:none}.story-panel.active{display:block}
-.modal-story{font-size:.87rem;color:var(--ash);line-height:2.4;opacity:.9;border-left:2px solid rgba(139,26,47,.4);padding-left:1.25rem}
-.modal-story.en{font-family:"IM Fell English",serif;font-size:.85rem;line-height:2.2;font-style:italic}
-.modal-close{position:absolute;top:1.25rem;right:1.25rem;width:36px;height:36px;border:1px solid rgba(139,26,47,.4);background:rgba(10,6,8,.8);color:var(--ash);display:flex;align-items:center;justify-content:center;cursor:none;z-index:10;transition:all .3s;font-size:1rem}
+.modal-story{font-size:.87rem;color:var(--ash);line-height:2.4;opacity:.9;border-left:2px solid rgba(139,26,47,.4);padding-left:1.25rem;margin-bottom:1rem}
+.story-en{font-family:"IM Fell English",serif;font-size:.85rem;line-height:2.2;font-style:italic}
+
+/* デフォルト：日本語表示、英語非表示 */
+.story-en{display:none}
+/* tab-en がチェックされたら切り替え */
+#tab-en-01:checked ~ .story-jp, #tab-en-02:checked ~ .story-jp, #tab-en-03:checked ~ .story-jp,
+#tab-en-04:checked ~ .story-jp, #tab-en-05:checked ~ .story-jp, #tab-en-06:checked ~ .story-jp,
+#tab-en-07:checked ~ .story-jp, #tab-en-08:checked ~ .story-jp, #tab-en-09:checked ~ .story-jp,
+#tab-en-10:checked ~ .story-jp, #tab-en-11:checked ~ .story-jp, #tab-en-12:checked ~ .story-jp,
+#tab-en-13:checked ~ .story-jp{display:none}
+#tab-en-01:checked ~ .story-en, #tab-en-02:checked ~ .story-en, #tab-en-03:checked ~ .story-en,
+#tab-en-04:checked ~ .story-en, #tab-en-05:checked ~ .story-en, #tab-en-06:checked ~ .story-en,
+#tab-en-07:checked ~ .story-en, #tab-en-08:checked ~ .story-en, #tab-en-09:checked ~ .story-en,
+#tab-en-10:checked ~ .story-en, #tab-en-11:checked ~ .story-en, #tab-en-12:checked ~ .story-en,
+#tab-en-13:checked ~ .story-en{display:block}
+/* tab-jp がチェックされたら日本語ラベルをactive風に */
+.active-tab{color:var(--gold);border-bottom-color:var(--crimson-bright);opacity:1 !important}
+
+.modal-close{position:absolute;top:1.25rem;right:1.25rem;width:36px;height:36px;border:1px solid rgba(139,26,47,.4);background:rgba(10,6,8,.8);color:var(--ash);display:flex;align-items:center;justify-content:center;z-index:10;transition:all .3s;font-size:1rem;text-decoration:none;line-height:36px;text-align:center}
 .modal-close:hover{border-color:var(--crimson-bright);color:var(--paper);background:rgba(139,26,47,.2)}
 .modal-nav{position:absolute;bottom:1.5rem;right:2.5rem;display:flex;gap:.75rem}
-.modal-nav-btn{width:36px;height:36px;border:1px solid rgba(139,26,47,.35);background:transparent;color:var(--ash);display:flex;align-items:center;justify-content:center;cursor:none;transition:all .3s;font-size:.9rem}
+.modal-nav-btn{width:36px;height:36px;border:1px solid rgba(139,26,47,.35);background:transparent;color:var(--ash);display:flex;align-items:center;justify-content:center;transition:all .3s;font-size:.9rem;text-decoration:none;line-height:36px;text-align:center}
 .modal-nav-btn:hover{border-color:var(--crimson-bright);color:var(--paper);background:rgba(139,26,47,.15)}
+
 .about-section{background:var(--deep);padding:7rem 4vw;position:relative;overflow:hidden}
 .about-section::before{content:"幻";position:absolute;right:-1rem;top:50%;transform:translateY(-50%);font-family:"Shippori Mincho B1",serif;font-size:28rem;color:var(--crimson);opacity:.03;line-height:1;pointer-events:none}
 .about-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center}
@@ -136,15 +153,12 @@ footer{background:var(--ink);border-top:1px solid rgba(139,26,47,.2);padding:2.5
 </style>
 </head>
 <body>
-<div id="cursor"></div>
-<div id="cursor-ring"></div>
 <div class="petals-wrap">
   <div class="petal"></div><div class="petal"></div><div class="petal"></div>
   <div class="petal"></div><div class="petal"></div><div class="petal"></div>
   <div class="petal"></div><div class="petal"></div><div class="petal"></div>
   <div class="petal"></div>
 </div>
-
 <nav>
   <a href="#" class="nav-logo">幻想絵巻<span>Phantom Emaki</span></a>
   <ul class="nav-links">
@@ -153,7 +167,6 @@ footer{background:var(--ink);border-top:1px solid rgba(139,26,47,.2);padding:2.5
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
-
 <section class="hero">
   <div class="hero-poster">
     <img src="images/main.png" alt="京都幻夢">
@@ -173,10 +186,9 @@ footer{background:var(--ink);border-top:1px solid rgba(139,26,47,.2);padding:2.5
     </div>
   </div>
 </section>
-
 <div class="info-strip">
   <div class="strip-item">
-    <div class="strip-num">七</div>
+    <div class="strip-num">十四</div>
     <div><span class="strip-label-jp">作品数</span><span class="strip-label-en">Total Works</span></div>
   </div>
   <div class="strip-div"></div>
@@ -192,7 +204,6 @@ footer{background:var(--ink);border-top:1px solid rgba(139,26,47,.2);padding:2.5
     <div><span class="strip-label-jp">神話・怪談・侍</span><span class="strip-label-en">Mythology · Folklore · Samurai</span></div>
   </div>
 </div>
-
 <section class="gallery-section" id="gallery">
   <div class="gallery-header reveal">
     <div>
@@ -203,8 +214,7 @@ footer{background:var(--ink);border-top:1px solid rgba(139,26,47,.2);padding:2.5
     <div class="gallery-count">13</div>
   </div>
   <div class="gallery-grid">
-
-    <div class="gallery-item reveal" onclick="openModal(0)">
+    <a class="gallery-item reveal" href="#modal-01">
       <img src="images/img01.png" alt="百鬼夜行" loading="lazy">
       <div class="gallery-num">01</div>
       <div class="gallery-caption">
@@ -213,9 +223,8 @@ footer{background:var(--ink);border-top:1px solid rgba(139,26,47,.2);padding:2.5
         <div class="gallery-caption-en">Night Parade of Demons</div>
         <div class="gallery-caption-hint">Click to read the story</div>
       </div>
-    </div>
-
-    <div class="gallery-item reveal" style="transition-delay:.1s" onclick="openModal(1)">
+    </a>
+    <a class="gallery-item reveal" href="#modal-02" style="transition-delay:0.1s">
       <img src="images/img02.png" alt="花月温泉" loading="lazy">
       <div class="gallery-num">02</div>
       <div class="gallery-caption">
@@ -224,9 +233,8 @@ footer{background:var(--ink);border-top:1px solid rgba(139,26,47,.2);padding:2.5
         <div class="gallery-caption-en">Kagetsu Hot Springs</div>
         <div class="gallery-caption-hint">Click to read the story</div>
       </div>
-    </div>
-
-    <div class="gallery-item reveal" style="transition-delay:.2s" onclick="openModal(2)">
+    </a>
+    <a class="gallery-item reveal" href="#modal-03" style="transition-delay:0.2s">
       <img src="images/img03.png" alt="清水の龍神" loading="lazy">
       <div class="gallery-num">03</div>
       <div class="gallery-caption">
@@ -235,9 +243,8 @@ footer{background:var(--ink);border-top:1px solid rgba(139,26,47,.2);padding:2.5
         <div class="gallery-caption-en">Dragon God of Kiyomizu</div>
         <div class="gallery-caption-hint">Click to read the story</div>
       </div>
-    </div>
-
-    <div class="gallery-item reveal" style="transition-delay:.1s" onclick="openModal(3)">
+    </a>
+    <a class="gallery-item reveal" href="#modal-04">
       <img src="images/img04.png" alt="緋色の剣士" loading="lazy">
       <div class="gallery-num">04</div>
       <div class="gallery-caption">
@@ -246,9 +253,8 @@ footer{background:var(--ink);border-top:1px solid rgba(139,26,47,.2);padding:2.5
         <div class="gallery-caption-en">Crimson Swordswoman</div>
         <div class="gallery-caption-hint">Click to read the story</div>
       </div>
-    </div>
-
-    <div class="gallery-item reveal" style="transition-delay:.2s" onclick="openModal(4)">
+    </a>
+    <a class="gallery-item reveal" href="#modal-05" style="transition-delay:0.1s">
       <img src="images/img05.png" alt="狐と侍の邂逅" loading="lazy">
       <div class="gallery-num">05</div>
       <div class="gallery-caption">
@@ -257,9 +263,8 @@ footer{background:var(--ink);border-top:1px solid rgba(139,26,47,.2);padding:2.5
         <div class="gallery-caption-en">Encounter of Fox and Samurai</div>
         <div class="gallery-caption-hint">Click to read the story</div>
       </div>
-    </div>
-
-    <div class="gallery-item reveal" style="transition-delay:.3s" onclick="openModal(5)">
+    </a>
+    <a class="gallery-item reveal" href="#modal-06" style="transition-delay:0.2s">
       <img src="images/img06.png" alt="稲荷の狐" loading="lazy">
       <div class="gallery-num">06</div>
       <div class="gallery-caption">
@@ -268,9 +273,8 @@ footer{background:var(--ink);border-top:1px solid rgba(139,26,47,.2);padding:2.5
         <div class="gallery-caption-en">Fox of Inari Shrine</div>
         <div class="gallery-caption-hint">Click to read the story</div>
       </div>
-    </div>
-
-    <div class="gallery-item reveal" style="transition-delay:.1s" onclick="openModal(6)">
+    </a>
+    <a class="gallery-item reveal" href="#modal-07">
       <img src="images/img07.png" alt="血月の百鬼街道" loading="lazy">
       <div class="gallery-num">07</div>
       <div class="gallery-caption">
@@ -279,9 +283,8 @@ footer{background:var(--ink);border-top:1px solid rgba(139,26,47,.2);padding:2.5
         <div class="gallery-caption-en">Blood Moon Demon Parade</div>
         <div class="gallery-caption-hint">Click to read the story</div>
       </div>
-    </div>
-
-    <div class="gallery-item reveal" style="transition-delay:.2s" onclick="openModal(7)">
+    </a>
+    <a class="gallery-item reveal" href="#modal-08" style="transition-delay:0.1s">
       <img src="images/img08.png" alt="月夜の露天風呂" loading="lazy">
       <div class="gallery-num">08</div>
       <div class="gallery-caption">
@@ -290,9 +293,8 @@ footer{background:var(--ink);border-top:1px solid rgba(139,26,47,.2);padding:2.5
         <div class="gallery-caption-en">Moonlit Open-Air Bath</div>
         <div class="gallery-caption-hint">Click to read the story</div>
       </div>
-    </div>
-
-    <div class="gallery-item reveal" style="transition-delay:.3s" onclick="openModal(8)">
+    </a>
+    <a class="gallery-item reveal" href="#modal-09" style="transition-delay:0.2s">
       <img src="images/img09.png" alt="稲荷大神の社" loading="lazy">
       <div class="gallery-num">09</div>
       <div class="gallery-caption">
@@ -301,9 +303,8 @@ footer{background:var(--ink);border-top:1px solid rgba(139,26,47,.2);padding:2.5
         <div class="gallery-caption-en">Shrine of the Great Fox God</div>
         <div class="gallery-caption-hint">Click to read the story</div>
       </div>
-    </div>
-
-    <div class="gallery-item reveal" onclick="openModal(9)">
+    </a>
+    <a class="gallery-item reveal" href="#modal-10">
       <img src="images/img10.png" alt="悪霊退散" loading="lazy">
       <div class="gallery-num">10</div>
       <div class="gallery-caption">
@@ -312,9 +313,8 @@ footer{background:var(--ink);border-top:1px solid rgba(139,26,47,.2);padding:2.5
         <div class="gallery-caption-en">Exorcism at the Torii</div>
         <div class="gallery-caption-hint">Click to read the story</div>
       </div>
-    </div>
-
-    <div class="gallery-item reveal" style="transition-delay:.1s" onclick="openModal(10)">
+    </a>
+    <a class="gallery-item reveal" href="#modal-11" style="transition-delay:0.1s">
       <img src="images/img11.png" alt="桜魔京" loading="lazy">
       <div class="gallery-num">11</div>
       <div class="gallery-caption">
@@ -323,9 +323,8 @@ footer{background:var(--ink);border-top:1px solid rgba(139,26,47,.2);padding:2.5
         <div class="gallery-caption-en">Sakura Demon Capital</div>
         <div class="gallery-caption-hint">Click to read the story</div>
       </div>
-    </div>
-
-    <div class="gallery-item reveal" style="transition-delay:.2s" onclick="openModal(11)">
+    </a>
+    <a class="gallery-item reveal" href="#modal-12" style="transition-delay:0.2s">
       <img src="images/img12.png" alt="二寧坂の夕暮れ" loading="lazy">
       <div class="gallery-num">12</div>
       <div class="gallery-caption">
@@ -334,9 +333,8 @@ footer{background:var(--ink);border-top:1px solid rgba(139,26,47,.2);padding:2.5
         <div class="gallery-caption-en">Twilight on Nineizaka</div>
         <div class="gallery-caption-hint">Click to read the story</div>
       </div>
-    </div>
-
-    <div class="gallery-item reveal" style="transition-delay:.3s" onclick="openModal(12)">
+    </a>
+    <a class="gallery-item reveal" href="#modal-13">
       <img src="images/img13.png" alt="温泉街の宵" loading="lazy">
       <div class="gallery-num">13</div>
       <div class="gallery-caption">
@@ -345,40 +343,348 @@ footer{background:var(--ink);border-top:1px solid rgba(139,26,47,.2);padding:2.5
         <div class="gallery-caption-en">Evening in the Hot Spring Town</div>
         <div class="gallery-caption-hint">Click to read the story</div>
       </div>
-    </div>
-
+    </a>
   </div>
 </section>
 
-<!-- MODAL -->
-<div class="modal-overlay" id="modal-overlay">
-  <div class="modal">
-    <div class="modal-img-wrap">
-      <img id="modal-img" src="" alt="">
+  <div class="modal-overlay" id="modal-01">
+    <div class="modal">
+      <div class="modal-img-wrap">
+        <img src="images/img01.png" alt="百鬼夜行">
+      </div>
+      <div class="modal-body">
+        <div class="modal-series">Series I</div>
+        <h2 class="modal-title-jp">百鬼夜行</h2>
+        <p class="modal-title-en">Night Parade of Demons</p>
+        <div class="modal-divider"></div>
+        <div class="lang-tabs">
+          <label class="lang-tab active-tab" for="tab-jp-01">日本語</label>
+          <label class="lang-tab" for="tab-en-01">English</label>
+        </div>
+        <input type="radio" id="tab-jp-01" name="lang-01" checked style="display:none">
+        <input type="radio" id="tab-en-01" name="lang-01" style="display:none">
+        <p class="modal-story story-jp">竹林の奥、提灯の灯が揺れる道に、百の鬼が列をなして歩む夜がある。その名を百鬼夜行という。返り血に塗れた侍・蒼牙は、一人その道に立ちはだかった。鬼たちの眼が光る。しかし蒼牙は刃を下げず、ただ前を向いた。</p>
+        <p class="modal-story story-en en">Deep within the bamboo grove, a hundred demons march in procession — the legendary Hyakki Yako. Soga, a samurai stained with battle, stood alone in their path. The demons' eyes gleamed. Yet Soga did not lower his blade. He simply faced forward.</p>
+        <div class="modal-nav">
+          <a class="modal-nav-btn" href="#modal-13">←</a>
+          <a class="modal-nav-btn" href="#modal-02">→</a>
+        </div>
+      </div>
+      <a class="modal-close" href="#">✕</a>
     </div>
-    <div class="modal-body">
-      <div class="modal-series" id="modal-series"></div>
-      <h2 class="modal-title-jp" id="modal-title-jp"></h2>
-      <p class="modal-title-en" id="modal-title-en"></p>
-      <div class="modal-divider"></div>
-      <div class="lang-tabs">
-        <button class="lang-tab active" data-lang="jp">日本語</button>
-        <button class="lang-tab" data-lang="en">English</button>
-      </div>
-      <div class="story-panel active" id="story-jp">
-        <p class="modal-story" id="modal-story-jp"></p>
-      </div>
-      <div class="story-panel" id="story-en">
-        <p class="modal-story en" id="modal-story-en"></p>
-      </div>
-      <div class="modal-nav">
-        <button class="modal-nav-btn" id="modal-prev">←</button>
-        <button class="modal-nav-btn" id="modal-next">→</button>
-      </div>
-    </div>
-    <button class="modal-close" id="modal-close">✕</button>
   </div>
-</div>
+  <div class="modal-overlay" id="modal-02">
+    <div class="modal">
+      <div class="modal-img-wrap">
+        <img src="images/img02.png" alt="花月温泉">
+      </div>
+      <div class="modal-body">
+        <div class="modal-series">Series II</div>
+        <h2 class="modal-title-jp">花月温泉</h2>
+        <p class="modal-title-en">Kagetsu Hot Springs</p>
+        <div class="modal-divider"></div>
+        <div class="lang-tabs">
+          <label class="lang-tab active-tab" for="tab-jp-02">日本語</label>
+          <label class="lang-tab" for="tab-en-02">English</label>
+        </div>
+        <input type="radio" id="tab-jp-02" name="lang-02" checked style="display:none">
+        <input type="radio" id="tab-en-02" name="lang-02" style="display:none">
+        <p class="modal-story story-jp">湯煙漂う山奥の温泉郷、花月。ここは人と妖が静かに共存する、秘密の楽園。赤い橋の袂に佇む娘・花鈴は、この地の女将にして、狐神の末裔。訪れた旅人は皆、帰り道を忘れてしまうという。</p>
+        <p class="modal-story story-en en">Kagetsu — a hidden hot spring village veiled in drifting steam. Here, humans and spirits coexist in quiet harmony. Karin, the young innkeeper by the red bridge, is a descendant of the fox deity. They say every traveler who visits forgets the way home.</p>
+        <div class="modal-nav">
+          <a class="modal-nav-btn" href="#modal-01">←</a>
+          <a class="modal-nav-btn" href="#modal-03">→</a>
+        </div>
+      </div>
+      <a class="modal-close" href="#">✕</a>
+    </div>
+  </div>
+  <div class="modal-overlay" id="modal-03">
+    <div class="modal">
+      <div class="modal-img-wrap">
+        <img src="images/img03.png" alt="清水の龍神">
+      </div>
+      <div class="modal-body">
+        <div class="modal-series">Series III</div>
+        <h2 class="modal-title-jp">清水の龍神</h2>
+        <p class="modal-title-en">Dragon God of Kiyomizu</p>
+        <div class="modal-divider"></div>
+        <div class="lang-tabs">
+          <label class="lang-tab active-tab" for="tab-jp-03">日本語</label>
+          <label class="lang-tab" for="tab-en-03">English</label>
+        </div>
+        <input type="radio" id="tab-jp-03" name="lang-03" checked style="display:none">
+        <input type="radio" id="tab-en-03" name="lang-03" style="display:none">
+        <p class="modal-story story-jp">清水寺の夜、満月が山を照らすとき、天より龍が降りるという言い伝えがある。老僧・玄海はその夜を七十年待ち続けた。龍の眼が燃えるように光り、玄海の白衣が風に舞った。</p>
+        <p class="modal-story story-en en">There is a legend that when the full moon illuminates Kiyomizudera, a dragon descends from the heavens. The aged monk Genkai had waited seventy years for that night. The dragon's eyes blazed like twin flames, and Genkai's white robes swirled in the sudden wind.</p>
+        <div class="modal-nav">
+          <a class="modal-nav-btn" href="#modal-02">←</a>
+          <a class="modal-nav-btn" href="#modal-04">→</a>
+        </div>
+      </div>
+      <a class="modal-close" href="#">✕</a>
+    </div>
+  </div>
+  <div class="modal-overlay" id="modal-04">
+    <div class="modal">
+      <div class="modal-img-wrap">
+        <img src="images/img04.png" alt="緋色の剣士">
+      </div>
+      <div class="modal-body">
+        <div class="modal-series">Series IV</div>
+        <h2 class="modal-title-jp">緋色の剣士</h2>
+        <p class="modal-title-en">Crimson Swordswoman</p>
+        <div class="modal-divider"></div>
+        <div class="lang-tabs">
+          <label class="lang-tab active-tab" for="tab-jp-04">日本語</label>
+          <label class="lang-tab" for="tab-en-04">English</label>
+        </div>
+        <input type="radio" id="tab-jp-04" name="lang-04" checked style="display:none">
+        <input type="radio" id="tab-en-04" name="lang-04" style="display:none">
+        <p class="modal-story story-jp">紅葉が血のように舞い散る境内に、一人の女剣士が立つ。名は朱音。天照大神に仕える巫女にして、最後の剣鬼。彼女の白い着物に滲む赤は、散った紅葉か、それとも——鳥居の向こうに影が歩み出した。</p>
+        <p class="modal-story story-en en">In the temple grounds where crimson leaves scatter like blood, a lone swordswoman stands. Her name is Akane — a shrine maiden of Amaterasu, and the last of the sword demons. The red staining her white kimono — is it fallen leaves, or something else? A shadow steps forward beyond the torii gate.</p>
+        <div class="modal-nav">
+          <a class="modal-nav-btn" href="#modal-03">←</a>
+          <a class="modal-nav-btn" href="#modal-05">→</a>
+        </div>
+      </div>
+      <a class="modal-close" href="#">✕</a>
+    </div>
+  </div>
+  <div class="modal-overlay" id="modal-05">
+    <div class="modal">
+      <div class="modal-img-wrap">
+        <img src="images/img05.png" alt="狐と侍の邂逅">
+      </div>
+      <div class="modal-body">
+        <div class="modal-series">Series V</div>
+        <h2 class="modal-title-jp">狐と侍の邂逅</h2>
+        <p class="modal-title-en">Encounter of Fox and Samurai</p>
+        <div class="modal-divider"></div>
+        <div class="lang-tabs">
+          <label class="lang-tab active-tab" for="tab-jp-05">日本語</label>
+          <label class="lang-tab" for="tab-en-05">English</label>
+        </div>
+        <input type="radio" id="tab-jp-05" name="lang-05" checked style="display:none">
+        <input type="radio" id="tab-en-05" name="lang-05" style="display:none">
+        <p class="modal-story story-jp">血月が照らす京の夜、妖狐の姫・玲と流れ者の侍・黒斗は、鳥居の前で出会った。周囲には無数の鬼と妖が溢れ、二人は背中合わせで刃と炎を構える。信じるわけじゃない。ただ、生き延びたいだけよ。</p>
+        <p class="modal-story story-en en">Beneath a blood-red moon over Kyoto, the fox spirit princess Rei and the wandering samurai Kuro met before the torii gate. Countless demons surrounded them, and the two stood back to back. I don't trust you, she said. I simply want to survive this night.</p>
+        <div class="modal-nav">
+          <a class="modal-nav-btn" href="#modal-04">←</a>
+          <a class="modal-nav-btn" href="#modal-06">→</a>
+        </div>
+      </div>
+      <a class="modal-close" href="#">✕</a>
+    </div>
+  </div>
+  <div class="modal-overlay" id="modal-06">
+    <div class="modal">
+      <div class="modal-img-wrap">
+        <img src="images/img06.png" alt="稲荷の狐">
+      </div>
+      <div class="modal-body">
+        <div class="modal-series">Series VI</div>
+        <h2 class="modal-title-jp">稲荷の狐</h2>
+        <p class="modal-title-en">Fox of Inari Shrine</p>
+        <div class="modal-divider"></div>
+        <div class="lang-tabs">
+          <label class="lang-tab active-tab" for="tab-jp-06">日本語</label>
+          <label class="lang-tab" for="tab-en-06">English</label>
+        </div>
+        <input type="radio" id="tab-jp-06" name="lang-06" checked style="display:none">
+        <input type="radio" id="tab-en-06" name="lang-06" style="display:none">
+        <p class="modal-story story-jp">満月の夜、稲荷神社の鳥居に白い影が揺れる。九つの尾を持つ神狐・白珠は、千年の時を超えて人の世を見守り続けてきた。狐面の娘はその化身か——青い炎を従えた白狐たちが、静かに頭を垂れた。</p>
+        <p class="modal-story story-en en">On a night of the full moon, a white shadow sways at the torii of Inari Shrine. Hakuju, the divine fox bearing nine tails, has watched over the human world across a thousand years. Is the girl wearing the fox mask her incarnation? The white foxes wreathed in blue flame bowed their heads in silent reverence.</p>
+        <div class="modal-nav">
+          <a class="modal-nav-btn" href="#modal-05">←</a>
+          <a class="modal-nav-btn" href="#modal-07">→</a>
+        </div>
+      </div>
+      <a class="modal-close" href="#">✕</a>
+    </div>
+  </div>
+  <div class="modal-overlay" id="modal-07">
+    <div class="modal">
+      <div class="modal-img-wrap">
+        <img src="images/img07.png" alt="血月の百鬼街道">
+      </div>
+      <div class="modal-body">
+        <div class="modal-series">Series VII</div>
+        <h2 class="modal-title-jp">血月の百鬼街道</h2>
+        <p class="modal-title-en">Blood Moon Demon Parade</p>
+        <div class="modal-divider"></div>
+        <div class="lang-tabs">
+          <label class="lang-tab active-tab" for="tab-jp-07">日本語</label>
+          <label class="lang-tab" for="tab-en-07">English</label>
+        </div>
+        <input type="radio" id="tab-jp-07" name="lang-07" checked style="display:none">
+        <input type="radio" id="tab-en-07" name="lang-07" style="display:none">
+        <p class="modal-story story-jp">夜の京の大路に、血のような月が昇る夜。狐面の巫女と白狐を先頭に、鬼、妖、亡者が粛々と列をなして歩む。これが伝説の百鬼夜行——その行列に迷い込んだ者は、二度と人の世に戻れないという。</p>
+        <p class="modal-story story-en en">On a night when a blood-red moon rises over Kyoto's great avenue, a procession of demons, spirits and the undead marches solemnly, led by a fox-masked shrine maiden. This is the legendary Night Parade of a Hundred Demons. Any soul who wanders into its path never returns to the world of the living.</p>
+        <div class="modal-nav">
+          <a class="modal-nav-btn" href="#modal-06">←</a>
+          <a class="modal-nav-btn" href="#modal-08">→</a>
+        </div>
+      </div>
+      <a class="modal-close" href="#">✕</a>
+    </div>
+  </div>
+  <div class="modal-overlay" id="modal-08">
+    <div class="modal">
+      <div class="modal-img-wrap">
+        <img src="images/img08.png" alt="月夜の露天風呂">
+      </div>
+      <div class="modal-body">
+        <div class="modal-series">Series VIII</div>
+        <h2 class="modal-title-jp">月夜の露天風呂</h2>
+        <p class="modal-title-en">Moonlit Open-Air Bath</p>
+        <div class="modal-divider"></div>
+        <div class="lang-tabs">
+          <label class="lang-tab active-tab" for="tab-jp-08">日本語</label>
+          <label class="lang-tab" for="tab-en-08">English</label>
+        </div>
+        <input type="radio" id="tab-jp-08" name="lang-08" checked style="display:none">
+        <input type="radio" id="tab-en-08" name="lang-08" style="display:none">
+        <p class="modal-story story-jp">満月の夜、山深くに佇む露天風呂。湯煙が冷えた空気に溶け、桜の花びらが静かに湯面に降り積もる。一人の娘が遠くの灯りを眺めながら、深く息を吐いた。この静寂は、現の世のものではないかもしれない。</p>
+        <p class="modal-story story-en en">A moonlit night, deep in the mountains. Steam dissolves into the cold air as cherry blossoms drift silently onto the water. A young woman exhales slowly, gazing at the distant lights below. This silence may not belong to the world of the living.</p>
+        <div class="modal-nav">
+          <a class="modal-nav-btn" href="#modal-07">←</a>
+          <a class="modal-nav-btn" href="#modal-09">→</a>
+        </div>
+      </div>
+      <a class="modal-close" href="#">✕</a>
+    </div>
+  </div>
+  <div class="modal-overlay" id="modal-09">
+    <div class="modal">
+      <div class="modal-img-wrap">
+        <img src="images/img09.png" alt="稲荷大神の社">
+      </div>
+      <div class="modal-body">
+        <div class="modal-series">Series IX</div>
+        <h2 class="modal-title-jp">稲荷大神の社</h2>
+        <p class="modal-title-en">Shrine of the Great Fox God</p>
+        <div class="modal-divider"></div>
+        <div class="lang-tabs">
+          <label class="lang-tab active-tab" for="tab-jp-09">日本語</label>
+          <label class="lang-tab" for="tab-en-09">English</label>
+        </div>
+        <input type="radio" id="tab-jp-09" name="lang-09" checked style="display:none">
+        <input type="radio" id="tab-en-09" name="lang-09" style="display:none">
+        <p class="modal-story story-jp">雨降る夜、稲荷大神を祀る社が赤と青の炎に浮かび上がる。狛狐が左右に鎮座し、青い鬼火が石段を照らす。この場所に足を踏み入れた者は、神の試練を受けることになる。果たして、あなたは何を願うのか。</p>
+        <p class="modal-story story-en en">On a rainy night, the shrine of the Great Fox God Inari glows with red lanterns and blue spirit flames. Guardian fox statues flank the steps as ghostly blue fire illuminates the stone stairway. Those who enter face a divine trial. What is it that you seek to wish for?</p>
+        <div class="modal-nav">
+          <a class="modal-nav-btn" href="#modal-08">←</a>
+          <a class="modal-nav-btn" href="#modal-10">→</a>
+        </div>
+      </div>
+      <a class="modal-close" href="#">✕</a>
+    </div>
+  </div>
+  <div class="modal-overlay" id="modal-10">
+    <div class="modal">
+      <div class="modal-img-wrap">
+        <img src="images/img10.png" alt="悪霊退散">
+      </div>
+      <div class="modal-body">
+        <div class="modal-series">Series X</div>
+        <h2 class="modal-title-jp">悪霊退散</h2>
+        <p class="modal-title-en">Exorcism at the Torii</p>
+        <div class="modal-divider"></div>
+        <div class="lang-tabs">
+          <label class="lang-tab active-tab" for="tab-jp-10">日本語</label>
+          <label class="lang-tab" for="tab-en-10">English</label>
+        </div>
+        <input type="radio" id="tab-jp-10" name="lang-10" checked style="display:none">
+        <input type="radio" id="tab-en-10" name="lang-10" style="display:none">
+        <p class="modal-story story-jp">紫電が空を裂き、巨大な鬼神が鳥居の上に降臨した夜。陰陽師と侍は背中合わせで対峙する。陰陽師の呪陣が紫の光を放ち、侍の刃が雨の中で煌めく。その言葉が嵐の中に消えていった——悪霊退散。</p>
+        <p class="modal-story story-en en">A night when purple lightning tears the sky and a great demon god descends upon the torii. An onmyoji and a samurai stand back to back. The onmyoji's summoning circle blazes with violet light as the samurai's blade gleams through the rain. Those words vanished into the storm — Evil spirits, begone.</p>
+        <div class="modal-nav">
+          <a class="modal-nav-btn" href="#modal-09">←</a>
+          <a class="modal-nav-btn" href="#modal-11">→</a>
+        </div>
+      </div>
+      <a class="modal-close" href="#">✕</a>
+    </div>
+  </div>
+  <div class="modal-overlay" id="modal-11">
+    <div class="modal">
+      <div class="modal-img-wrap">
+        <img src="images/img11.png" alt="桜魔京">
+      </div>
+      <div class="modal-body">
+        <div class="modal-series">Series XI</div>
+        <h2 class="modal-title-jp">桜魔京</h2>
+        <p class="modal-title-en">Sakura Demon Capital</p>
+        <div class="modal-divider"></div>
+        <div class="lang-tabs">
+          <label class="lang-tab active-tab" for="tab-jp-11">日本語</label>
+          <label class="lang-tab" for="tab-en-11">English</label>
+        </div>
+        <input type="radio" id="tab-jp-11" name="lang-11" checked style="display:none">
+        <input type="radio" id="tab-en-11" name="lang-11" style="display:none">
+        <p class="modal-story story-jp">満開の桜が血色の月に染まる夜、鬼将軍が橋の上で侍を待ち受けていた。龍が空を舞い、幽霊が木々の間に漂う。ここは現と幽冥が重なり合う桜魔京——刃を持つ者だけが、この夜を生き延びられる。</p>
+        <p class="modal-story story-en en">On a night when cherry blossoms are dyed crimson by the blood moon, a demon general awaits a samurai on the bridge. A dragon soars and ghosts drift between the trees. This is Sakura Demon Capital — where the living world overlaps with the realm of the dead. Only those who carry a blade survive this night.</p>
+        <div class="modal-nav">
+          <a class="modal-nav-btn" href="#modal-10">←</a>
+          <a class="modal-nav-btn" href="#modal-12">→</a>
+        </div>
+      </div>
+      <a class="modal-close" href="#">✕</a>
+    </div>
+  </div>
+  <div class="modal-overlay" id="modal-12">
+    <div class="modal">
+      <div class="modal-img-wrap">
+        <img src="images/img12.png" alt="二寧坂の夕暮れ">
+      </div>
+      <div class="modal-body">
+        <div class="modal-series">Series XII</div>
+        <h2 class="modal-title-jp">二寧坂の夕暮れ</h2>
+        <p class="modal-title-en">Twilight on Nineizaka</p>
+        <div class="modal-divider"></div>
+        <div class="lang-tabs">
+          <label class="lang-tab active-tab" for="tab-jp-12">日本語</label>
+          <label class="lang-tab" for="tab-en-12">English</label>
+        </div>
+        <input type="radio" id="tab-jp-12" name="lang-12" checked style="display:none">
+        <input type="radio" id="tab-en-12" name="lang-12" style="display:none">
+        <p class="modal-story story-jp">夕暮れ時、二寧坂の石畳に金色の光が差し込む。桜が満開に咲き誇る中、一人の女性が五重塔を目指してゆっくりと歩いていく。この坂道は、迷い込んだ者が現の世に戻れなくなるという——彼女は今日、無事に帰れるだろうか。</p>
+        <p class="modal-story story-en en">As twilight falls, golden light pours across the stone steps of Nineizaka. Beneath cherry blossoms in full bloom, a woman walks slowly toward the five-storied pagoda. Legend says those who wander onto this slope cannot find their way back to the waking world. Will she make it home safely today?</p>
+        <div class="modal-nav">
+          <a class="modal-nav-btn" href="#modal-11">←</a>
+          <a class="modal-nav-btn" href="#modal-13">→</a>
+        </div>
+      </div>
+      <a class="modal-close" href="#">✕</a>
+    </div>
+  </div>
+  <div class="modal-overlay" id="modal-13">
+    <div class="modal">
+      <div class="modal-img-wrap">
+        <img src="images/img13.png" alt="温泉街の宵">
+      </div>
+      <div class="modal-body">
+        <div class="modal-series">Series XIII</div>
+        <h2 class="modal-title-jp">温泉街の宵</h2>
+        <p class="modal-title-en">Evening in the Hot Spring Town</p>
+        <div class="modal-divider"></div>
+        <div class="lang-tabs">
+          <label class="lang-tab active-tab" for="tab-jp-13">日本語</label>
+          <label class="lang-tab" for="tab-en-13">English</label>
+        </div>
+        <input type="radio" id="tab-jp-13" name="lang-13" checked style="display:none">
+        <input type="radio" id="tab-en-13" name="lang-13" style="display:none">
+        <p class="modal-story story-jp">夕暮れの温泉街に、浴衣姿の二人が並んで歩く。川沿いの旅館から湯煙が立ち上り、提灯の灯りが石畳に映える。この町には古い言い伝えがある——宵の温泉街で出会った縁は、来世まで続くのだと。</p>
+        <p class="modal-story story-en en">Two young women in yukata stroll side by side through a hot spring town at dusk. Steam rises from the riverside inns as lantern light reflects off the stone-paved streets. An old legend speaks of this town — bonds formed here at dusk are said to last into the next life.</p>
+        <div class="modal-nav">
+          <a class="modal-nav-btn" href="#modal-12">←</a>
+          <a class="modal-nav-btn" href="#modal-01">→</a>
+        </div>
+      </div>
+      <a class="modal-close" href="#">✕</a>
+    </div>
+  </div>
 
 <section class="about-section" id="about">
   <div class="about-inner">
@@ -398,7 +704,6 @@ footer{background:var(--ink);border-top:1px solid rgba(139,26,47,.2);padding:2.5
     </div>
   </div>
 </section>
-
 <section class="contact-section" id="contact">
   <div class="reveal">
     <div class="section-label" style="justify-content:center;">Contact / 連絡</div>
@@ -411,52 +716,13 @@ footer{background:var(--ink);border-top:1px solid rgba(139,26,47,.2);padding:2.5
     </div>
   </div>
 </section>
-
 <footer>
   <div class="footer-logo">幻想絵巻 <span style="font-family:'IM Fell English',serif;font-style:italic;font-size:.7rem;opacity:.6;letter-spacing:.15em">Phantom Emaki</span></div>
   <div class="footer-copy">© 2025 Phantom Emaki — AI Fantasy Art of Japan</div>
 </footer>
-
 <script>
-// ── ギャラリーデータ（HTMLに直接埋め込み）──────────────────
-const GALLERY = [
-  {
-    file:"images/img01.png", series:"I",
-    title_jp:"百鬼夜行", title_en:"Night Parade of Demons",
-    story_jp:`竹林の奥、提灯の灯が揺れる道に、百の鬼が列をなして歩む夜がある。その名を百鬼夜行という。返り血に塗れた侍・蒼牙は、一人その道に立ちはだかった。鬼たちの眼が光る。しかし蒼牙は刃を下げず——「俺が通る。それだけだ」`,
-    story_en:`Deep within the bamboo grove, along a path where lanterns sway, a hundred demons march — the legendary Hyakki Yako. Soga, a samurai stained with battle, stood alone in their path. The demons' eyes gleamed with hunger. Yet Soga did not lower his blade. 'I will pass through. That is all.'`
-  },
-  {
-    file:"images/img02.png", series:"II",
-    title_jp:"花月温泉", title_en:"Kagetsu Hot Springs",
-    story_jp:`湯煙漂う山奥の温泉郷、花月。ここは人と妖が静かに共存する、秘密の楽園。赤い橋の袂に佇む娘・花鈴は、この地の女将にして、狐神の末裔。訪れた旅人は皆、帰り道を忘れてしまうという——`,
-    story_en:`Kagetsu — a hidden hot spring village veiled in drifting steam. Here, humans and spirits coexist in quiet harmony. Karin, the young innkeeper who stands by the red bridge, is both the proprietress of this secret paradise and a descendant of the fox deity. They say every traveler who visits forgets the way home.`
-  },
-  {
-    file:"images/img03.png", series:"III",
-    title_jp:"清水の龍神", title_en:"Dragon God of Kiyomizu",
-    story_jp:`清水寺の夜、満月が山を照らすとき、天より龍が降りるという言い伝えがある。老僧・玄海はその夜を七十年待ち続けた。「龍よ、この地に何を告げに来たのか」。龍の眼が燃えるように光り、玄海の白衣が風に舞った。`,
-    story_en:`There is a legend that when the full moon illuminates Kiyomizudera, a dragon descends from the heavens. The aged monk Genkai had waited seventy years for that night. 'Dragon, what message do you bring?' The dragon's eyes blazed like twin flames, and Genkai's white robes swirled in the sudden wind.`
-  },
-  {
-    file:"images/img04.png", series:"IV",
-    title_jp:"緋色の剣士", title_en:"Crimson Swordswoman",
-    story_jp:`紅葉が血のように舞い散る境内に、一人の女剣士が立つ。名は朱音。天照大神に仕える巫女にして、最後の剣鬼。彼女の白い着物に滲む赤は、散った紅葉か、それとも——鳥居の向こうに佇む影が、ゆっくりと歩み出した。`,
-    story_en:`In the temple grounds where crimson leaves scatter like blood, a lone swordswoman stands. Her name is Akane — a shrine maiden in service to Amaterasu, and the last of the sword demons. The red staining her white kimono — is it fallen leaves, or something else? Beyond the torii gate, a shadow slowly steps forward.`
-  },
-  {
-    file:"images/img05.png", series:"V",
-    title_jp:"狐と侍の邂逅", title_en:"Encounter of Fox and Samurai",
-    story_jp:`血月が照らす京の夜、妖狐の姫・玲と流れ者の侍・黒斗は、鳥居の前で出会った。周囲には無数の鬼と妖が溢れ、二人は背中合わせで刃と炎を構える。「信じるわけじゃない。ただ、生き延びたいだけよ」`,
-    story_en:`Beneath a blood-red moon over Kyoto, the fox spirit princess Rei and the wandering samurai Kuro met before the torii gate. Countless demons surrounded them, and the two stood back to back. 'I don't trust you,' she said. 'I simply want to survive this night.'`
-  },
-  {
-    file:"images/img06.png", series:"VI",
-    title_jp:"稲荷の狐", title_en:"Fox of Inari Shrine",
-    story_jp:`満月の夜、稲荷神社の鳥居に白い影が揺れる。九つの尾を持つ神狐・白珠は、千年の時を超えて人の世を見守り続けてきた。狐面の娘はその化身か、それとも——青い炎を従えた白狐たちが、静かに頭を垂れた。`,
-    story_en:`On a night of the full moon, a white shadow sways at the torii of Inari Shrine. Hakuju, the divine fox bearing nine tails, has watched over the human world across a thousand years. Is the girl wearing the fox mask her incarnation? The white foxes wreathed in blue flame bowed their heads in silent reverence.`
-  },
-  {
-    file:"images/img07.png", series:"VII",
-    title_jp:"血月の百鬼街道", title_en:"Blood Moon Demon Parade",
-    story_jp:`夜の京の大路に、血のような月が昇る夜。狐面の巫女と白狐を先頭に、鬼、妖、亡者が粛々と列をなして歩む。これが伝説の百鬼夜行——その行列に迷い込んだ者は、二度と人の世に戻れないという。`,
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("visible");obs.unobserve(e.target);}});},{threshold:.08});
+document.querySelectorAll(".reveal").forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
