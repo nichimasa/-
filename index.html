@@ -16,11 +16,8 @@
 }
 html{scroll-behavior:smooth}
 body{cursor:none;font-family:"Noto Serif JP",serif;background:var(--ink);color:var(--ash);overflow-x:hidden}
-
 #cursor{position:fixed;width:10px;height:10px;background:var(--crimson-bright);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s;mix-blend-mode:screen}
 #cursor-ring{position:fixed;width:32px;height:32px;border:1px solid var(--crimson-bright);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .3s,height .3s,opacity .3s;opacity:.5}
-
-/* PETALS */
 .petals-wrap{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:10}
 .petal{position:absolute;width:6px;height:6px;background:var(--crimson);border-radius:50% 0 50% 0;opacity:0;animation:fall linear infinite}
 @keyframes fall{0%{opacity:0;transform:translateY(-20px) rotate(0deg)}10%{opacity:.5}90%{opacity:.2}100%{opacity:0;transform:translateY(100vh) rotate(720deg) translateX(60px)}}
@@ -34,8 +31,6 @@ body{cursor:none;font-family:"Noto Serif JP",serif;background:var(--ink);color:v
 .petal:nth-child(8){left:92%;animation-duration:15s;animation-delay:.8s;background:var(--gold-dim)}
 .petal:nth-child(9){left:26%;animation-duration:11s;animation-delay:5s}
 .petal:nth-child(10){left:55%;animation-duration:9s;animation-delay:6s}
-
-/* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:1.5rem 4vw;display:flex;justify-content:space-between;align-items:center;background:linear-gradient(to bottom,rgba(10,6,8,.96) 0%,transparent 100%)}
 .nav-logo{font-family:"Shippori Mincho B1",serif;font-size:1.3rem;color:var(--gold);letter-spacing:.3em;text-decoration:none}
 .nav-logo span{font-family:"IM Fell English",serif;font-style:italic;font-size:.72rem;color:var(--ash);display:block;letter-spacing:.2em;opacity:.6}
@@ -44,8 +39,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:1.5rem 4vw;display:f
 .nav-links a::after{content:"";position:absolute;bottom:-4px;left:0;right:100%;height:1px;background:var(--crimson-bright);transition:right .3s ease}
 .nav-links a:hover{color:var(--gold)}
 .nav-links a:hover::after{right:0}
-
-/* HERO */
 .hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden}
 .hero-poster{position:relative;background:#0d0509;display:flex;align-items:center;justify-content:center;overflow:hidden;min-height:100vh}
 .hero-poster img{width:100%;height:100%;object-fit:contain;object-position:center;display:block;max-height:100vh;animation:heroPulse 18s ease-in-out infinite alternate}
@@ -67,37 +60,24 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:1.5rem 4vw;display:f
 .hero-featured{position:absolute;bottom:2.5rem;left:3rem;display:flex;align-items:center;gap:1rem;animation:fadeUp 1.2s .9s ease both}
 .hero-featured-line{width:30px;height:1px;background:var(--crimson-bright)}
 .hero-featured-text{font-family:"IM Fell English",serif;font-style:italic;font-size:.68rem;color:var(--ash);letter-spacing:.2em;opacity:.6}
-
-/* INFO STRIP */
 .info-strip{background:var(--deep);border-top:1px solid rgba(139,26,47,.3);border-bottom:1px solid rgba(139,26,47,.2);padding:1.75rem 4vw;display:flex;align-items:center;gap:3rem;overflow-x:auto}
 .strip-item{display:flex;align-items:center;gap:.9rem;white-space:nowrap;flex-shrink:0}
 .strip-num{font-family:"IM Fell English",serif;font-style:italic;font-size:1.8rem;color:var(--crimson-bright);opacity:.45;line-height:1}
 .strip-label-jp{font-family:"Shippori Mincho B1",serif;font-size:.82rem;color:var(--paper);letter-spacing:.12em;display:block}
 .strip-label-en{font-family:"IM Fell English",serif;font-style:italic;font-size:.68rem;color:var(--ash);letter-spacing:.1em;opacity:.55}
 .strip-div{width:1px;height:36px;background:rgba(139,26,47,.3);flex-shrink:0}
-
-/* GALLERY */
 .gallery-section{background:var(--ink);padding:7rem 4vw}
 .gallery-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:3.5rem}
 .section-label{font-family:"Shippori Mincho B1",serif;font-size:.68rem;letter-spacing:.4em;color:var(--crimson-bright);margin-bottom:.6rem;display:flex;align-items:center;gap:10px}
 .section-label::before{content:"";width:18px;height:1px;background:var(--crimson-bright)}
 .section-title{font-family:"Shippori Mincho B1",serif;font-size:clamp(1.8rem,3.5vw,3rem);color:var(--paper);letter-spacing:.12em;line-height:1.25}
 .section-title-en{font-family:"IM Fell English",serif;font-style:italic;font-size:.82rem;color:var(--gold-dim);letter-spacing:.18em;margin-top:.3rem}
-.gallery-count{font-family:"IM Fell English",serif;font-style:italic;font-size:4.5rem;color:var(--crimson);opacity:.18;line-height:1;transition:all .5s}
-
-/* ── DYNAMIC MASONRY GRID ── */
-.gallery-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
-  gap:12px;
-}
-
-/* Alternate tall cards for rhythm */
+.gallery-count{font-family:"IM Fell English",serif;font-style:italic;font-size:4.5rem;color:var(--crimson);opacity:.18;line-height:1}
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
 .gallery-item{position:relative;overflow:hidden;background:#1a0f14;cursor:none;aspect-ratio:3/4}
 .gallery-item:nth-child(3n+1){aspect-ratio:2/3}
 .gallery-item:nth-child(3n+2){aspect-ratio:3/4}
 .gallery-item:nth-child(3n){aspect-ratio:4/5}
-
 .gallery-item img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(.82) saturate(1.1);transition:transform .9s cubic-bezier(.25,.46,.45,.94),filter .5s}
 .gallery-item:hover img{transform:scale(1.07);filter:brightness(.68) saturate(1.4)}
 .gallery-item::before{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,transparent 45%,rgba(10,6,8,.97) 100%);z-index:2;opacity:0;transition:opacity .5s}
@@ -111,11 +91,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:1.5rem 4vw;display:f
 .gallery-caption-en{font-family:"IM Fell English",serif;font-style:italic;font-size:.7rem;color:var(--gold);letter-spacing:.12em}
 .gallery-num{position:absolute;top:1rem;right:1rem;font-family:"IM Fell English",serif;font-style:italic;font-size:1.2rem;color:white;opacity:.15;z-index:3;transition:opacity .3s}
 .gallery-item:hover .gallery-num{opacity:.45}
-
-/* LOADING STATE */
-.gallery-loading{text-align:center;padding:4rem;font-family:"IM Fell English",serif;font-style:italic;color:var(--ash);opacity:.5;letter-spacing:.2em;font-size:.85rem}
-
-/* ABOUT */
 .about-section{background:var(--deep);padding:7rem 4vw;position:relative;overflow:hidden}
 .about-section::before{content:"幻";position:absolute;right:-1rem;top:50%;transform:translateY(-50%);font-family:"Shippori Mincho B1",serif;font-size:28rem;color:var(--crimson);opacity:.03;line-height:1;pointer-events:none}
 .about-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center}
@@ -127,8 +102,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:1.5rem 4vw;display:f
 .about-card-num{font-family:"IM Fell English",serif;font-style:italic;font-size:1.5rem;color:var(--crimson-bright);opacity:.35;flex-shrink:0;line-height:1;margin-top:2px}
 .about-card-title{font-family:"Shippori Mincho B1",serif;font-size:.92rem;color:var(--paper);letter-spacing:.12em;margin-bottom:.35rem}
 .about-card-body{font-size:.77rem;color:var(--ash);line-height:1.9;opacity:.75}
-
-/* CONTACT */
 .contact-section{background:var(--ink);padding:7rem 4vw;text-align:center}
 .contact-box{max-width:500px;margin:0 auto;border:1px solid rgba(139,26,47,.35);padding:3rem 2.5rem;position:relative;background:rgba(139,26,47,.03)}
 .contact-box::before{content:"✦";position:absolute;top:1rem;left:1rem;color:var(--crimson);opacity:.4;font-size:.8rem}
@@ -139,41 +112,24 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:1.5rem 4vw;display:f
 .btn-crimson{display:inline-block;border:1px solid var(--crimson);color:var(--paper);text-decoration:none;padding:12px 34px;font-family:"Shippori Mincho B1",serif;font-size:.76rem;letter-spacing:.3em;transition:all .4s;position:relative;overflow:hidden}
 .btn-crimson::before{content:"";position:absolute;inset:0;background:var(--crimson);transform:translateX(-101%);transition:transform .4s ease;z-index:-1}
 .btn-crimson:hover::before{transform:translateX(0)}
-
 footer{background:var(--ink);border-top:1px solid rgba(139,26,47,.2);padding:2.5rem 4vw;display:flex;justify-content:space-between;align-items:center}
 .footer-logo{font-family:"Shippori Mincho B1",serif;color:var(--gold-dim);font-size:1.05rem;letter-spacing:.3em}
 .footer-copy{font-family:"IM Fell English",serif;font-style:italic;font-size:.7rem;color:var(--ash);opacity:.35;letter-spacing:.1em}
-
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .9s ease,transform .9s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
-
-@media(max-width:900px){
-  .hero{grid-template-columns:1fr}
-  .hero-poster{min-height:70vh}
-  .hero-panel{padding:4rem 5vw}
-  .about-inner{grid-template-columns:1fr;gap:3rem}
-  .about-section::before{display:none}
-  footer{flex-direction:column;gap:1rem;text-align:center}
-}
-@media(max-width:600px){
-  .gallery-grid{grid-template-columns:1fr 1fr}
-  nav{padding:1rem 1.5rem}
-  .nav-links{gap:1.5rem}
-}
+@media(max-width:900px){.hero{grid-template-columns:1fr}.hero-poster{min-height:70vh}.hero-panel{padding:4rem 5vw}.about-inner{grid-template-columns:1fr;gap:3rem}.about-section::before{display:none}footer{flex-direction:column;gap:1rem;text-align:center}}
+@media(max-width:600px){.gallery-grid{grid-template-columns:1fr 1fr}nav{padding:1rem 1.5rem}.nav-links{gap:1.5rem}}
 </style>
 </head>
 <body>
-
 <div id="cursor"></div>
 <div id="cursor-ring"></div>
-
 <div class="petals-wrap">
   <div class="petal"></div><div class="petal"></div><div class="petal"></div>
   <div class="petal"></div><div class="petal"></div><div class="petal"></div>
   <div class="petal"></div><div class="petal"></div><div class="petal"></div>
   <div class="petal"></div>
 </div>
-
 <nav>
   <a href="#" class="nav-logo">幻想絵巻<span>Phantom Emaki</span></a>
   <ul class="nav-links">
@@ -185,34 +141,33 @@ footer{background:var(--ink);border-top:1px solid rgba(139,26,47,.2);padding:2.5
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-poster" id="hero-poster">
-    <!-- featured image injected by JS -->
+  <div class="hero-poster">
+    <img src="images/main.png" alt="京都幻夢">
+    <div style="position:absolute;inset:0;background:linear-gradient(to right,transparent 70%,rgba(10,6,8,1) 100%);pointer-events:none;z-index:1"></div>
   </div>
   <div class="hero-panel">
     <p class="hero-eyebrow">AI Fantasy Art — Japanese Mythology</p>
-    <h1 class="hero-title" id="hero-title">百鬼の夢</h1>
-    <p class="hero-title-en" id="hero-title-en">Dreams of a Hundred Demons</p>
+    <h1 class="hero-title">百鬼の夢</h1>
+    <p class="hero-title-en">Dreams of a Hundred Demons</p>
     <div class="hero-divider"></div>
-    <p class="hero-desc" id="hero-desc">
-      京の闇に宿る神々、妖狐、鬼、そして侍。<br>AIが紡ぐ幻想の絵巻物語。
-    </p>
+    <p class="hero-desc">京の闇に宿る神々、妖狐、鬼、そして侍。<br>AIが紡ぐ幻想の絵巻物語。<br><br>日本神話・怪談・歴史をモチーフに、<br>光と影が交錯する世界を描きます。</p>
     <a href="#gallery" class="hero-cta">作品集を見る</a>
     <div class="hero-featured">
       <div class="hero-featured-line"></div>
-      <span class="hero-featured-text" id="hero-featured-label">Featured Work</span>
+      <span class="hero-featured-text">Featured Work — 京都幻夢</span>
     </div>
   </div>
 </section>
 
-<!-- INFO STRIP -->
+<!-- INFO STRIP (images.jsonから作品数を反映) -->
 <div class="info-strip">
   <div class="strip-item">
-    <div class="strip-num" id="strip-count">—</div>
+    <div class="strip-num" id="strip-count">六</div>
     <div><span class="strip-label-jp">作品数</span><span class="strip-label-en">Total Works</span></div>
   </div>
   <div class="strip-div"></div>
   <div class="strip-item">
-    <div><span class="strip-label-jp" id="strip-featured">特選作品</span><span class="strip-label-en">Featured Masterwork</span></div>
+    <div><span class="strip-label-jp">特選 — 京都幻夢</span><span class="strip-label-en">Featured Masterwork</span></div>
   </div>
   <div class="strip-div"></div>
   <div class="strip-item">
@@ -224,7 +179,7 @@ footer{background:var(--ink);border-top:1px solid rgba(139,26,47,.2);padding:2.5
   </div>
 </div>
 
-<!-- GALLERY (動的生成) -->
+<!-- GALLERY -->
 <section class="gallery-section" id="gallery">
   <div class="gallery-header reveal">
     <div>
@@ -235,7 +190,7 @@ footer{background:var(--ink);border-top:1px solid rgba(139,26,47,.2);padding:2.5
     <div class="gallery-count" id="gallery-count">—</div>
   </div>
   <div class="gallery-grid" id="gallery-grid">
-    <div class="gallery-loading">Loading...</div>
+    <!-- images.jsonから動的生成 -->
   </div>
 </section>
 
@@ -276,87 +231,77 @@ footer{background:var(--ink);border-top:1px solid rgba(139,26,47,.2);padding:2.5
 </footer>
 
 <script>
-// ── Custom cursor ──────────────────────────────
-const cur = document.getElementById("cursor");
-const ring = document.getElementById("cursor-ring");
+// カスタムカーソル
+const cur=document.getElementById("cursor"),ring=document.getElementById("cursor-ring");
 let mx=0,my=0,rx=0,ry=0;
 document.addEventListener("mousemove",e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+"px";cur.style.top=my+"px";});
-(function animRing(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+"px";ring.style.top=ry+"px";requestAnimationFrame(animRing);})();
+(function anim(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+"px";ring.style.top=ry+"px";requestAnimationFrame(anim);})();
 function addHover(el){
   el.addEventListener("mouseenter",()=>{cur.style.width="18px";cur.style.height="18px";ring.style.width="48px";ring.style.height="48px";ring.style.opacity=".85";});
   el.addEventListener("mouseleave",()=>{cur.style.width="10px";cur.style.height="10px";ring.style.width="32px";ring.style.height="32px";ring.style.opacity=".5";});
 }
 document.querySelectorAll("a,.about-card").forEach(addHover);
 
-// ── Scroll reveal ──────────────────────────────
-const obs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("visible");obs.unobserve(e.target);}});
-},{threshold:.08});
+// スクロールリビール
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("visible");obs.unobserve(e.target);}});},{threshold:.08});
 document.querySelectorAll(".reveal").forEach(el=>obs.observe(el));
 
-// ── Load images.json and build page ───────────
-async function loadSite(){
-  let data;
-  try {
-    const res = await fetch("images.json");
-    if(!res.ok) throw new Error("fetch failed");
-    data = await res.json();
-  } catch(e) {
-    document.getElementById("gallery-grid").innerHTML =
-      '<div class="gallery-loading">images.json が読み込めませんでした</div>';
-    return;
-  }
-
-  // ── Featured (hero) ──────────────────────────
-  const f = data.featured;
-  const poster = document.getElementById("hero-poster");
-  const img = document.createElement("img");
-  img.src = f.file;
-  img.alt = f.title_jp;
-  poster.appendChild(img);
-  // Gradient overlay
-  const ov = document.createElement("div");
-  ov.style.cssText="position:absolute;inset:0;background:linear-gradient(to right,transparent 70%,rgba(10,6,8,1) 100%);pointer-events:none;";
-  poster.appendChild(ov);
-
-  document.getElementById("hero-title").textContent = f.title_jp;
-  document.getElementById("hero-title-en").textContent = f.title_en;
-  if(f.description){
-    document.getElementById("hero-desc").innerHTML = f.description.replace(/\n/g,"<br>");
-  }
-  document.getElementById("hero-featured-label").textContent = "Featured Work — " + f.title_jp;
-  document.getElementById("strip-featured").textContent = "特選 — " + f.title_jp;
-
-  // ── Gallery ──────────────────────────────────
-  const gallery = data.gallery;
-  const total = gallery.length + 1; // +1 for featured
-  document.getElementById("strip-count").textContent = total;
-  document.getElementById("gallery-count").textContent = String(gallery.length).padStart(2,"0");
-
-  const grid = document.getElementById("gallery-grid");
-  grid.innerHTML = "";
-
-  gallery.forEach((item, i) => {
-    const div = document.createElement("div");
-    div.className = "gallery-item reveal";
-    div.style.transitionDelay = (i % 3 * 0.1) + "s";
-
-    div.innerHTML = `
-      <img src="${item.file}" alt="${item.title_jp}" loading="lazy">
-      <div class="gallery-num">${String(i+1).padStart(2,"0")}</div>
-      <div class="gallery-caption">
-        <div class="gallery-tag">Series ${item.series || (i+1)}</div>
-        <div class="gallery-caption-jp">${item.title_jp}</div>
-        <div class="gallery-caption-en">${item.title_en}</div>
-      </div>`;
-
-    addHover(div);
-    grid.appendChild(div);
-    obs.observe(div);
+// images.json を読み込んでギャラリーを生成
+fetch("images.json")
+  .then(r=>r.json())
+  .then(data=>{
+    const gallery=data.gallery;
+    const total=gallery.length+1;
+    document.getElementById("strip-count").textContent=total;
+    document.getElementById("gallery-count").textContent=String(gallery.length).padStart(2,"0");
+    const grid=document.getElementById("gallery-grid");
+    grid.innerHTML="";
+    gallery.forEach((item,i)=>{
+      const div=document.createElement("div");
+      div.className="gallery-item reveal";
+      div.style.transitionDelay=(i%3*.1)+"s";
+      div.innerHTML=`
+        <img src="${item.file}" alt="${item.title_jp}" loading="lazy">
+        <div class="gallery-num">${String(i+1).padStart(2,"0")}</div>
+        <div class="gallery-caption">
+          <div class="gallery-tag">Series ${item.series||i+1}</div>
+          <div class="gallery-caption-jp">${item.title_jp}</div>
+          <div class="gallery-caption-en">${item.title_en}</div>
+        </div>`;
+      addHover(div);
+      grid.appendChild(div);
+      obs.observe(div);
+    });
+  })
+  .catch(()=>{
+    // fetchが失敗した場合のフォールバック（直接HTMLに書かれた画像を表示）
+    const grid=document.getElementById("gallery-grid");
+    const fallback=[
+      {file:"images/img01.png",title_jp:"稲荷の狐",title_en:"Fox of Inari Shrine",series:"I"},
+      {file:"images/img02.png",title_jp:"百鬼夜行",title_en:"Night Parade of Demons",series:"II"},
+      {file:"images/img03.png",title_jp:"花月温泉",title_en:"Kagetsu Hot Springs",series:"III"},
+      {file:"images/img04.png",title_jp:"清水の龍神",title_en:"Dragon God of Kiyomizu",series:"IV"},
+      {file:"images/img05.png",title_jp:"緋色の剣士",title_en:"Crimson Swordswoman",series:"V"}
+    ];
+    document.getElementById("gallery-count").textContent="05";
+    grid.innerHTML="";
+    fallback.forEach((item,i)=>{
+      const div=document.createElement("div");
+      div.className="gallery-item reveal";
+      div.style.transitionDelay=(i%3*.1)+"s";
+      div.innerHTML=`
+        <img src="${item.file}" alt="${item.title_jp}" loading="lazy">
+        <div class="gallery-num">${String(i+1).padStart(2,"0")}</div>
+        <div class="gallery-caption">
+          <div class="gallery-tag">Series ${item.series}</div>
+          <div class="gallery-caption-jp">${item.title_jp}</div>
+          <div class="gallery-caption-en">${item.title_en}</div>
+        </div>`;
+      addHover(div);
+      grid.appendChild(div);
+      obs.observe(div);
+    });
   });
-}
-
-loadSite();
 </script>
 </body>
 </html>
