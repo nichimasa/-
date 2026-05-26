@@ -8,12 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;700&family=Shippori+Mincho+B1:wght@400;700&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --ink:#0a0608;--deep:#110a0e;
-  --crimson:#8b1a2f;--crimson-bright:#c0263e;
-  --gold:#c8a96e;--gold-dim:#8a6e3e;
-  --ash:#b8a898;--paper:#f0e8d8;
-}
+:root{--ink:#0a0608;--deep:#110a0e;--crimson:#8b1a2f;--crimson-bright:#c0263e;--gold:#c8a96e;--gold-dim:#8a6e3e;--ash:#b8a898;--paper:#f0e8d8}
 html{scroll-behavior:smooth}
 body{cursor:none;font-family:"Noto Serif JP",serif;background:var(--ink);color:var(--ash);overflow-x:hidden}
 #cursor{position:fixed;width:10px;height:10px;background:var(--crimson-bright);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s;mix-blend-mode:screen}
@@ -21,28 +16,14 @@ body{cursor:none;font-family:"Noto Serif JP",serif;background:var(--ink);color:v
 .petals-wrap{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:10}
 .petal{position:absolute;width:6px;height:6px;background:var(--crimson);border-radius:50% 0 50% 0;opacity:0;animation:fall linear infinite}
 @keyframes fall{0%{opacity:0;transform:translateY(-20px) rotate(0deg)}10%{opacity:.5}90%{opacity:.2}100%{opacity:0;transform:translateY(100vh) rotate(720deg) translateX(60px)}}
-.petal:nth-child(1){left:7%;animation-duration:12s;animation-delay:0s}
-.petal:nth-child(2){left:19%;animation-duration:9s;animation-delay:2s;background:var(--gold-dim);width:4px;height:4px}
-.petal:nth-child(3){left:33%;animation-duration:14s;animation-delay:.5s}
-.petal:nth-child(4){left:48%;animation-duration:11s;animation-delay:3s;width:7px;height:7px}
-.petal:nth-child(5){left:60%;animation-duration:8s;animation-delay:1s;background:var(--gold-dim)}
-.petal:nth-child(6){left:72%;animation-duration:13s;animation-delay:4s;width:4px;height:4px}
-.petal:nth-child(7){left:84%;animation-duration:10s;animation-delay:1.5s}
-.petal:nth-child(8){left:92%;animation-duration:15s;animation-delay:.8s;background:var(--gold-dim)}
-.petal:nth-child(9){left:26%;animation-duration:11s;animation-delay:5s}
-.petal:nth-child(10){left:55%;animation-duration:9s;animation-delay:6s}
-
-/* NAV — 英語メニュー */
+.petal:nth-child(1){left:7%;animation-duration:12s;animation-delay:0s}.petal:nth-child(2){left:19%;animation-duration:9s;animation-delay:2s;background:var(--gold-dim);width:4px;height:4px}.petal:nth-child(3){left:33%;animation-duration:14s;animation-delay:.5s}.petal:nth-child(4){left:48%;animation-duration:11s;animation-delay:3s;width:7px;height:7px}.petal:nth-child(5){left:60%;animation-duration:8s;animation-delay:1s;background:var(--gold-dim)}.petal:nth-child(6){left:72%;animation-duration:13s;animation-delay:4s;width:4px;height:4px}.petal:nth-child(7){left:84%;animation-duration:10s;animation-delay:1.5s}.petal:nth-child(8){left:92%;animation-duration:15s;animation-delay:.8s;background:var(--gold-dim)}.petal:nth-child(9){left:26%;animation-duration:11s;animation-delay:5s}.petal:nth-child(10){left:55%;animation-duration:9s;animation-delay:6s}
 nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:1.5rem 4vw;display:flex;justify-content:space-between;align-items:center;background:linear-gradient(to bottom,rgba(10,6,8,.96) 0%,transparent 100%)}
 .nav-logo{font-family:"Shippori Mincho B1",serif;font-size:1.3rem;color:var(--gold);letter-spacing:.3em;text-decoration:none}
 .nav-logo span{font-family:"IM Fell English",serif;font-style:italic;font-size:.72rem;color:var(--ash);display:block;letter-spacing:.2em;opacity:.6}
-.nav-links{display:flex;gap:2.5rem;list-style:none;align-items:center}
+.nav-links{display:flex;gap:2.5rem;list-style:none}
 .nav-links a{font-family:"IM Fell English",serif;font-style:italic;font-size:.82rem;letter-spacing:.18em;color:var(--ash);text-decoration:none;transition:color .3s;position:relative}
 .nav-links a::after{content:"";position:absolute;bottom:-4px;left:0;right:100%;height:1px;background:var(--crimson-bright);transition:right .3s ease}
-.nav-links a:hover{color:var(--gold)}
-.nav-links a:hover::after{right:0}
-
-/* HERO */
+.nav-links a:hover{color:var(--gold)}.nav-links a:hover::after{right:0}
 .hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden}
 .hero-poster{position:relative;background:#0d0509;display:flex;align-items:center;justify-content:center;overflow:hidden;min-height:100vh}
 .hero-poster img{width:100%;height:100%;object-fit:contain;object-position:center;display:block;max-height:100vh;animation:heroPulse 18s ease-in-out infinite alternate}
@@ -53,33 +34,23 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:1.5rem 4vw;display:f
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
 .hero-eyebrow{font-family:"IM Fell English",serif;font-style:italic;font-size:.78rem;color:var(--crimson-bright);letter-spacing:.25em;margin-bottom:1.2rem;display:flex;align-items:center;gap:10px;animation:fadeUp 1.2s .3s ease both}
 .hero-eyebrow::before{content:"";width:20px;height:1px;background:var(--crimson-bright)}
-
-/* 日英タイトル */
 .hero-title-jp{font-family:"Shippori Mincho B1",serif;font-size:clamp(3rem,5.5vw,6rem);color:var(--paper);letter-spacing:.15em;line-height:1.1;text-shadow:0 4px 40px rgba(139,26,47,.5);margin-bottom:.3rem;animation:fadeUp 1.2s .4s ease both}
 .hero-title-en{font-family:"IM Fell English",serif;font-style:italic;font-size:clamp(.9rem,1.6vw,1.2rem);color:var(--gold);letter-spacing:.3em;margin-bottom:2rem;animation:fadeUp 1.2s .5s ease both;opacity:.85}
 .hero-divider{width:40px;height:1px;background:linear-gradient(to right,var(--crimson-bright),transparent);margin-bottom:1.75rem;animation:fadeUp 1.2s .55s ease both}
-
-/* 日英説明文 */
 .hero-desc-jp{font-size:.88rem;color:var(--ash);line-height:2.2;opacity:.9;margin-bottom:.6rem;animation:fadeUp 1.2s .6s ease both}
 .hero-desc-en{font-family:"IM Fell English",serif;font-size:.8rem;color:var(--ash);line-height:1.9;opacity:.55;margin-bottom:2.5rem;font-style:italic;animation:fadeUp 1.2s .65s ease both}
-
 .hero-cta{display:inline-block;border:1px solid var(--crimson);color:var(--paper);text-decoration:none;padding:13px 32px;font-family:"IM Fell English",serif;font-style:italic;font-size:.85rem;letter-spacing:.2em;transition:all .4s;position:relative;overflow:hidden;animation:fadeUp 1.2s .7s ease both;align-self:flex-start}
 .hero-cta::before{content:"";position:absolute;inset:0;background:var(--crimson);transform:translateX(-101%);transition:transform .4s ease;z-index:-1}
-.hero-cta:hover::before{transform:translateX(0)}
-.hero-cta:hover{border-color:var(--crimson-bright)}
+.hero-cta:hover::before{transform:translateX(0)}.hero-cta:hover{border-color:var(--crimson-bright)}
 .hero-featured{position:absolute;bottom:2.5rem;left:3rem;display:flex;align-items:center;gap:1rem;animation:fadeUp 1.2s .9s ease both}
 .hero-featured-line{width:30px;height:1px;background:var(--crimson-bright)}
 .hero-featured-text{font-family:"IM Fell English",serif;font-style:italic;font-size:.68rem;color:var(--ash);letter-spacing:.2em;opacity:.6}
-
-/* INFO STRIP */
 .info-strip{background:var(--deep);border-top:1px solid rgba(139,26,47,.3);border-bottom:1px solid rgba(139,26,47,.2);padding:1.75rem 4vw;display:flex;align-items:center;gap:3rem;overflow-x:auto}
 .strip-item{display:flex;align-items:center;gap:.9rem;white-space:nowrap;flex-shrink:0}
 .strip-num{font-family:"IM Fell English",serif;font-style:italic;font-size:1.8rem;color:var(--crimson-bright);opacity:.45;line-height:1}
 .strip-label-jp{font-family:"Shippori Mincho B1",serif;font-size:.8rem;color:var(--paper);letter-spacing:.12em;display:block}
 .strip-label-en{font-family:"IM Fell English",serif;font-style:italic;font-size:.67rem;color:var(--ash);letter-spacing:.1em;opacity:.55}
 .strip-div{width:1px;height:36px;background:rgba(139,26,47,.3);flex-shrink:0}
-
-/* GALLERY */
 .gallery-section{background:var(--ink);padding:7rem 4vw}
 .gallery-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:3.5rem}
 .section-label{font-family:"IM Fell English",serif;font-style:italic;font-size:.7rem;letter-spacing:.3em;color:var(--crimson-bright);margin-bottom:.5rem;display:flex;align-items:center;gap:10px}
@@ -87,12 +58,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:1.5rem 4vw;display:f
 .section-title-jp{font-family:"Shippori Mincho B1",serif;font-size:clamp(1.8rem,3.5vw,3rem);color:var(--paper);letter-spacing:.12em;line-height:1.2}
 .section-title-en{font-family:"IM Fell English",serif;font-style:italic;font-size:.85rem;color:var(--gold-dim);letter-spacing:.2em;margin-top:.2rem;opacity:.8}
 .gallery-count{font-family:"IM Fell English",serif;font-style:italic;font-size:4.5rem;color:var(--crimson);opacity:.18;line-height:1}
-
 .gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
 .gallery-item{position:relative;overflow:hidden;background:#1a0f14;cursor:none;aspect-ratio:3/4}
-.gallery-item:nth-child(3n+1){aspect-ratio:2/3}
-.gallery-item:nth-child(3n+2){aspect-ratio:3/4}
-.gallery-item:nth-child(3n){aspect-ratio:4/5}
+.gallery-item:nth-child(3n+1){aspect-ratio:2/3}.gallery-item:nth-child(3n+2){aspect-ratio:3/4}.gallery-item:nth-child(3n){aspect-ratio:4/5}
 .gallery-item img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(.82) saturate(1.1);transition:transform .9s cubic-bezier(.25,.46,.45,.94),filter .5s}
 .gallery-item:hover img{transform:scale(1.07);filter:brightness(.68) saturate(1.4)}
 .gallery-item::before{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,transparent 40%,rgba(10,6,8,.97) 100%);z-index:2;opacity:0;transition:opacity .5s}
@@ -108,48 +76,31 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:1.5rem 4vw;display:f
 .gallery-caption-hint::before{content:"";width:10px;height:1px;background:var(--ash);opacity:.55}
 .gallery-num{position:absolute;top:1rem;right:1rem;font-family:"IM Fell English",serif;font-style:italic;font-size:1.2rem;color:white;opacity:.15;z-index:3;transition:opacity .3s}
 .gallery-item:hover .gallery-num{opacity:.45}
-
-/* ── MODAL ── */
 .modal-overlay{position:fixed;inset:0;z-index:2000;background:rgba(5,2,4,.93);backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;padding:2rem;opacity:0;pointer-events:none;transition:opacity .4s ease}
 .modal-overlay.active{opacity:1;pointer-events:all}
 .modal{display:grid;grid-template-columns:1fr 1fr;max-width:1000px;width:100%;max-height:90vh;background:var(--deep);border:1px solid rgba(139,26,47,.4);position:relative;overflow:hidden;transform:translateY(20px) scale(.97);transition:transform .4s ease}
 .modal-overlay.active .modal{transform:translateY(0) scale(1)}
-
 .modal-img-wrap{position:relative;overflow:hidden;background:#0d0509;min-height:400px}
 .modal-img-wrap img{width:100%;height:100%;object-fit:contain;display:block;max-height:90vh}
 .modal-img-wrap::after{content:"";position:absolute;inset:0;background:linear-gradient(to right,transparent 80%,var(--deep) 100%);pointer-events:none}
-
 .modal-body{padding:2.5rem 2.5rem 4rem;display:flex;flex-direction:column;justify-content:center;overflow-y:auto;max-height:90vh}
-
 .modal-series{font-family:"IM Fell English",serif;font-style:italic;font-size:.7rem;color:var(--crimson-bright);letter-spacing:.25em;margin-bottom:.8rem;display:flex;align-items:center;gap:10px}
 .modal-series::before{content:"";width:16px;height:1px;background:var(--crimson-bright)}
-
-/* 日英タイトル */
 .modal-title-jp{font-family:"Shippori Mincho B1",serif;font-size:clamp(1.6rem,2.8vw,2.6rem);color:var(--paper);letter-spacing:.15em;line-height:1.2;margin-bottom:.2rem;text-shadow:0 2px 20px rgba(139,26,47,.4)}
 .modal-title-en{font-family:"IM Fell English",serif;font-style:italic;font-size:.92rem;color:var(--gold);letter-spacing:.2em;margin-bottom:1.75rem;opacity:.85}
-
 .modal-divider{width:36px;height:1px;background:linear-gradient(to right,var(--crimson-bright),transparent);margin-bottom:1.5rem}
-
-/* 言語タブ */
 .lang-tabs{display:flex;gap:0;margin-bottom:1.25rem;border-bottom:1px solid rgba(139,26,47,.25)}
 .lang-tab{font-family:"IM Fell English",serif;font-style:italic;font-size:.75rem;letter-spacing:.18em;color:var(--ash);padding:.5rem 1.2rem .6rem;cursor:none;border:none;background:transparent;border-bottom:2px solid transparent;margin-bottom:-1px;transition:all .3s;opacity:.5}
 .lang-tab.active{color:var(--gold);border-bottom-color:var(--crimson-bright);opacity:1}
 .lang-tab:hover{opacity:.8;color:var(--paper)}
-
-/* 物語テキスト */
-.story-panel{display:none}
-.story-panel.active{display:block}
+.story-panel{display:none}.story-panel.active{display:block}
 .modal-story{font-size:.87rem;color:var(--ash);line-height:2.4;opacity:.9;border-left:2px solid rgba(139,26,47,.4);padding-left:1.25rem}
 .modal-story.en{font-family:"IM Fell English",serif;font-size:.85rem;line-height:2.2;font-style:italic}
-
-/* 閉じる・ナビ */
 .modal-close{position:absolute;top:1.25rem;right:1.25rem;width:36px;height:36px;border:1px solid rgba(139,26,47,.4);background:rgba(10,6,8,.8);color:var(--ash);display:flex;align-items:center;justify-content:center;cursor:none;z-index:10;transition:all .3s;font-size:1rem}
 .modal-close:hover{border-color:var(--crimson-bright);color:var(--paper);background:rgba(139,26,47,.2)}
 .modal-nav{position:absolute;bottom:1.5rem;right:2.5rem;display:flex;gap:.75rem}
 .modal-nav-btn{width:36px;height:36px;border:1px solid rgba(139,26,47,.35);background:transparent;color:var(--ash);display:flex;align-items:center;justify-content:center;cursor:none;transition:all .3s;font-size:.9rem}
 .modal-nav-btn:hover{border-color:var(--crimson-bright);color:var(--paper);background:rgba(139,26,47,.15)}
-
-/* ABOUT */
 .about-section{background:var(--deep);padding:7rem 4vw;position:relative;overflow:hidden}
 .about-section::before{content:"幻";position:absolute;right:-1rem;top:50%;transform:translateY(-50%);font-family:"Shippori Mincho B1",serif;font-size:28rem;color:var(--crimson);opacity:.03;line-height:1;pointer-events:none}
 .about-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center}
@@ -164,8 +115,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:1.5rem 4vw;display:f
 .about-card-title-jp{font-family:"Shippori Mincho B1",serif;font-size:.9rem;color:var(--paper);letter-spacing:.12em;margin-bottom:1px}
 .about-card-title-en{font-family:"IM Fell English",serif;font-style:italic;font-size:.72rem;color:var(--gold-dim);letter-spacing:.1em;margin-bottom:.35rem;opacity:.7}
 .about-card-body{font-size:.76rem;color:var(--ash);line-height:1.9;opacity:.7}
-
-/* CONTACT */
 .contact-section{background:var(--ink);padding:7rem 4vw;text-align:center}
 .contact-box{max-width:520px;margin:0 auto;border:1px solid rgba(139,26,47,.35);padding:3rem 2.5rem;position:relative;background:rgba(139,26,47,.03)}
 .contact-box::before{content:"✦";position:absolute;top:1rem;left:1rem;color:var(--crimson);opacity:.4;font-size:.8rem}
@@ -177,35 +126,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:1.5rem 4vw;display:f
 .btn-crimson{display:inline-block;border:1px solid var(--crimson);color:var(--paper);text-decoration:none;padding:12px 34px;font-family:"IM Fell English",serif;font-style:italic;font-size:.82rem;letter-spacing:.2em;transition:all .4s;position:relative;overflow:hidden}
 .btn-crimson::before{content:"";position:absolute;inset:0;background:var(--crimson);transform:translateX(-101%);transition:transform .4s ease;z-index:-1}
 .btn-crimson:hover::before{transform:translateX(0)}
-
 footer{background:var(--ink);border-top:1px solid rgba(139,26,47,.2);padding:2.5rem 4vw;display:flex;justify-content:space-between;align-items:center}
 .footer-logo{font-family:"Shippori Mincho B1",serif;color:var(--gold-dim);font-size:1.05rem;letter-spacing:.3em}
 .footer-copy{font-family:"IM Fell English",serif;font-style:italic;font-size:.7rem;color:var(--ash);opacity:.35;letter-spacing:.1em}
-
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .9s ease,transform .9s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
-
-@media(max-width:900px){
-  .hero{grid-template-columns:1fr}
-  .hero-poster{min-height:65vh}
-  .hero-panel{padding:4rem 5vw}
-  .modal{grid-template-columns:1fr}
-  .modal-img-wrap{min-height:45vw;max-height:45vh}
-  .modal-img-wrap::after{background:linear-gradient(to bottom,transparent 80%,var(--deep) 100%)}
-  .modal-body{padding:1.75rem 1.5rem 4rem}
-  .about-inner{grid-template-columns:1fr;gap:3rem}
-  .about-section::before{display:none}
-  footer{flex-direction:column;gap:1rem;text-align:center}
-}
-@media(max-width:600px){
-  .gallery-grid{grid-template-columns:1fr 1fr}
-  nav{padding:1rem 1.5rem}
-  .nav-links{gap:1.5rem}
-}
+@media(max-width:900px){.hero{grid-template-columns:1fr}.hero-poster{min-height:65vh}.hero-panel{padding:4rem 5vw}.modal{grid-template-columns:1fr}.modal-img-wrap{min-height:45vw;max-height:45vh}.modal-img-wrap::after{background:linear-gradient(to bottom,transparent 80%,var(--deep) 100%)}.modal-body{padding:1.75rem 1.5rem 4rem}.about-inner{grid-template-columns:1fr;gap:3rem}.about-section::before{display:none}footer{flex-direction:column;gap:1rem;text-align:center}}
+@media(max-width:600px){.gallery-grid{grid-template-columns:1fr 1fr}nav{padding:1rem 1.5rem}.nav-links{gap:1.5rem}}
 </style>
 </head>
 <body>
-
 <div id="cursor"></div>
 <div id="cursor-ring"></div>
 <div class="petals-wrap">
@@ -215,7 +145,6 @@ footer{background:var(--ink);border-top:1px solid rgba(139,26,47,.2);padding:2.5
   <div class="petal"></div>
 </div>
 
-<!-- NAV：英語メニュー + 日本語ロゴ -->
 <nav>
   <a href="#" class="nav-logo">幻想絵巻<span>Phantom Emaki</span></a>
   <ul class="nav-links">
@@ -225,10 +154,9 @@ footer{background:var(--ink);border-top:1px solid rgba(139,26,47,.2);padding:2.5
   </ul>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-poster">
-    <img src="images/main.png" alt="京都幻夢 — Kyoto Phantom Dream">
+    <img src="images/main.png" alt="京都幻夢">
     <div style="position:absolute;inset:0;background:linear-gradient(to right,transparent 70%,rgba(10,6,8,1) 100%);pointer-events:none;z-index:1"></div>
   </div>
   <div class="hero-panel">
@@ -246,10 +174,9 @@ footer{background:var(--ink);border-top:1px solid rgba(139,26,47,.2);padding:2.5
   </div>
 </section>
 
-<!-- INFO STRIP -->
 <div class="info-strip">
   <div class="strip-item">
-    <div class="strip-num" id="strip-count">—</div>
+    <div class="strip-num">七</div>
     <div><span class="strip-label-jp">作品数</span><span class="strip-label-en">Total Works</span></div>
   </div>
   <div class="strip-div"></div>
@@ -266,7 +193,6 @@ footer{background:var(--ink);border-top:1px solid rgba(139,26,47,.2);padding:2.5
   </div>
 </div>
 
-<!-- GALLERY -->
 <section class="gallery-section" id="gallery">
   <div class="gallery-header reveal">
     <div>
@@ -274,24 +200,22 @@ footer{background:var(--ink);border-top:1px solid rgba(139,26,47,.2);padding:2.5
       <h2 class="section-title-jp">幻想絵巻</h2>
       <p class="section-title-en">Gallery of Phantoms</p>
     </div>
-    <div class="gallery-count" id="gallery-count">—</div>
+    <div class="gallery-count">06</div>
   </div>
   <div class="gallery-grid" id="gallery-grid"></div>
 </section>
 
 <!-- MODAL -->
 <div class="modal-overlay" id="modal-overlay">
-  <div class="modal" id="modal">
+  <div class="modal">
     <div class="modal-img-wrap">
       <img id="modal-img" src="" alt="">
     </div>
     <div class="modal-body">
-      <div class="modal-series" id="modal-series">Series —</div>
+      <div class="modal-series" id="modal-series"></div>
       <h2 class="modal-title-jp" id="modal-title-jp"></h2>
       <p class="modal-title-en" id="modal-title-en"></p>
       <div class="modal-divider"></div>
-
-      <!-- 言語タブ -->
       <div class="lang-tabs">
         <button class="lang-tab active" data-lang="jp">日本語</button>
         <button class="lang-tab" data-lang="en">English</button>
@@ -302,7 +226,6 @@ footer{background:var(--ink);border-top:1px solid rgba(139,26,47,.2);padding:2.5
       <div class="story-panel" id="story-en">
         <p class="modal-story en" id="modal-story-en"></p>
       </div>
-
       <div class="modal-nav">
         <button class="modal-nav-btn" id="modal-prev">←</button>
         <button class="modal-nav-btn" id="modal-next">→</button>
@@ -312,7 +235,6 @@ footer{background:var(--ink);border-top:1px solid rgba(139,26,47,.2);padding:2.5
   </div>
 </div>
 
-<!-- ABOUT -->
 <section class="about-section" id="about">
   <div class="about-inner">
     <div class="reveal">
@@ -320,43 +242,148 @@ footer{background:var(--ink);border-top:1px solid rgba(139,26,47,.2);padding:2.5
       <h2 class="section-title-jp">幻想の世界へ</h2>
       <p class="section-title-en">Into the Phantom World</p>
       <div class="about-quote-jp">「夢と現の<br>　はざまに宿る<br>　　百鬼の影」</div>
-      <div class="about-quote-en">"In the space between dreams and waking, the shadows of a hundred demons dwell."</div>
+      <div class="about-quote-en">"In the space between dreams and waking,<br>the shadows of a hundred demons dwell."</div>
       <p class="about-body-jp">日本の神話・怪談・歴史に深く魅せられ、AIを用いて幻想的な絵巻を制作しています。</p>
-      <p class="about-body-en">Deeply fascinated by Japanese mythology, ghost stories, and history, I create phantasmal picture scrolls using AI. Fox spirits, demons, dragons, samurai — ancient beings reinterpreted through modern technology.</p>
+      <p class="about-body-en">Deeply fascinated by Japanese mythology, ghost stories and history, I create phantasmal picture scrolls using AI. Fox spirits, demons, dragons, samurai — ancient beings reinterpreted through modern technology.</p>
     </div>
     <div class="about-cards reveal" style="transition-delay:.2s">
-      <div class="about-card">
-        <div class="about-card-num">01</div>
-        <div>
-          <div class="about-card-title-jp">和の美学</div>
-          <div class="about-card-title-en">Japanese Aesthetics</div>
-          <div class="about-card-body">侘び寂び、幽玄、もののあわれ — Wabi-sabi, yugen, mono no aware. The timeless beauty of Japan expressed through AI art.</div>
-        </div>
-      </div>
-      <div class="about-card">
-        <div class="about-card-num">02</div>
-        <div>
-          <div class="about-card-title-jp">神話と妖怪</div>
-          <div class="about-card-title-en">Mythology & Yokai</div>
-          <div class="about-card-body">稲荷神社の狐神、百鬼夜行、龍神信仰 — Fox gods, demon parades, dragon deities. The mythological world of Japan.</div>
-        </div>
-      </div>
-      <div class="about-card">
-        <div class="about-card-num">03</div>
-        <div>
-          <div class="about-card-title-jp">AIと創造性</div>
-          <div class="about-card-title-en">AI & Creativity</div>
-          <div class="about-card-body">最新のAI画像生成技術で、人の想像を超えた幻想的ビジョンを追求します。Pursuing phantasmal visions beyond human imagination.</div>
-        </div>
-      </div>
+      <div class="about-card"><div class="about-card-num">01</div><div><div class="about-card-title-jp">和の美学</div><div class="about-card-title-en">Japanese Aesthetics</div><div class="about-card-body">侘び寂び、幽玄、もののあわれ — Wabi-sabi, yugen, mono no aware. The timeless beauty of Japan expressed through AI art.</div></div></div>
+      <div class="about-card"><div class="about-card-num">02</div><div><div class="about-card-title-jp">神話と妖怪</div><div class="about-card-title-en">Mythology &amp; Yokai</div><div class="about-card-body">稲荷神社の狐神、百鬼夜行、龍神信仰 — Fox gods, demon parades, dragon deities. The mythological world of Japan.</div></div></div>
+      <div class="about-card"><div class="about-card-num">03</div><div><div class="about-card-title-jp">AIと創造性</div><div class="about-card-title-en">AI &amp; Creativity</div><div class="about-card-body">最新のAI画像生成技術で、人の想像を超えた幻想的ビジョンを追求します。Pursuing phantasmal visions beyond human imagination.</div></div></div>
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
 <section class="contact-section" id="contact">
   <div class="reveal">
     <div class="section-label" style="justify-content:center;">Contact / 連絡</div>
     <div class="contact-box">
       <h2 class="contact-title-jp">お問い合わせ</h2>
-      <
+      <p class="contact-title-en">Get in Touch</p>
+      <p class="contact-desc-jp">作品のご使用・コラボレーション・ご感想など、お気軽にご連絡ください。</p>
+      <p class="contact-desc-en">For licensing, collaboration, or simply to share your thoughts — feel free to reach out.</p>
+      <a href="mailto:your@email.com" class="btn-crimson">Send a Message</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">幻想絵巻 <span style="font-family:'IM Fell English',serif;font-style:italic;font-size:.7rem;opacity:.6;letter-spacing:.15em">Phantom Emaki</span></div>
+  <div class="footer-copy">© 2025 Phantom Emaki — AI Fantasy Art of Japan</div>
+</footer>
+
+<script>
+// ── ギャラリーデータ（HTMLに直接埋め込み）──────────────────
+const GALLERY = [
+  {
+    file:"images/img01.png", series:"I",
+    title_jp:"百鬼夜行", title_en:"Night Parade of Demons",
+    story_jp:"竹林の奥、提灯の灯が揺れる道に、百の鬼が列をなして歩む夜がある。その名を百鬼夜行という。返り血に塗れた侍・蒼牙は、一人その道に立ちはだかった。鬼たちの眼が光る。しかし蒼牙は刃を下げず——「俺が通る。それだけだ」",
+    story_en:"Deep within the bamboo grove, along a path where lanterns sway, a hundred demons march — the legendary Hyakki Yako. Soga, a samurai stained with battle, stood alone in their path. The demons' eyes gleamed with hunger. Yet Soga did not lower his blade. 'I will pass through. That is all.'"
+  },
+  {
+    file:"images/img02.png", series:"II",
+    title_jp:"花月温泉", title_en:"Kagetsu Hot Springs",
+    story_jp:"湯煙漂う山奥の温泉郷、花月。ここは人と妖が静かに共存する、秘密の楽園。赤い橋の袂に佇む娘・花鈴は、この地の女将にして、狐神の末裔。訪れた旅人は皆、帰り道を忘れてしまうという——",
+    story_en:"Kagetsu — a hidden hot spring village veiled in drifting steam. Here, humans and spirits coexist in quiet harmony. Karin, the young innkeeper who stands by the red bridge, is both the proprietress of this secret paradise and a descendant of the fox deity. They say every traveler who visits forgets the way home."
+  },
+  {
+    file:"images/img03.png", series:"III",
+    title_jp:"清水の龍神", title_en:"Dragon God of Kiyomizu",
+    story_jp:"清水寺の夜、満月が山を照らすとき、天より龍が降りるという言い伝えがある。老僧・玄海はその夜を七十年待ち続けた。「龍よ、この地に何を告げに来たのか」。龍の眼が燃えるように光り、玄海の白衣が風に舞った。",
+    story_en:"There is a legend that when the full moon illuminates Kiyomizudera, a dragon descends from the heavens. The aged monk Genkai had waited seventy years for that night. 'Dragon, what message do you bring?' The dragon's eyes blazed like twin flames, and Genkai's white robes swirled in the sudden wind."
+  },
+  {
+    file:"images/img04.png", series:"IV",
+    title_jp:"緋色の剣士", title_en:"Crimson Swordswoman",
+    story_jp:"紅葉が血のように舞い散る境内に、一人の女剣士が立つ。名は朱音。天照大神に仕える巫女にして、最後の剣鬼。彼女の白い着物に滲む赤は、散った紅葉か、それとも——鳥居の向こうに佇む影が、ゆっくりと歩み出した。",
+    story_en:"In the temple grounds where crimson leaves scatter like blood, a lone swordswoman stands. Her name is Akane — a shrine maiden in service to Amaterasu, and the last of the sword demons. The red staining her white kimono — is it fallen leaves, or something else? Beyond the torii gate, a shadow slowly steps forward."
+  },
+  {
+    file:"images/img05.png", series:"V",
+    title_jp:"狐と侍の邂逅", title_en:"Encounter of Fox and Samurai",
+    story_jp:"血月が照らす京の夜、妖狐の姫・玲と流れ者の侍・黒斗は、鳥居の前で出会った。周囲には無数の鬼と妖が溢れ、二人は背中合わせで刃と炎を構える。「信じるわけじゃない。ただ、生き延びたいだけよ」",
+    story_en:"Beneath a blood-red moon over Kyoto, the fox spirit princess Rei and the wandering samurai Kuro met before the torii gate. Countless demons surrounded them, and the two stood back to back. 'I don't trust you,' she said. 'I simply want to survive this night.'"
+  },
+  {
+    file:"images/img06.png", series:"VI",
+    title_jp:"稲荷の狐", title_en:"Fox of Inari Shrine",
+    story_jp:"満月の夜、稲荷神社の鳥居に白い影が揺れる。九つの尾を持つ神狐・白珠は、千年の時を超えて人の世を見守り続けてきた。狐面の娘はその化身か、それとも——青い炎を従えた白狐たちが、静かに頭を垂れた。",
+    story_en:"On a night of the full moon, a white shadow sways at the torii of Inari Shrine. Hakuju, the divine fox bearing nine tails, has watched over the human world across a thousand years. Is the girl wearing the fox mask her incarnation? The white foxes wreathed in blue flame bowed their heads in silent reverence."
+  }
+];
+
+// ── カーソル ──────────────────────────────────
+const cur=document.getElementById("cursor"),ring=document.getElementById("cursor-ring");
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener("mousemove",e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+"px";cur.style.top=my+"px";});
+(function anim(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+"px";ring.style.top=ry+"px";requestAnimationFrame(anim);})();
+function addHover(el){
+  el.addEventListener("mouseenter",()=>{cur.style.width="18px";cur.style.height="18px";ring.style.width="48px";ring.style.height="48px";ring.style.opacity=".85";});
+  el.addEventListener("mouseleave",()=>{cur.style.width="10px";cur.style.height="10px";ring.style.width="32px";ring.style.height="32px";ring.style.opacity=".5";});
+}
+document.querySelectorAll("a,.about-card,.lang-tab").forEach(addHover);
+
+// ── スクロールリビール ──────────────────────────
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("visible");obs.unobserve(e.target);}});},{threshold:.08});
+document.querySelectorAll(".reveal").forEach(el=>obs.observe(el));
+
+// ── ギャラリー生成 ────────────────────────────
+const grid=document.getElementById("gallery-grid");
+GALLERY.forEach((item,i)=>{
+  const div=document.createElement("div");
+  div.className="gallery-item reveal";
+  div.style.transitionDelay=(i%3*.1)+"s";
+  div.innerHTML=`
+    <img src="${item.file}" alt="${item.title_jp}" loading="lazy">
+    <div class="gallery-num">${String(i+1).padStart(2,"0")}</div>
+    <div class="gallery-caption">
+      <div class="gallery-tag">Series ${item.series}</div>
+      <div class="gallery-caption-jp">${item.title_jp}</div>
+      <div class="gallery-caption-en">${item.title_en}</div>
+      <div class="gallery-caption-hint">Click to read the story</div>
+    </div>`;
+  div.addEventListener("click",()=>openModal(i));
+  addHover(div);
+  grid.appendChild(div);
+  obs.observe(div);
+});
+
+// ── モーダル ──────────────────────────────────
+const overlay=document.getElementById("modal-overlay");
+let currentIndex=0;
+
+function openModal(index){
+  currentIndex=index;
+  const item=GALLERY[index];
+  document.getElementById("modal-img").src=item.file;
+  document.getElementById("modal-series").textContent="Series "+item.series;
+  document.getElementById("modal-title-jp").textContent=item.title_jp;
+  document.getElementById("modal-title-en").textContent=item.title_en;
+  document.getElementById("modal-story-jp").textContent=item.story_jp;
+  document.getElementById("modal-story-en").textContent=item.story_en;
+  overlay.classList.add("active");
+  document.body.style.overflow="hidden";
+}
+function closeModal(){overlay.classList.remove("active");document.body.style.overflow="";}
+
+document.getElementById("modal-close").addEventListener("click",closeModal);
+overlay.addEventListener("click",e=>{if(e.target===overlay)closeModal();});
+document.getElementById("modal-prev").addEventListener("click",e=>{e.stopPropagation();currentIndex=(currentIndex-1+GALLERY.length)%GALLERY.length;openModal(currentIndex);});
+document.getElementById("modal-next").addEventListener("click",e=>{e.stopPropagation();currentIndex=(currentIndex+1)%GALLERY.length;openModal(currentIndex);});
+document.addEventListener("keydown",e=>{
+  if(!overlay.classList.contains("active"))return;
+  if(e.key==="Escape")closeModal();
+  if(e.key==="ArrowLeft"){currentIndex=(currentIndex-1+GALLERY.length)%GALLERY.length;openModal(currentIndex);}
+  if(e.key==="ArrowRight"){currentIndex=(currentIndex+1)%GALLERY.length;openModal(currentIndex);}
+});
+
+// ── 言語タブ ──────────────────────────────────
+document.querySelectorAll(".lang-tab").forEach(tab=>{
+  tab.addEventListener("click",()=>{
+    document.querySelectorAll(".lang-tab").forEach(t=>t.classList.remove("active"));
+    document.querySelectorAll(".story-panel").forEach(p=>p.classList.remove("active"));
+    tab.classList.add("active");
+    document.getElementById("story-"+tab.dataset.lang).classList.add("active");
+  });
+});
