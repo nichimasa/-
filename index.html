@@ -39,6 +39,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:1.5rem 4vw;display:f
 .nav-links a::after{content:"";position:absolute;bottom:-4px;left:0;right:100%;height:1px;background:var(--crimson-bright);transition:right .3s ease}
 .nav-links a:hover{color:var(--gold)}
 .nav-links a:hover::after{right:0}
+
+/* HERO */
 .hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden}
 .hero-poster{position:relative;background:#0d0509;display:flex;align-items:center;justify-content:center;overflow:hidden;min-height:100vh}
 .hero-poster img{width:100%;height:100%;object-fit:contain;object-position:center;display:block;max-height:100vh;animation:heroPulse 18s ease-in-out infinite alternate}
@@ -60,12 +62,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:1.5rem 4vw;display:f
 .hero-featured{position:absolute;bottom:2.5rem;left:3rem;display:flex;align-items:center;gap:1rem;animation:fadeUp 1.2s .9s ease both}
 .hero-featured-line{width:30px;height:1px;background:var(--crimson-bright)}
 .hero-featured-text{font-family:"IM Fell English",serif;font-style:italic;font-size:.68rem;color:var(--ash);letter-spacing:.2em;opacity:.6}
+
+/* INFO STRIP */
 .info-strip{background:var(--deep);border-top:1px solid rgba(139,26,47,.3);border-bottom:1px solid rgba(139,26,47,.2);padding:1.75rem 4vw;display:flex;align-items:center;gap:3rem;overflow-x:auto}
 .strip-item{display:flex;align-items:center;gap:.9rem;white-space:nowrap;flex-shrink:0}
 .strip-num{font-family:"IM Fell English",serif;font-style:italic;font-size:1.8rem;color:var(--crimson-bright);opacity:.45;line-height:1}
 .strip-label-jp{font-family:"Shippori Mincho B1",serif;font-size:.82rem;color:var(--paper);letter-spacing:.12em;display:block}
 .strip-label-en{font-family:"IM Fell English",serif;font-style:italic;font-size:.68rem;color:var(--ash);letter-spacing:.1em;opacity:.55}
 .strip-div{width:1px;height:36px;background:rgba(139,26,47,.3);flex-shrink:0}
+
+/* GALLERY */
 .gallery-section{background:var(--ink);padding:7rem 4vw}
 .gallery-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:3.5rem}
 .section-label{font-family:"Shippori Mincho B1",serif;font-size:.68rem;letter-spacing:.4em;color:var(--crimson-bright);margin-bottom:.6rem;display:flex;align-items:center;gap:10px}
@@ -80,7 +86,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:1.5rem 4vw;display:f
 .gallery-item:nth-child(3n){aspect-ratio:4/5}
 .gallery-item img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(.82) saturate(1.1);transition:transform .9s cubic-bezier(.25,.46,.45,.94),filter .5s}
 .gallery-item:hover img{transform:scale(1.07);filter:brightness(.68) saturate(1.4)}
-.gallery-item::before{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,transparent 45%,rgba(10,6,8,.97) 100%);z-index:2;opacity:0;transition:opacity .5s}
+.gallery-item::before{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,transparent 40%,rgba(10,6,8,.97) 100%);z-index:2;opacity:0;transition:opacity .5s}
 .gallery-item:hover::before{opacity:1}
 .gallery-item::after{content:"";position:absolute;inset:0;border:1px solid var(--crimson);opacity:0;z-index:4;transition:opacity .3s;pointer-events:none}
 .gallery-item:hover::after{opacity:.7}
@@ -88,9 +94,136 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:1.5rem 4vw;display:f
 .gallery-item:hover .gallery-caption{transform:translateY(0);opacity:1}
 .gallery-tag{display:inline-block;border:1px solid var(--crimson);color:var(--crimson-bright);font-family:"IM Fell English",serif;font-style:italic;font-size:.58rem;letter-spacing:.18em;padding:2px 8px;margin-bottom:6px}
 .gallery-caption-jp{font-family:"Shippori Mincho B1",serif;font-size:1rem;color:var(--paper);letter-spacing:.2em;margin-bottom:3px}
-.gallery-caption-en{font-family:"IM Fell English",serif;font-style:italic;font-size:.7rem;color:var(--gold);letter-spacing:.12em}
+.gallery-caption-en{font-family:"IM Fell English",serif;font-style:italic;font-size:.7rem;color:var(--gold);letter-spacing:.12em;margin-bottom:10px}
+.gallery-caption-hint{font-size:.68rem;color:var(--ash);opacity:.6;letter-spacing:.1em;display:flex;align-items:center;gap:6px}
+.gallery-caption-hint::before{content:"";width:12px;height:1px;background:var(--ash);opacity:.6}
 .gallery-num{position:absolute;top:1rem;right:1rem;font-family:"IM Fell English",serif;font-style:italic;font-size:1.2rem;color:white;opacity:.15;z-index:3;transition:opacity .3s}
 .gallery-item:hover .gallery-num{opacity:.45}
+
+/* =====================
+   MODAL
+   ===================== */
+.modal-overlay{
+  position:fixed;inset:0;z-index:2000;
+  background:rgba(5,2,4,.92);
+  backdrop-filter:blur(8px);
+  display:flex;align-items:center;justify-content:center;
+  padding:2rem;
+  opacity:0;pointer-events:none;
+  transition:opacity .4s ease;
+}
+.modal-overlay.active{opacity:1;pointer-events:all}
+
+.modal{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  max-width:1000px;
+  width:100%;
+  max-height:90vh;
+  background:var(--deep);
+  border:1px solid rgba(139,26,47,.4);
+  position:relative;
+  overflow:hidden;
+  transform:translateY(20px) scale(.97);
+  transition:transform .4s ease;
+}
+.modal-overlay.active .modal{transform:translateY(0) scale(1)}
+
+/* 左：画像 */
+.modal-img-wrap{
+  position:relative;
+  overflow:hidden;
+  background:#0d0509;
+  min-height:400px;
+}
+.modal-img-wrap img{
+  width:100%;height:100%;
+  object-fit:contain;
+  display:block;
+  max-height:90vh;
+}
+.modal-img-wrap::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(to right,transparent 80%,var(--deep) 100%);
+  pointer-events:none;
+}
+
+/* 右：テキスト */
+.modal-body{
+  padding:3rem 2.5rem;
+  display:flex;flex-direction:column;
+  justify-content:center;
+  overflow-y:auto;
+  max-height:90vh;
+}
+
+.modal-series{
+  font-family:"IM Fell English",serif;font-style:italic;
+  font-size:.7rem;color:var(--crimson-bright);
+  letter-spacing:.25em;margin-bottom:1rem;
+  display:flex;align-items:center;gap:10px;
+}
+.modal-series::before{content:"";width:16px;height:1px;background:var(--crimson-bright)}
+
+.modal-title-jp{
+  font-family:"Shippori Mincho B1",serif;
+  font-size:clamp(1.8rem,3vw,2.8rem);
+  color:var(--paper);letter-spacing:.15em;line-height:1.2;
+  margin-bottom:.4rem;
+  text-shadow:0 2px 20px rgba(139,26,47,.4);
+}
+
+.modal-title-en{
+  font-family:"IM Fell English",serif;font-style:italic;
+  font-size:.9rem;color:var(--gold);letter-spacing:.25em;
+  margin-bottom:2rem;
+}
+
+.modal-divider{
+  width:36px;height:1px;
+  background:linear-gradient(to right,var(--crimson-bright),transparent);
+  margin-bottom:2rem;
+}
+
+.modal-story{
+  font-size:.88rem;color:var(--ash);
+  line-height:2.4;opacity:.9;
+  font-feature-settings:"palt";
+  border-left:2px solid rgba(139,26,47,.4);
+  padding-left:1.25rem;
+}
+
+/* 閉じるボタン */
+.modal-close{
+  position:absolute;top:1.25rem;right:1.25rem;
+  width:36px;height:36px;
+  border:1px solid rgba(139,26,47,.4);
+  background:rgba(10,6,8,.8);
+  color:var(--ash);
+  display:flex;align-items:center;justify-content:center;
+  cursor:none;z-index:10;
+  transition:all .3s;
+  font-size:1rem;
+}
+.modal-close:hover{border-color:var(--crimson-bright);color:var(--paper);background:rgba(139,26,47,.2)}
+
+/* 前後ナビ */
+.modal-nav{
+  position:absolute;bottom:1.5rem;right:2.5rem;
+  display:flex;gap:.75rem;
+}
+.modal-nav-btn{
+  width:36px;height:36px;
+  border:1px solid rgba(139,26,47,.35);
+  background:transparent;
+  color:var(--ash);
+  display:flex;align-items:center;justify-content:center;
+  cursor:none;
+  transition:all .3s;font-size:.9rem;
+}
+.modal-nav-btn:hover{border-color:var(--crimson-bright);color:var(--paper);background:rgba(139,26,47,.15)}
+
+/* ABOUT */
 .about-section{background:var(--deep);padding:7rem 4vw;position:relative;overflow:hidden}
 .about-section::before{content:"幻";position:absolute;right:-1rem;top:50%;transform:translateY(-50%);font-family:"Shippori Mincho B1",serif;font-size:28rem;color:var(--crimson);opacity:.03;line-height:1;pointer-events:none}
 .about-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center}
@@ -102,6 +235,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:1.5rem 4vw;display:f
 .about-card-num{font-family:"IM Fell English",serif;font-style:italic;font-size:1.5rem;color:var(--crimson-bright);opacity:.35;flex-shrink:0;line-height:1;margin-top:2px}
 .about-card-title{font-family:"Shippori Mincho B1",serif;font-size:.92rem;color:var(--paper);letter-spacing:.12em;margin-bottom:.35rem}
 .about-card-body{font-size:.77rem;color:var(--ash);line-height:1.9;opacity:.75}
+
+/* CONTACT */
 .contact-section{background:var(--ink);padding:7rem 4vw;text-align:center}
 .contact-box{max-width:500px;margin:0 auto;border:1px solid rgba(139,26,47,.35);padding:3rem 2.5rem;position:relative;background:rgba(139,26,47,.03)}
 .contact-box::before{content:"✦";position:absolute;top:1rem;left:1rem;color:var(--crimson);opacity:.4;font-size:.8rem}
@@ -117,11 +252,29 @@ footer{background:var(--ink);border-top:1px solid rgba(139,26,47,.2);padding:2.5
 .footer-copy{font-family:"IM Fell English",serif;font-style:italic;font-size:.7rem;color:var(--ash);opacity:.35;letter-spacing:.1em}
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .9s ease,transform .9s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
-@media(max-width:900px){.hero{grid-template-columns:1fr}.hero-poster{min-height:70vh}.hero-panel{padding:4rem 5vw}.about-inner{grid-template-columns:1fr;gap:3rem}.about-section::before{display:none}footer{flex-direction:column;gap:1rem;text-align:center}}
-@media(max-width:600px){.gallery-grid{grid-template-columns:1fr 1fr}nav{padding:1rem 1.5rem}.nav-links{gap:1.5rem}}
+
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr}
+  .hero-poster{min-height:70vh}
+  .hero-panel{padding:4rem 5vw}
+  .modal{grid-template-columns:1fr}
+  .modal-img-wrap{min-height:50vw;max-height:50vh}
+  .modal-img-wrap::after{background:linear-gradient(to bottom,transparent 80%,var(--deep) 100%)}
+  .modal-body{padding:2rem 1.5rem}
+  .about-inner{grid-template-columns:1fr;gap:3rem}
+  .about-section::before{display:none}
+  footer{flex-direction:column;gap:1rem;text-align:center}
+}
+@media(max-width:600px){
+  .gallery-grid{grid-template-columns:1fr 1fr}
+  nav{padding:1rem 1.5rem}
+  .nav-links{gap:1.5rem}
+  .modal{max-height:95vh}
+}
 </style>
 </head>
 <body>
+
 <div id="cursor"></div>
 <div id="cursor-ring"></div>
 <div class="petals-wrap">
@@ -130,6 +283,7 @@ footer{background:var(--ink);border-top:1px solid rgba(139,26,47,.2);padding:2.5
   <div class="petal"></div><div class="petal"></div><div class="petal"></div>
   <div class="petal"></div>
 </div>
+
 <nav>
   <a href="#" class="nav-logo">幻想絵巻<span>Phantom Emaki</span></a>
   <ul class="nav-links">
@@ -159,10 +313,10 @@ footer{background:var(--ink);border-top:1px solid rgba(139,26,47,.2);padding:2.5
   </div>
 </section>
 
-<!-- INFO STRIP (images.jsonから作品数を反映) -->
+<!-- INFO STRIP -->
 <div class="info-strip">
   <div class="strip-item">
-    <div class="strip-num" id="strip-count">六</div>
+    <div class="strip-num" id="strip-count">—</div>
     <div><span class="strip-label-jp">作品数</span><span class="strip-label-en">Total Works</span></div>
   </div>
   <div class="strip-div"></div>
@@ -189,10 +343,29 @@ footer{background:var(--ink);border-top:1px solid rgba(139,26,47,.2);padding:2.5
     </div>
     <div class="gallery-count" id="gallery-count">—</div>
   </div>
-  <div class="gallery-grid" id="gallery-grid">
-    <!-- images.jsonから動的生成 -->
-  </div>
+  <div class="gallery-grid" id="gallery-grid"></div>
 </section>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal" id="modal">
+    <div class="modal-img-wrap">
+      <img id="modal-img" src="" alt="">
+    </div>
+    <div class="modal-body">
+      <div class="modal-series" id="modal-series">Series —</div>
+      <h2 class="modal-title-jp" id="modal-title-jp"></h2>
+      <p class="modal-title-en" id="modal-title-en"></p>
+      <div class="modal-divider"></div>
+      <p class="modal-story" id="modal-story"></p>
+      <div class="modal-nav">
+        <button class="modal-nav-btn" id="modal-prev" title="前の作品">←</button>
+        <button class="modal-nav-btn" id="modal-next" title="次の作品">→</button>
+      </div>
+    </div>
+    <button class="modal-close" id="modal-close">✕</button>
+  </div>
+</div>
 
 <!-- ABOUT -->
 <section class="about-section" id="about">
@@ -231,7 +404,7 @@ footer{background:var(--ink);border-top:1px solid rgba(139,26,47,.2);padding:2.5
 </footer>
 
 <script>
-// カスタムカーソル
+// ── カーソル ──────────────────────────
 const cur=document.getElementById("cursor"),ring=document.getElementById("cursor-ring");
 let mx=0,my=0,rx=0,ry=0;
 document.addEventListener("mousemove",e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+"px";cur.style.top=my+"px";});
@@ -242,21 +415,73 @@ function addHover(el){
 }
 document.querySelectorAll("a,.about-card").forEach(addHover);
 
-// スクロールリビール
-const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("visible");obs.unobserve(e.target);}});},{threshold:.08});
+// ── スクロールリビール ─────────────────
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("visible");obs.unobserve(e.target);}});
+},{threshold:.08});
 document.querySelectorAll(".reveal").forEach(el=>obs.observe(el));
 
-// images.json を読み込んでギャラリーを生成
+// ── モーダル ──────────────────────────
+const overlay=document.getElementById("modal-overlay");
+const modalImg=document.getElementById("modal-img");
+const modalSeries=document.getElementById("modal-series");
+const modalTitleJp=document.getElementById("modal-title-jp");
+const modalTitleEn=document.getElementById("modal-title-en");
+const modalStory=document.getElementById("modal-story");
+let galleryData=[];
+let currentIndex=0;
+
+function openModal(index){
+  currentIndex=index;
+  const item=galleryData[index];
+  modalImg.src=item.file;
+  modalImg.alt=item.title_jp;
+  modalSeries.textContent="Series "+( item.series||index+1);
+  modalTitleJp.textContent=item.title_jp;
+  modalTitleEn.textContent=item.title_en;
+  modalStory.textContent=item.story||"";
+  overlay.classList.add("active");
+  document.body.style.overflow="hidden";
+}
+
+function closeModal(){
+  overlay.classList.remove("active");
+  document.body.style.overflow="";
+}
+
+document.getElementById("modal-close").addEventListener("click",closeModal);
+overlay.addEventListener("click",e=>{if(e.target===overlay)closeModal();});
+
+document.getElementById("modal-prev").addEventListener("click",e=>{
+  e.stopPropagation();
+  currentIndex=(currentIndex-1+galleryData.length)%galleryData.length;
+  openModal(currentIndex);
+});
+document.getElementById("modal-next").addEventListener("click",e=>{
+  e.stopPropagation();
+  currentIndex=(currentIndex+1)%galleryData.length;
+  openModal(currentIndex);
+});
+
+// キーボード操作
+document.addEventListener("keydown",e=>{
+  if(!overlay.classList.contains("active"))return;
+  if(e.key==="Escape")closeModal();
+  if(e.key==="ArrowLeft"){currentIndex=(currentIndex-1+galleryData.length)%galleryData.length;openModal(currentIndex);}
+  if(e.key==="ArrowRight"){currentIndex=(currentIndex+1)%galleryData.length;openModal(currentIndex);}
+});
+
+// ── images.json 読み込み ───────────────
 fetch("images.json")
   .then(r=>r.json())
   .then(data=>{
-    const gallery=data.gallery;
-    const total=gallery.length+1;
+    galleryData=data.gallery;
+    const total=galleryData.length+1;
     document.getElementById("strip-count").textContent=total;
-    document.getElementById("gallery-count").textContent=String(gallery.length).padStart(2,"0");
+    document.getElementById("gallery-count").textContent=String(galleryData.length).padStart(2,"0");
     const grid=document.getElementById("gallery-grid");
     grid.innerHTML="";
-    gallery.forEach((item,i)=>{
+    galleryData.forEach((item,i)=>{
       const div=document.createElement("div");
       div.className="gallery-item reveal";
       div.style.transitionDelay=(i%3*.1)+"s";
@@ -267,23 +492,27 @@ fetch("images.json")
           <div class="gallery-tag">Series ${item.series||i+1}</div>
           <div class="gallery-caption-jp">${item.title_jp}</div>
           <div class="gallery-caption-en">${item.title_en}</div>
+          <div class="gallery-caption-hint">クリックで物語を読む</div>
         </div>`;
+      div.addEventListener("click",()=>openModal(i));
       addHover(div);
       grid.appendChild(div);
       obs.observe(div);
     });
   })
   .catch(()=>{
-    // fetchが失敗した場合のフォールバック（直接HTMLに書かれた画像を表示）
-    const grid=document.getElementById("gallery-grid");
     const fallback=[
-      {file:"images/img01.png",title_jp:"稲荷の狐",title_en:"Fox of Inari Shrine",series:"I"},
-      {file:"images/img02.png",title_jp:"百鬼夜行",title_en:"Night Parade of Demons",series:"II"},
-      {file:"images/img03.png",title_jp:"花月温泉",title_en:"Kagetsu Hot Springs",series:"III"},
-      {file:"images/img04.png",title_jp:"清水の龍神",title_en:"Dragon God of Kiyomizu",series:"IV"},
-      {file:"images/img05.png",title_jp:"緋色の剣士",title_en:"Crimson Swordswoman",series:"V"}
+      {file:"images/img01.png",title_jp:"百鬼夜行",title_en:"Night Parade of Demons",series:"I",story:"竹林の奥、百の鬼が列をなして歩む夜がある。侍・蒼牙は一人その道に立ちはだかった。"},
+      {file:"images/img02.png",title_jp:"花月温泉",title_en:"Kagetsu Hot Springs",series:"II",story:"湯煙漂う温泉郷・花月。ここは人と妖が静かに共存する秘密の楽園。"},
+      {file:"images/img03.png",title_jp:"清水の龍神",title_en:"Dragon God of Kiyomizu",series:"III",story:"清水寺の夜、満月が山を照らすとき、天より龍が降りるという。"},
+      {file:"images/img04.png",title_jp:"緋色の剣士",title_en:"Crimson Swordswoman",series:"IV",story:"紅葉が血のように舞い散る境内に、天照大神に仕える女剣士が立つ。"},
+      {file:"images/img05.png",title_jp:"狐と侍の邂逅",title_en:"Encounter of Fox and Samurai",series:"V",story:"血月が照らす京の夜、妖狐の姫と流れ者の侍が出会った。"},
+      {file:"images/img06.png",title_jp:"稲荷の狐",title_en:"Fox of Inari Shrine",series:"VI",story:"満月の夜、九つの尾を持つ神狐・白珠が鳥居に現れた。"}
     ];
-    document.getElementById("gallery-count").textContent="05";
+    galleryData=fallback;
+    document.getElementById("gallery-count").textContent="06";
+    document.getElementById("strip-count").textContent="7";
+    const grid=document.getElementById("gallery-grid");
     grid.innerHTML="";
     fallback.forEach((item,i)=>{
       const div=document.createElement("div");
@@ -296,7 +525,9 @@ fetch("images.json")
           <div class="gallery-tag">Series ${item.series}</div>
           <div class="gallery-caption-jp">${item.title_jp}</div>
           <div class="gallery-caption-en">${item.title_en}</div>
+          <div class="gallery-caption-hint">クリックで物語を読む</div>
         </div>`;
+      div.addEventListener("click",()=>openModal(i));
       addHover(div);
       grid.appendChild(div);
       obs.observe(div);
