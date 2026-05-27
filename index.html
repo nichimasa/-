@@ -141,6 +141,59 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:1.5rem 4vw;display:f
 footer{background:var(--ink);border-top:1px solid rgba(139,26,47,.2);padding:2.5rem 4vw;display:flex;justify-content:space-between;align-items:center}
 .footer-logo{font-family:"Shippori Mincho B1",serif;color:var(--gold-dim);font-size:1.05rem;letter-spacing:.3em}
 .footer-copy{font-family:"IM Fell English",serif;font-style:italic;font-size:.7rem;color:var(--ash);opacity:.35;letter-spacing:.1em}
+
+.world-section{background:var(--deep);padding:7rem 4vw;position:relative;overflow:hidden}
+.world-section::before{content:"影";position:absolute;left:-2rem;top:50%;transform:translateY(-50%);font-family:"Shippori Mincho B1",serif;font-size:28rem;color:var(--crimson);opacity:.03;line-height:1;pointer-events:none}
+.world-inner{max-width:1100px;margin:0 auto}
+.world-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:2rem;align-items:center;margin-bottom:3rem}
+.world-card{border:1px solid rgba(139,26,47,.25);padding:2rem 1.75rem;background:rgba(139,26,47,.03)}
+.world-card-light{border-color:rgba(200,169,110,.2);background:rgba(200,169,110,.03)}
+.world-card-dark{border-color:rgba(80,60,120,.3);background:rgba(60,40,100,.05)}
+.world-card-icon{font-size:1.8rem;margin-bottom:.8rem;opacity:.6}
+.world-card-title-jp{font-family:"Shippori Mincho B1",serif;font-size:1.6rem;color:var(--paper);letter-spacing:.2em;margin-bottom:.2rem}
+.world-card-title-en{font-family:"IM Fell English",serif;font-style:italic;font-size:.72rem;color:var(--gold-dim);letter-spacing:.15em;margin-bottom:.8rem;opacity:.7}
+.world-card-divider{width:24px;height:1px;background:var(--crimson);margin-bottom:.8rem;opacity:.5}
+.world-card-body{font-size:.8rem;color:var(--ash);line-height:2.2;opacity:.85;margin-bottom:.4rem}
+.world-card-body-en{font-family:"IM Fell English",serif;font-style:italic;font-size:.73rem;color:var(--ash);line-height:1.9;opacity:.5}
+.world-card-center{text-align:center;padding:1rem}
+.world-vs{font-family:"Shippori Mincho B1",serif;font-size:1.1rem;color:var(--crimson-bright);letter-spacing:.2em;margin-bottom:.6rem;display:flex;flex-direction:column;gap:.1rem}
+.world-vs span{font-family:"IM Fell English",serif;font-style:italic;font-size:.65rem;color:var(--ash);opacity:.5;letter-spacing:.2em}
+.world-center-text{font-size:.75rem;color:var(--ash);line-height:2;opacity:.7;margin-bottom:.3rem}
+.world-center-text-en{font-family:"IM Fell English",serif;font-style:italic;font-size:.68rem;color:var(--ash);line-height:1.8;opacity:.4}
+.world-story{border:1px solid rgba(139,26,47,.2);padding:2rem 2.5rem;background:rgba(139,26,47,.03);position:relative}
+.world-story::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(to bottom,var(--crimson),transparent)}
+.world-story-label{font-family:"IM Fell English",serif;font-style:italic;font-size:.7rem;color:var(--crimson-bright);letter-spacing:.25em;margin-bottom:.8rem;display:flex;align-items:center;gap:10px}
+.world-story-label::before{content:"";width:16px;height:1px;background:var(--crimson-bright)}
+.world-story-text{font-size:.85rem;color:var(--ash);line-height:2.4;opacity:.9;margin-bottom:.4rem}
+.world-story-text-en{font-family:"IM Fell English",serif;font-style:italic;font-size:.78rem;color:var(--ash);line-height:2;opacity:.5}
+.characters-section{background:var(--ink);padding:7rem 4vw}
+.char-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-bottom:2rem}
+.char-card{border:1px solid rgba(139,26,47,.25);background:var(--deep);position:relative;overflow:hidden;transition:border-color .3s,transform .3s}
+.char-card:hover{border-color:rgba(192,38,62,.5);transform:translateY(-4px)}
+.char-badge{position:absolute;top:1rem;left:1rem;font-family:"IM Fell English",serif;font-style:italic;font-size:.58rem;letter-spacing:.15em;padding:2px 10px;z-index:3}
+.char-badge-main{background:rgba(139,26,47,.8);color:var(--paper);border:1px solid var(--crimson-bright)}
+.char-badge-human{background:rgba(180,130,50,.8);color:var(--paper);border:1px solid var(--gold)}
+.char-badge-yokai{background:rgba(60,100,80,.8);color:var(--paper);border:1px solid #4a8060}
+.char-img-wrap{aspect-ratio:3/4;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.char-img-kyoga{background:linear-gradient(160deg,#0a0a1e,#1a1a3a)}
+.char-img-akane{background:linear-gradient(160deg,#2a0810,#5a1525)}
+.char-img-rei{background:linear-gradient(160deg,#081a10,#1a3a25)}
+.char-rarity{position:absolute;bottom:.75rem;right:.75rem;color:var(--gold);font-size:.75rem;opacity:.7;letter-spacing:2px}
+.char-body{padding:1.25rem 1.25rem 1.5rem}
+.char-series{font-family:"IM Fell English",serif;font-style:italic;font-size:.6rem;color:var(--crimson-bright);letter-spacing:.2em;margin-bottom:.3rem;opacity:.7}
+.char-name-jp{font-family:"Shippori Mincho B1",serif;font-size:1.5rem;color:var(--paper);letter-spacing:.2em;margin-bottom:.1rem}
+.char-name-en{font-family:"IM Fell English",serif;font-style:italic;font-size:.72rem;color:var(--gold-dim);letter-spacing:.15em;margin-bottom:.75rem;opacity:.7}
+.char-divider{width:20px;height:1px;background:var(--crimson);margin-bottom:.75rem;opacity:.5}
+.char-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:.75rem}
+.char-tag{font-size:.58rem;padding:2px 8px;border-radius:2px;letter-spacing:.05em}
+.char-tag-kyoga{background:rgba(40,40,80,.6);color:#a0a8cc;border:1px solid rgba(100,100,180,.3)}
+.char-tag-akane{background:rgba(80,20,30,.6);color:#e0a0a8;border:1px solid rgba(180,60,80,.3)}
+.char-tag-rei{background:rgba(20,60,35,.6);color:#80c8a0;border:1px solid rgba(40,140,80,.3)}
+.char-quote{font-size:.75rem;color:var(--ash);line-height:2;opacity:.7;font-style:italic;border-left:2px solid rgba(139,26,47,.3);padding-left:.75rem}
+.char-coming{text-align:center;font-family:"IM Fell English",serif;font-style:italic;font-size:.78rem;color:var(--ash);opacity:.35;letter-spacing:.2em;margin-top:1rem}
+.footer-tagline{font-family:"Shippori Mincho B1",serif;font-size:.72rem;color:var(--ash);opacity:.35;letter-spacing:.1em;text-align:center}
+@media(max-width:900px){.world-grid{grid-template-columns:1fr;gap:1.5rem}.world-card-center{padding:.5rem 0}.char-grid{grid-template-columns:1fr}}
+@media(max-width:600px){.char-grid{grid-template-columns:1fr 1fr}.char-name-jp{font-size:1.2rem}}
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .9s ease,transform .9s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
 @media(max-width:900px){
@@ -185,6 +238,8 @@ footer{background:var(--ink);border-top:1px solid rgba(139,26,47,.2);padding:2.5
   <a href="#" class="nav-logo">幻想絵巻<span>Phantom Emaki</span></a>
   <ul class="nav-links">
     <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#world">World</a></li>
+    <li><a href="#characters">Characters</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -199,8 +254,8 @@ footer{background:var(--ink);border-top:1px solid rgba(139,26,47,.2);padding:2.5
     <h1 class="hero-title-jp">百鬼の夢</h1>
     <p class="hero-title-en">Dreams of a Hundred Demons</p>
     <div class="hero-divider"></div>
-    <p class="hero-desc-jp">京の闇に宿る神々、妖狐、鬼、そして侍。<br>AIが紡ぐ幻想の絵巻物語。</p>
-    <p class="hero-desc-en">Gods, fox spirits, demons and samurai in the darkness of Kyoto.<br>A phantom picture scroll woven by AI.</p>
+    <p class="hero-desc-jp">光の世界「現世」と、その裏に広がる影の世界「影世」。<br>二つの世界の境界が揺らぎ始めた時、<br>半人半妖の剣士・鏡牙の物語が始まる。</p>
+    <p class="hero-desc-en">Two worlds exist as one — the world of light, and the world of shadow that lies beneath. When the boundary between them begins to dissolve, the story of Kyoga, a warrior of two bloods, begins.</p>
     <a href="#gallery" class="hero-cta">Explore the Gallery</a>
     <div class="hero-featured">
       <div class="hero-featured-line"></div>
@@ -226,6 +281,109 @@ footer{background:var(--ink);border-top:1px solid rgba(139,26,47,.2);padding:2.5
     <div><span class="strip-label-jp">神話・怪談・侍</span><span class="strip-label-en">Mythology · Folklore · Samurai</span></div>
   </div>
 </div>
+
+<section class="world-section" id="world">
+  <div class="world-inner">
+    <div class="reveal" style="text-align:center;margin-bottom:4rem;">
+      <div class="section-label" style="justify-content:center;">World / 世界観</div>
+      <h2 class="section-title-jp">二つの世界</h2>
+      <p class="section-title-en">The Two Worlds</p>
+    </div>
+    <div class="world-grid reveal">
+      <div class="world-card world-card-light">
+        <div class="world-card-icon">☀</div>
+        <h3 class="world-card-title-jp">現世</h3>
+        <p class="world-card-title-en">Utsushiyo — The World of Light</p>
+        <div class="world-card-divider"></div>
+        <p class="world-card-body">人間が生きる光の世界。神社、寺、竹林、賑やかな祭りの夜——日本の美しき風景がここにある。しかし今、その世界の「影」が揺らぎ始めている。</p>
+        <p class="world-card-body-en">The world of humans, where shrines, temples and bamboo groves stand in the light. Beautiful, yet fragile — its shadow is beginning to stir.</p>
+      </div>
+      <div class="world-card-center reveal">
+        <div class="world-vs">境界<span>Boundary</span></div>
+        <p class="world-center-text">満月の夜、祭りの宵、特別な場所——その時だけ、二つの世界の境界は薄くなる。</p>
+        <p class="world-center-text-en">On nights of the full moon, at festivals and sacred places, the boundary thins.</p>
+      </div>
+      <div class="world-card world-card-dark">
+        <div class="world-card-icon">☽</div>
+        <h3 class="world-card-title-jp">影世</h3>
+        <p class="world-card-title-en">Kageyo — The World of Shadow</p>
+        <div class="world-card-divider"></div>
+        <p class="world-card-body">現世の裏に広がる影の世界。妖怪、鬼、神が棲む場所。同じ場所でも、現世の朱色の鳥居は影世では古く朽ちた石門として存在する。</p>
+        <p class="world-card-body-en">The shadow world that lies beneath the world of light. Where yokai, oni and gods dwell. The same place, yet different — a crimson torii becomes a crumbling stone gate.</p>
+      </div>
+    </div>
+    <div class="world-story reveal" style="transition-delay:.2s">
+      <div class="world-story-label">大筋 / The Story</div>
+      <p class="world-story-text">「世界の回帰」——太古に分かれた二つの世界が、再び融合しようとしている。現世側は「融合すれば人間の世界が滅ぶ」と阻止しようとし、影世側は「融合しなければ影世が消滅する」と推し進めようとする。しかしどちらも、真実の全てではない。</p>
+      <p class="world-story-text-en">The Convergence — two worlds, long divided, begin to merge once more. Humans say fusion means destruction. The shadow world says without it, they will cease to exist. Yet neither side holds the whole truth.</p>
+    </div>
+  </div>
+</section>
+
+<section class="characters-section" id="characters">
+  <div class="world-inner">
+    <div class="reveal" style="text-align:center;margin-bottom:3rem;">
+      <div class="section-label" style="justify-content:center;">Characters / 登場人物</div>
+      <h2 class="section-title-jp">影絵巻の人々</h2>
+      <p class="section-title-en">The Players of the Phantom Scroll</p>
+    </div>
+    <div class="char-grid">
+      <div class="char-card reveal">
+        <div class="char-badge char-badge-main">主人公</div>
+        <div class="char-img-wrap char-img-kyoga">
+          <div class="char-rarity">★★★★★</div>
+        </div>
+        <div class="char-body">
+          <p class="char-series">影絵巻 Series I</p>
+          <h3 class="char-name-jp">鏡牙</h3>
+          <p class="char-name-en">Kyoga</p>
+          <div class="char-divider"></div>
+          <div class="char-tags">
+            <span class="char-tag char-tag-kyoga">半人半妖</span>
+            <span class="char-tag char-tag-kyoga">剣士</span>
+          </div>
+          <p class="char-quote">「俺に居場所はない。だからこそ、どちらの世界も見える」</p>
+        </div>
+      </div>
+      <div class="char-card reveal" style="transition-delay:.15s">
+        <div class="char-badge char-badge-human">人間側</div>
+        <div class="char-img-wrap char-img-akane">
+          <div class="char-rarity">★★★★☆</div>
+        </div>
+        <div class="char-body">
+          <p class="char-series">影絵巻 Series I</p>
+          <h3 class="char-name-jp">朱音</h3>
+          <p class="char-name-en">Akane</p>
+          <div class="char-divider"></div>
+          <div class="char-tags">
+            <span class="char-tag char-tag-akane">人間・真巫女</span>
+            <span class="char-tag char-tag-akane">封印・神力</span>
+          </div>
+          <p class="char-quote">「神託は止めよと言った。でも私は、なぜ止めなければならないのかを知りたい」</p>
+        </div>
+      </div>
+      <div class="char-card reveal" style="transition-delay:.3s">
+        <div class="char-badge char-badge-yokai">妖怪側</div>
+        <div class="char-img-wrap char-img-rei">
+          <div class="char-rarity">★★★★☆</div>
+        </div>
+        <div class="char-body">
+          <p class="char-series">影絵巻 Series I</p>
+          <h3 class="char-name-jp">玲</h3>
+          <p class="char-name-en">Rei</p>
+          <div class="char-divider"></div>
+          <div class="char-tags">
+            <span class="char-tag char-tag-rei">妖狐・九尾の姫</span>
+            <span class="char-tag char-tag-rei">幻術・変化</span>
+          </div>
+          <p class="char-quote">「ねえ鏡牙、私はあんたが必要なんだけどね」</p>
+        </div>
+      </div>
+    </div>
+    <p class="char-coming reveal" style="transition-delay:.4s">— More characters coming soon —</p>
+  </div>
+</section>
+
 <section class="gallery-section" id="gallery">
   <div class="gallery-header reveal">
     <div>
@@ -295,6 +453,7 @@ footer{background:var(--ink);border-top:1px solid rgba(139,26,47,.2);padding:2.5
 </section>
 <footer>
   <div class="footer-logo">幻想絵巻 <span style="font-family:'IM Fell English',serif;font-style:italic;font-size:.7rem;opacity:.6;letter-spacing:.15em">Phantom Emaki</span></div>
+  <div class="footer-tagline">夢と現のはざまに宿る、百鬼の影 <span style="font-family:'IM Fell English',serif;font-style:italic">— In the space between dreams and waking, the shadows dwell.</span></div>
   <div class="footer-copy">© 2025 Phantom Emaki — AI Fantasy Art of Japan</div>
 </footer>
 <script src="images.js"></script>
