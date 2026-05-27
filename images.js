@@ -130,7 +130,7 @@ const GALLERY = [
     series: "XV",
     title_jp: "竹林の求道者",
     title_en: "Seeker of the Bamboo Path",
-    story_jp: "師は死の床でこう言った。「剣の極みは、斬ることではない。斬らずに済む道を見つけることだ」。その言葉の意味が、十年経った今もわからなかった。国を追われ、仲間を失い、ただ剣だけを拠り所に生きてきた。しかし今、この静寂の竹林に立つと、風が竹をそよがせるその音の中に、何かが聞こえる気がした。師の声ではない。もっと深いところから来る、何か——彼はゆっくりと、門へと歩み出した。",
+    story_jp: "師は死の床でこう言った。剣の極みは、斬ることではない。斬らずに済む道を見つけることだ。その言葉の意味が、十年経った今もわからなかった。国を追われ、仲間を失い、ただ剣だけを拠り所に生きてきた。しかし今、この静寂の竹林に立つと、風が竹をそよがせるその音の中に、何かが聞こえる気がした。師の声ではない。もっと深いところから来る、何か——彼はゆっくりと、門へと歩み出した。",
     story_en: "On his deathbed, his master had said: the pinnacle of the sword is not in the act of cutting, but in finding the path where no cut is needed. Ten years had passed, and still those words held no meaning for him. Driven from his homeland, stripped of his companions, he had survived with nothing but his blade. Yet now, standing in the stillness of this bamboo grove, something in the sound of wind through the stalks seemed to reach him — not his master's voice, but something deeper, older. He took a slow step forward toward the gate."
   },
   {
