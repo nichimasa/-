@@ -51,12 +51,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:1.5rem 4vw;display:f
 .hero-featured{position:absolute;bottom:2.5rem;left:3rem;display:flex;align-items:center;gap:1rem;animation:fadeUp 1.2s .9s ease both}
 .hero-featured-line{width:30px;height:1px;background:var(--crimson-bright)}
 .hero-featured-text{font-family:"IM Fell English",serif;font-style:italic;font-size:.68rem;color:var(--ash);letter-spacing:.2em;opacity:.6}
-.info-strip{background:var(--deep);border-top:1px solid rgba(139,26,47,.3);border-bottom:1px solid rgba(139,26,47,.2);padding:1.75rem 4vw;display:flex;align-items:center;gap:3rem;overflow-x:auto}
-.strip-item{display:flex;align-items:center;gap:.9rem;white-space:nowrap;flex-shrink:0}
-.strip-num{font-family:"IM Fell English",serif;font-style:italic;font-size:1.8rem;color:var(--crimson-bright);opacity:.45;line-height:1}
-.strip-label-jp{font-family:"Shippori Mincho B1",serif;font-size:.8rem;color:var(--paper);letter-spacing:.12em;display:block}
-.strip-label-en{font-family:"IM Fell English",serif;font-style:italic;font-size:.67rem;color:var(--ash);letter-spacing:.1em;opacity:.55}
-.strip-div{width:1px;height:36px;background:rgba(139,26,47,.3);flex-shrink:0}
+
+
+
+
+
+
 .gallery-section{background:var(--ink);padding:7rem 4vw}
 .gallery-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:3.5rem}
 .section-label{font-family:"IM Fell English",serif;font-style:italic;font-size:.7rem;letter-spacing:.3em;color:var(--crimson-bright);margin-bottom:.5rem;display:flex;align-items:center;gap:10px}
@@ -190,7 +190,7 @@ footer{background:var(--ink);border-top:1px solid rgba(139,26,47,.2);padding:2.5
 .char-tag-kyoga{background:rgba(40,40,80,.6);color:#a0a8cc;border:1px solid rgba(100,100,180,.3)}
 .char-tag-akane{background:rgba(80,20,30,.6);color:#e0a0a8;border:1px solid rgba(180,60,80,.3)}
 .char-tag-rei{background:rgba(20,60,35,.6);color:#80c8a0;border:1px solid rgba(40,140,80,.3)}
-.char-quote{font-size:.75rem;color:var(--ash);line-height:2;opacity:.7;font-style:italic;border-left:2px solid rgba(139,26,47,.3);padding-left:.75rem}
+.char-quote{font-size:.75rem;color:var(--ash);line-height:2;opacity:.7;font-style:italic;border-left:2px solid rgba(139,26,47,.3);padding-left:.75rem}.char-quote-en{font-family:"IM Fell English",serif;font-size:.68rem;color:var(--ash);opacity:.5;font-style:italic;display:block;margin-top:.2rem}
 .char-coming{text-align:center;font-family:"IM Fell English",serif;font-style:italic;font-size:.78rem;color:var(--ash);opacity:.35;letter-spacing:.2em;margin-top:1rem}
 .char-img-souma{background:linear-gradient(160deg,#1a1500,#3a3010)}
 .char-img-meiga{background:linear-gradient(160deg,#0a0010,#1a0020)}
@@ -278,24 +278,7 @@ footer{background:var(--ink);border-top:1px solid rgba(139,26,47,.2);padding:2.5
     </div>
   </div>
 </section>
-<div class="info-strip">
-  <div class="strip-item">
-    <div class="strip-num" id="strip-total">—</div>
-    <div><span class="strip-label-jp">作品数</span><span class="strip-label-en">Total Works</span></div>
-  </div>
-  <div class="strip-div"></div>
-  <div class="strip-item">
-    <div><span class="strip-label-jp">二つの世界</span><span class="strip-label-en">現世 Utsushiyo · 影世 Kageyo</span></div>
-  </div>
-  <div class="strip-div"></div>
-  <div class="strip-item">
-    <div><span class="strip-label-jp">主要登場人物</span><span class="strip-label-en">鏡牙 · 朱音 · 玲</span></div>
-  </div>
-  <div class="strip-div"></div>
-  <div class="strip-item">
-    <div><span class="strip-label-jp">妖怪・侍・神・巫女</span><span class="strip-label-en">Yokai · Samurai · Gods · Shrine Maidens</span></div>
-  </div>
-</div>
+
 
 <section class="world-section" id="world">
   <div class="world-inner">
@@ -339,8 +322,8 @@ footer{background:var(--ink);border-top:1px solid rgba(139,26,47,.2);padding:2.5
   <div class="world-inner">
     <div class="reveal" style="text-align:center;margin-bottom:3rem;">
       <div class="section-label" style="justify-content:center;">Characters / 登場人物</div>
-      <h2 class="section-title-jp">影絵巻の人々</h2>
-      <p class="section-title-en">The Players of the Phantom Scroll</p>
+      <h2 class="section-title-jp">主要登場人物</h2>
+      <p class="section-title-en">Main Characters</p>
     </div>
 
     <div class="all-chars-grid">
@@ -358,7 +341,7 @@ footer{background:var(--ink);border-top:1px solid rgba(139,26,47,.2);padding:2.5
             <span class="char-tag char-tag-kyoga">半人半妖</span>
             <span class="char-tag char-tag-kyoga">剣士</span>
           </div>
-          <p class="char-quote">「俺に居場所はない。だからこそ、どちらの世界も見える」</p>
+          <p class="char-quote">「俺に居場所はない。だからこそ、どちらの世界も見える」<br><span class="char-quote-en">I belong to neither world. That is why I can see them both.</span></p>
         </div>
       </div>
 
@@ -376,7 +359,7 @@ footer{background:var(--ink);border-top:1px solid rgba(139,26,47,.2);padding:2.5
             <span class="char-tag char-tag-akane">人間・真巫女</span>
             <span class="char-tag char-tag-akane">封印・神力</span>
           </div>
-          <p class="char-quote">「神託は止めよと言った。でも私は、なぜ止めなければならないのかを知りたい」</p>
+          <p class="char-quote">「神託は止めよと言った。でも私は、なぜ止めなければならないのかを知りたい」<br><span class="char-quote-en">The oracle said to stop it. But I need to know why.</span></p>
         </div>
       </div>
 
@@ -394,7 +377,7 @@ footer{background:var(--ink);border-top:1px solid rgba(139,26,47,.2);padding:2.5
             <span class="char-tag char-tag-rei">妖狐・九尾の姫</span>
             <span class="char-tag char-tag-rei">幻術・変化</span>
           </div>
-          <p class="char-quote">「ねえ鏡牙、私はあんたが必要なんだけどね」</p>
+          <p class="char-quote">「ねえ鏡牙、私はあんたが必要なんだけどね」<br><span class="char-quote-en">Hey Kyoga — I need you. Whether you like it or not.</span></p>
         </div>
       </div>
 
@@ -414,7 +397,7 @@ footer{background:var(--ink);border-top:1px solid rgba(139,26,47,.2);padding:2.5
             <span class="char-tag char-tag-souma">人間・大神官</span>
             <span class="char-tag char-tag-souma">神気剣術</span>
           </div>
-          <p class="char-quote">「感情は剣を鈍らせる。使命だけが、人を人たらしめる」</p>
+          <p class="char-quote">「感情は剣を鈍らせる。使命だけが、人を人たらしめる」<br><span class="char-quote-en">Emotion dulls the blade. Only purpose makes us truly human.</span></p>
         </div>
       </div>
 
@@ -432,7 +415,7 @@ footer{background:var(--ink);border-top:1px solid rgba(139,26,47,.2);padding:2.5
             <span class="char-tag char-tag-meiga">大妖怪・鬼神</span>
             <span class="char-tag char-tag-meiga">冥界の炎</span>
           </div>
-          <p class="char-quote">「影を恐れるな。影がなければ、光もまた存在できぬのだ」</p>
+          <p class="char-quote">「影を恐れるな。影がなければ、光もまた存在できぬのだ」<br><span class="char-quote-en">Do not fear the shadow. Without shadow, light itself cannot exist.</span></p>
         </div>
       </div>
 
@@ -440,24 +423,7 @@ footer{background:var(--ink);border-top:1px solid rgba(139,26,47,.2);padding:2.5
     <p class="char-coming reveal" style="transition-delay:.4s">— 脇役・敵キャラクターは Stories ページにて公開予定 / Supporting characters coming in the Stories section —</p>
   </div>
 </section>
-<div class="info-strip">
-  <div class="strip-item">
-    <div class="strip-num" id="strip-total">—</div>
-    <div><span class="strip-label-jp">作品数</span><span class="strip-label-en">Total Works</span></div>
-  </div>
-  <div class="strip-div"></div>
-  <div class="strip-item">
-    <div><span class="strip-label-jp">二つの世界</span><span class="strip-label-en">現世 Utsushiyo · 影世 Kageyo</span></div>
-  </div>
-  <div class="strip-div"></div>
-  <div class="strip-item">
-    <div><span class="strip-label-jp">主要登場人物</span><span class="strip-label-en">鏡牙 · 朱音 · 玲</span></div>
-  </div>
-  <div class="strip-div"></div>
-  <div class="strip-item">
-    <div><span class="strip-label-jp">妖怪・侍・神・巫女</span><span class="strip-label-en">Yokai · Samurai · Gods · Shrine Maidens</span></div>
-  </div>
-</div>
+
 
 <section class="world-section" id="world">
   <div class="world-inner">
@@ -499,11 +465,7 @@ footer{background:var(--ink);border-top:1px solid rgba(139,26,47,.2);padding:2.5
 
 <section class="characters-section" id="characters">
   <div class="world-inner">
-    <div class="reveal" style="text-align:center;margin-bottom:3rem;">
-      <div class="section-label" style="justify-content:center;">Characters / 登場人物</div>
-      <h2 class="section-title-jp">影絵巻の人々</h2>
-      <p class="section-title-en">The Players of the Phantom Scroll</p>
-    </div>
+    
     
       <p class="char-coming reveal" style="transition-delay:.4s">— 脇役・敵キャラクターは Stories ページにて公開予定 / Supporting characters coming in the Stories section —</p>
   </div>
