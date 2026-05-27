@@ -548,7 +548,6 @@ footer{background:var(--ink);border-top:1px solid rgba(139,26,47,.2);padding:2.5
 const obs = new IntersectionObserver(entries => {
   entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add("visible"); obs.unobserve(e.target); }});
 }, {threshold:.08});
-document.getElementById("strip-total").textContent = GALLERY.length + 1;
 document.getElementById("gallery-count").textContent = String(GALLERY.length).padStart(2,"0");
 const grid = document.getElementById("gallery-grid");
 GALLERY.forEach((item, i) => {
