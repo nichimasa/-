@@ -1,7 +1,7 @@
 // =====================================================
 // 画像追加・編集はこのファイルだけ変更すればOKです
-// 新しい画像を追加するときは、galleryの末尾に
-// 下記と同じ形式でコピー＆追加してください
+// 新しい画像を追加するときは、galleryの末尾の
+// コメント部分を参考にコピー＆追加してください
 // =====================================================
 
 const FEATURED = {
@@ -18,7 +18,7 @@ const GALLERY = [
     series: "I",
     title_jp: "竹林の鬼狩り",
     title_en: "Demon Hunter of the Bamboo Grove",
-    story_jp: "雨に濡れた竹林の奥、提灯に照らされた「百鬼夜行」の文字が揺れる。侍・影牙は刃を抜き、静かに息を整えた。左右の竹から無数の鬼と亡者が這い出でる——目玉の妖、角を持つ鬼、黒髪の幽霊。しかし影牙は動じない。「俺を喰らいたければ、かかってこい」。石段の先、鳥居だけが静かにそこにあった。",
+    story_jp: "雨に濡れた竹林の奥、提灯に照らされた百鬼夜行の文字が揺れる。侍・影牙は刃を抜き、静かに息を整えた。左右の竹から無数の鬼と亡者が這い出でる——目玉の妖、角を持つ鬼、黒髪の幽霊。しかし影牙は動じない。俺を喰らいたければ、かかってこい。石段の先、鳥居だけが静かにそこにあった。",
     story_en: "Deep within a rain-soaked bamboo grove, a paper lantern sways bearing the words Night Parade of a Hundred Demons. The samurai Kagekiba draws his blade and steadies his breath. From the bamboo on all sides, countless demons crawl forth — eyeball spirits, horned oni, black-haired ghosts. Yet Kagekiba does not flinch. Come at me if you dare. Beyond the stone steps, the torii gate stood silent and waiting."
   },
   {
@@ -51,7 +51,7 @@ const GALLERY = [
     title_jp: "狐と侍の邂逅",
     title_en: "Encounter of Fox and Samurai",
     story_jp: "血月が照らす京の夜、妖狐の姫・玲と流れ者の侍・黒斗は、鳥居の前で出会った。周囲には無数の鬼と妖が溢れ、二人は背中合わせで刃と炎を構える。信じるわけじゃない。ただ、生き延びたいだけよ。",
-    story_en: "Beneath a blood-red moon over Kyoto, the fox spirit princess Rei and the wandering samurai Kuro met before the torii gate. Countless demons surrounded them, and the two stood back to back. I don't trust you, she said. I simply want to survive this night."
+    story_en: "Beneath a blood-red moon over Kyoto, the fox spirit princess Rei and the wandering samurai Kuro met before the torii gate. Countless demons surrounded them, and the two stood back to back. I don\'t trust you, she said. I simply want to survive this night."
   },
   {
     file: "images/img06.png",
@@ -64,7 +64,7 @@ const GALLERY = [
   {
     file: "images/img07.png",
     series: "VII",
-    title_jp:  "稲荷大神の社",
+    title_jp: "稲荷大神の社",
     title_en: "Shrine of the Great Fox God",
     story_jp: "雨降る夜、稲荷大神を祀る社が赤と青の炎に浮かび上がる。狛狐が左右に鎮座し、青い鬼火が石段を照らす。この場所に足を踏み入れた者は、神の試練を受けることになる。果たして、あなたは何を願うのか。",
     story_en: "On a rainy night, the shrine of the Great Fox God Inari glows with red lanterns and blue spirit flames. Guardian fox statues flank the steps as ghostly blue fire illuminates the stone stairway. Those who enter face a divine trial. What is it that you seek to wish for?"
@@ -75,7 +75,7 @@ const GALLERY = [
     title_jp: "悪霊退散",
     title_en: "Exorcism at the Torii",
     story_jp: "紫電が空を裂き、巨大な鬼神が鳥居の上に降臨した夜。陰陽師と侍は背中合わせで対峙する。陰陽師の呪陣が紫の光を放ち、侍の刃が雨の中で煌めく。その言葉が嵐の中に消えていった——悪霊退散。",
-    story_en: "A night when purple lightning tears the sky and a great demon god descends upon the torii. An onmyoji and a samurai stand back to back. The onmyoji's summoning circle blazes with violet light as the samurai's blade gleams through the rain. Those words vanished into the storm — Evil spirits, begone."
+    story_en: "A night when purple lightning tears the sky and a great demon god descends upon the torii. An onmyoji and a samurai stand back to back. The onmyoji\'s summoning circle blazes with violet light as the samurai\'s blade gleams through the rain. Those words vanished into the storm — Evil spirits, begone."
   },
   {
     file: "images/img09.png",
@@ -99,7 +99,7 @@ const GALLERY = [
     title_jp: "血月の百鬼街道",
     title_en: "Blood Moon Demon Parade",
     story_jp: "夜の京の大路に、血のような月が昇る夜。狐面の巫女と白狐を先頭に、鬼、妖、亡者が粛々と列をなして歩む。これが伝説の百鬼夜行——その行列に迷い込んだ者は、二度と人の世に戻れないという。",
-    story_en: "On a night when a blood-red moon rises over Kyoto's great avenue, a procession of demons, spirits and the undead marches solemnly, led by a fox-masked shrine maiden. This is the legendary Night Parade of a Hundred Demons. Any soul who wanders into its path never returns to the world of the living."
+    story_en: "On a night when a blood-red moon rises over Kyoto\'s great avenue, a procession of demons, spirits and the undead marches solemnly, led by a fox-masked shrine maiden. This is the legendary Night Parade of a Hundred Demons. Any soul who wanders into its path never returns to the world of the living."
   },
   {
     file: "images/img12.png",
@@ -131,14 +131,14 @@ const GALLERY = [
     title_jp: "竹林の求道者",
     title_en: "Seeker of the Bamboo Path",
     story_jp: "師は死の床でこう言った。剣の極みは、斬ることではない。斬らずに済む道を見つけることだ。その言葉の意味が、十年経った今もわからなかった。国を追われ、仲間を失い、ただ剣だけを拠り所に生きてきた。しかし今、この静寂の竹林に立つと、風が竹をそよがせるその音の中に、何かが聞こえる気がした。師の声ではない。もっと深いところから来る、何か——彼はゆっくりと、門へと歩み出した。",
-    story_en: "On his deathbed, his master had said: the pinnacle of the sword is not in the act of cutting, but in finding the path where no cut is needed. Ten years had passed, and still those words held no meaning for him. Driven from his homeland, stripped of his companions, he had survived with nothing but his blade. Yet now, standing in the stillness of this bamboo grove, something in the sound of wind through the stalks seemed to reach him — not his master's voice, but something deeper, older. He took a slow step forward toward the gate."
+    story_en: "On his deathbed, his master had said: the pinnacle of the sword is not in the act of cutting, but in finding the path where no cut is needed. Ten years had passed, and still those words held no meaning for him. Driven from his homeland, stripped of his companions, he had survived with nothing but his blade. Yet now, standing in the stillness of this bamboo grove, something in the sound of wind through the stalks seemed to reach him — not his master\'s voice, but something deeper, older. He took a slow step forward toward the gate."
   },
   {
     file: "images/img16.png",
     series: "XVI",
     title_jp: "巫女と神狐",
     title_en: "Shrine Maiden and the Divine Fox",
-    story_jp: "朱莉が稲荷神社に奉職して三年が経つが、その白い狐を見たのは初めてだった。古老の神職はかつてこう語っていた。「白狐が人に頭を垂れるとき、その者は神に選ばれた証だ。しかし選ばれた者には、必ず試練が訪れる」。桜の花びらが二人の間をゆっくりと舞い落ちた。朱莉は怖くはなかった。ただ、この温かな眼差しを向ける小さな命が、自分に何かを伝えようとしているのだと、確かに感じた。その意味を知るのは、きっとまだ先のことだ。",
+    story_jp: "朱莉が稲荷神社に奉職して三年が経つが、その白い狐を見たのは初めてだった。古老の神職はかつてこう語っていた。白狐が人に頭を垂れるとき、その者は神に選ばれた証だ。しかし選ばれた者には、必ず試練が訪れる。桜の花びらが二人の間をゆっくりと舞い落ちた。朱莉は怖くはなかった。ただ、この温かな眼差しを向ける小さな命が、自分に何かを伝えようとしているのだと、確かに感じた。その意味を知るのは、きっとまだ先のことだ。",
     story_en: "Three years had passed since Akari began serving at the Inari shrine, yet she had never once seen the white fox before today. An elder priest had spoken of it long ago: when the white fox lowers its head to a human, that person has been chosen by the divine — but those who are chosen are always met with trials to follow. Cherry blossoms drifted slowly between them. Akari felt no fear. She simply sensed, with quiet certainty, that this small creature gazing at her with such warmth was trying to tell her something. The meaning of it all, she knew, would only become clear with time."
   },
   {
@@ -154,8 +154,8 @@ const GALLERY = [
   // 新しい画像を追加するときはここにコピーして追加：
   // =====================================================
   // ,{
-  //   file: "images/img14.png",
-  //   series: "XIV",
+  //   file: "images/img18.png",
+  //   series: "XVIII",
   //   title_jp: "タイトル（日本語）",
   //   title_en: "Title (English)",
   //   story_jp: "物語文（日本語）",
