@@ -116,7 +116,39 @@ const GALLERY = [
     title_en: "Moonlit Open-Air Bath",
     story_jp: "満月の夜、山深くに佇む露天風呂。湯煙が冷えた空気に溶け、桜の花びらが静かに湯面に降り積もる。一人の娘が遠くの灯りを眺めながら、深く息を吐いた。この静寂は、現の世のものではないかもしれない。",
     story_en: "A moonlit night, deep in the mountains. Steam dissolves into the cold air as cherry blossoms drift silently onto the water. A young woman exhales slowly, gazing at the distant lights below. This silence may not belong to the world of the living."
-  }
+  },
+  {
+    file: "images/img14.png",
+    series: "XIV",
+    title_jp: "夏祭りの縁",
+    title_en: "Summer Festival Bond",
+    story_jp: "幼い頃から共に育った二人は、いつしか言葉にできない感情を胸に抱えるようになっていた。祭りの夜、隣を歩く彼女の横顔を、彼はそっと盗み見た。えんむすびの神が祀られるこの社では、祭りの夜に想いを伝えた者の縁は、来世まで続くという言い伝えがある。花火が夜空に大きく咲いた。今夜こそ、言わなければ——彼は静かに、手を伸ばした。",
+    story_en: "They had grown up side by side since childhood, and somewhere along the way, feelings neither could name had begun to take root. On the night of the festival, he stole a quiet glance at her face as she walked beside him. At this shrine — home to the god of bonds — there is a legend that those who speak their feelings on festival nights will be bound together across lifetimes. A great firework bloomed in the dark sky above. Tonight, at last, he had to say it. Slowly, he reached out his hand."
+  },
+  {
+    file: "images/img15.png",
+    series: "XV",
+    title_jp: "竹林の求道者",
+    title_en: "Seeker of the Bamboo Path",
+    story_jp: "師は死の床でこう言った。「剣の極みは、斬ることではない。斬らずに済む道を見つけることだ」。その言葉の意味が、十年経った今もわからなかった。国を追われ、仲間を失い、ただ剣だけを拠り所に生きてきた。しかし今、この静寂の竹林に立つと、風が竹をそよがせるその音の中に、何かが聞こえる気がした。師の声ではない。もっと深いところから来る、何か——彼はゆっくりと、門へと歩み出した。",
+    story_en: "On his deathbed, his master had said: the pinnacle of the sword is not in the act of cutting, but in finding the path where no cut is needed. Ten years had passed, and still those words held no meaning for him. Driven from his homeland, stripped of his companions, he had survived with nothing but his blade. Yet now, standing in the stillness of this bamboo grove, something in the sound of wind through the stalks seemed to reach him — not his master's voice, but something deeper, older. He took a slow step forward toward the gate."
+  },
+  {
+    file: "images/img16.png",
+    series: "XVI",
+    title_jp: "巫女と神狐",
+    title_en: "Shrine Maiden and the Divine Fox",
+    story_jp: "朱莉が稲荷神社に奉職して三年が経つが、その白い狐を見たのは初めてだった。古老の神職はかつてこう語っていた。「白狐が人に頭を垂れるとき、その者は神に選ばれた証だ。しかし選ばれた者には、必ず試練が訪れる」。桜の花びらが二人の間をゆっくりと舞い落ちた。朱莉は怖くはなかった。ただ、この温かな眼差しを向ける小さな命が、自分に何かを伝えようとしているのだと、確かに感じた。その意味を知るのは、きっとまだ先のことだ。",
+    story_en: "Three years had passed since Akari began serving at the Inari shrine, yet she had never once seen the white fox before today. An elder priest had spoken of it long ago: when the white fox lowers its head to a human, that person has been chosen by the divine — but those who are chosen are always met with trials to follow. Cherry blossoms drifted slowly between them. Akari felt no fear. She simply sensed, with quiet certainty, that this small creature gazing at her with such warmth was trying to tell her something. The meaning of it all, she knew, would only become clear with time."
+  },
+  {
+    file: "images/img17.png",
+    series: "XVII",
+    title_jp: "雲海の巡礼",
+    title_en: "Pilgrimage Above the Clouds",
+    story_jp: "二人が旅を始めたのは、まだ雪が残る早春のことだった。侍・玄は巫女・澪を、遠い山の神殿まで送り届けるよう命じられた。当初は無言の道連れに過ぎなかった。しかし幾つもの峠を越え、嵐をくぐり抜け、共に飢えを凌いだ夜を経て、二人の間に言葉では表せない何かが生まれていた。そしてついに、雲海を見下ろすこの場所に辿り着いた今——玄は気づいてしまった。この旅が終われば、二人は別々の道を歩まねばならないと。それでも彼は、この景色を彼女と共に見られたことを、生涯忘れないだろう。",
+    story_en: "Their journey had begun in early spring, when snow still clung to the mountain passes. The samurai Gen had been charged with escorting the shrine maiden Mio to a temple deep in the distant mountains — nothing more than a silent obligation. Yet as they crossed pass after pass, weathered storms together and shared nights of quiet hunger, something beyond words had grown between them. Now, at last standing here above the sea of clouds, Gen understood with a pang what he had been unwilling to face: when this journey ended, they would each walk separate paths. Even so, he knew he would carry this moment — this view, shared with her — for the rest of his life."
+  },
  
 
   // =====================================================
