@@ -88,11 +88,21 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:1.5rem 4vw;display:f
 /* ─── 場面カード ─── */
 .scene-list{display:flex;flex-direction:column;gap:5rem}
 .scene{position:relative}
-.scene-num{font-family:"IM Fell English",serif;font-style:italic;font-size:4rem;color:var(--crimson);opacity:.1;position:absolute;top:-1.5rem;left:0;line-height:1;pointer-events:none;user-select:none}
-.scene-img-wrap{width:100%;position:relative;overflow:hidden;background:#1a0f14;margin-bottom:2rem;aspect-ratio:16/9}
-.scene-img-wrap img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(.85) saturate(1.1);transition:transform .8s ease,filter .5s}
-.scene-img-wrap:hover img{transform:scale(1.03);filter:brightness(.9) saturate(1.2)}
-.scene-img-wrap::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,transparent 60%,rgba(10,6,8,.8) 100%);pointer-events:none}
+.scene-num{font-family:"IM Fell English",serif;font-style:italic;font-size:4rem;color:var(--crimson);opacity:.1;position:absolute;top:-1.5rem;left:0;line-height:1;pointer-events:none;user-select:none;z-index:0}
+
+/* 2カラムレイアウト（縦長画像あり） */
+.scene-with-img{display:grid;grid-template-columns:42% 1fr;gap:3.5rem;align-items:start}
+.scene-with-img .scene-img-wrap{position:sticky;top:5.5rem;width:100%;margin-bottom:0}
+.scene-content{padding-top:.25rem}
+
+/* 画像ラッパー（縦長・全体表示） */
+.scene-img-wrap{width:100%;position:relative;overflow:hidden;background:#1a0f14}
+.scene-img-wrap img{width:100%;height:auto;display:block;filter:brightness(.88) saturate(1.1);transition:filter .5s}
+.scene-img-wrap:hover img{filter:brightness(.95) saturate(1.2)}
+.scene-img-wrap::after{content:"";position:absolute;inset:0;background:linear-gradient(to right,transparent 85%,rgba(10,6,8,.6) 100%);pointer-events:none}
+
+/* 画像なし（横長プレースホルダー） */
+.scene-img-placeholder{width:100%;aspect-ratio:16/9;background:linear-gradient(135deg,#1a0f14 0%,#2a1520 50%,#1a0f14 100%);display:flex;align-items:center;justify-content:center;margin-bottom:2rem;position:relative;overflow:hidden}
 .scene-img-placeholder{width:100%;aspect-ratio:16/9;background:linear-gradient(135deg,#1a0f14 0%,#2a1520 50%,#1a0f14 100%);display:flex;align-items:center;justify-content:center;margin-bottom:2rem;position:relative;overflow:hidden}
 .scene-img-placeholder::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(139,26,47,.15) 0%,transparent 70%)}
 .scene-img-placeholder-text{font-family:"Shippori Mincho B1",serif;font-size:1.2rem;color:var(--crimson);opacity:.3;letter-spacing:.3em;text-align:center}
@@ -130,6 +140,11 @@ footer{background:var(--ink);border-top:1px solid rgba(139,26,47,.2);padding:2.5
 .footer-copy{font-family:"IM Fell English",serif;font-style:italic;font-size:.7rem;color:var(--ash);opacity:.35;letter-spacing:.1em}
 
 /* ─── レスポンシブ ─── */
+@media(max-width:860px){
+  .scene-with-img{grid-template-columns:1fr;gap:2rem}
+  .scene-with-img .scene-img-wrap{position:static;max-width:480px;margin:0 auto}
+  .scene-img-wrap::after{background:linear-gradient(to bottom,transparent 80%,rgba(10,6,8,.6) 100%)}
+}
 @media(max-width:600px){
   .nav-links{gap:1.2rem}
   .chapters-nav{gap:0;padding:2rem 2vw 0}
@@ -198,37 +213,39 @@ footer{background:var(--ink);border-top:1px solid rgba(139,26,47,.2);padding:2.5
     <div class="scene-list">
 
       <!-- 場面１ -->
-      <div class="scene reveal">
+      <div class="scene scene-with-img reveal">
         <div class="scene-num">01</div>
         <div class="scene-img-wrap">
           <img src="images/prologue_shrine.png" alt="影世の社 — The Shrine Between Worlds" loading="lazy">
         </div>
-        <div class="scene-meta">
-          <span class="scene-label">Scene 01</span>
-        </div>
-        <h3 class="scene-title-jp">影世の社</h3>
-        <p class="scene-title-en">The Shrine Between Worlds</p>
-        <div class="scene-divider"></div>
-        <div class="lang-tabs">
-          <button class="lang-tab active" data-lang="jp">日本語</button>
-          <button class="lang-tab" data-lang="en">English</button>
-        </div>
-        <div class="story-panel active" id="s-prologue-1-jp">
-          <div class="scene-story">
-            <p>朱色の鳥居が並ぶ神社は、昼間はただの古社だ。しかし夜が更け、月が中天に昇る頃、その姿は変わり始める。</p>
-            <p>鳥居の朱は褪せ、石畳は苔むした古い岩肌を露わにする。参道の石灯籠はひとつ残らず消え、代わりに青白い光が宙に浮かぶ。影世——現世の裏に重なり合うもう一つの世界が、薄く透けて見えるようになる時間。</p>
-            <p>鏡牙は誰もいない参道を歩いていた。右目には現世の静寂を、左目には影世のかすかな揺らめきを映しながら。黒刀「影断」は鞘に収まったまま、しかしその手は柄の近くにある。</p>
-            <p>——今夜は、いつもと違う。</p>
-            <p>境界が薄い。この一年で最も薄い夜だと、身体が告げていた。</p>
+        <div class="scene-content">
+          <div class="scene-meta">
+            <span class="scene-label">Scene 01</span>
           </div>
-        </div>
-        <div class="story-panel" id="s-prologue-1-en">
-          <div class="scene-story en">
-            <p>By day, the shrine with its rows of crimson torii is nothing more than an old place of worship. But as night deepens and the moon climbs to the center of the sky, it begins to change.</p>
-            <p>The red of the torii fades. The stone path reveals ancient rock worn smooth by centuries. The stone lanterns vanish one by one, replaced by pale light drifting in the air. This is the hour when the shadow world — the other world that lies beneath this one — becomes visible, thin as gauze.</p>
-            <p>Kyoga walked the empty path alone, his right eye seeing the silence of the living world, his left catching the faint shimmer of the world beyond. His black blade, Kagekiri, sat sheathed at his side — but his hand stayed near the hilt.</p>
-            <p>— Tonight is different.</p>
-            <p>The boundary was thin. His body told him it was the thinnest it had been all year.</p>
+          <h3 class="scene-title-jp">影世の社</h3>
+          <p class="scene-title-en">The Shrine Between Worlds</p>
+          <div class="scene-divider"></div>
+          <div class="lang-tabs">
+            <button class="lang-tab active" data-lang="jp">日本語</button>
+            <button class="lang-tab" data-lang="en">English</button>
+          </div>
+          <div class="story-panel active" id="s-prologue-1-jp">
+            <div class="scene-story">
+              <p>朱色の鳥居が並ぶ神社は、昼間はただの古社だ。しかし夜が更け、月が中天に昇る頃、その姿は変わり始める。</p>
+              <p>鳥居の朱は褪せ、石畳は苔むした古い岩肌を露わにする。参道の石灯籠はひとつ残らず消え、代わりに青白い光が宙に浮かぶ。影世——現世の裏に重なり合うもう一つの世界が、薄く透けて見えるようになる時間。</p>
+              <p>鏡牙は誰もいない参道を歩いていた。右目には現世の静寂を、左目には影世のかすかな揺らめきを映しながら。黒刀「影断」は鞘に収まったまま、しかしその手は柄の近くにある。</p>
+              <p>——今夜は、いつもと違う。</p>
+              <p>境界が薄い。この一年で最も薄い夜だと、身体が告げていた。</p>
+            </div>
+          </div>
+          <div class="story-panel" id="s-prologue-1-en">
+            <div class="scene-story en">
+              <p>By day, the shrine with its rows of crimson torii is nothing more than an old place of worship. But as night deepens and the moon climbs to the center of the sky, it begins to change.</p>
+              <p>The red of the torii fades. The stone path reveals ancient rock worn smooth by centuries. The stone lanterns vanish one by one, replaced by pale light drifting in the air. This is the hour when the shadow world — the other world that lies beneath this one — becomes visible, thin as gauze.</p>
+              <p>Kyoga walked the empty path alone, his right eye seeing the silence of the living world, his left catching the faint shimmer of the world beyond. His black blade, Kagekiri, sat sheathed at his side — but his hand stayed near the hilt.</p>
+              <p>— Tonight is different.</p>
+              <p>The boundary was thin. His body told him it was the thinnest it had been all year.</p>
+            </div>
           </div>
         </div>
       </div>
