@@ -144,6 +144,21 @@ footer{background:var(--ink);border-top:1px solid rgba(139,26,47,.2);padding:2.5
 .footer-tagline{font-family:"Shippori Mincho B1",serif;font-size:.72rem;color:var(--ash);opacity:.35;letter-spacing:.1em;text-align:center}
 .footer-copy{font-family:"IM Fell English",serif;font-style:italic;font-size:.7rem;color:var(--ash);opacity:.35;letter-spacing:.1em}
 
+/* ─── Backgroundタブ専用スタイル ─── */
+.chap-tab-bg{border-left:1px solid rgba(139,26,47,.2);margin-left:.5rem;color:var(--gold-dim)}
+.chap-tab-bg.active{color:var(--gold);border-bottom-color:var(--gold)}
+
+.bg-section{margin-bottom:5rem}
+.bg-section-label{font-family:"IM Fell English",serif;font-style:italic;font-size:.68rem;color:var(--gold);letter-spacing:.3em;margin-bottom:.6rem;display:flex;align-items:center;gap:10px;opacity:.8}
+.bg-section-label::before{content:"";width:14px;height:1px;background:var(--gold)}
+.bg-character-header{display:flex;align-items:center;gap:1.5rem;margin-bottom:2.5rem;padding-bottom:1.5rem;border-bottom:1px solid rgba(139,26,47,.2)}
+.bg-character-badge{font-family:"Shippori Mincho B1",serif;font-size:2.2rem;color:var(--paper);letter-spacing:.2em;text-shadow:0 2px 20px rgba(139,26,47,.5)}
+.bg-character-info{flex:1}
+.bg-character-name-en{font-family:"IM Fell English",serif;font-style:italic;font-size:.85rem;color:var(--gold);letter-spacing:.2em;opacity:.85;margin-bottom:.3rem}
+.bg-character-tags{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:.5rem}
+.bg-character-tag{font-size:.6rem;padding:2px 10px;border:1px solid rgba(139,26,47,.4);color:var(--ash);letter-spacing:.1em;opacity:.7}
+.bg-character-quote{font-family:"Shippori Mincho B1",serif;font-size:.82rem;color:var(--gold-dim);letter-spacing:.12em;line-height:1.8;border-left:2px solid rgba(139,26,47,.35);padding-left:1rem;font-style:normal}
+
 /* ─── レスポンシブ ─── */
 @media(max-width:860px){
   .scene-with-img{grid-template-columns:1fr;gap:2rem}
@@ -197,6 +212,7 @@ footer{background:var(--ink);border-top:1px solid rgba(139,26,47,.2);padding:2.5
   <button class="chap-tab" data-chapter="ch2">第二章</button>
   <button class="chap-tab" data-chapter="ch3">第三章</button>
   <button class="chap-tab" data-chapter="epilogue">終章</button>
+  <button class="chap-tab chap-tab-bg" data-chapter="background">Background</button>
 </div>
 
 <!-- ─── メインコンテンツ ─── -->
@@ -435,6 +451,79 @@ footer{background:var(--ink);border-top:1px solid rgba(139,26,47,.2);padding:2.5
       <p class="scene-coming-en">Coming Soon — The final chapter awaits</p>
     </div>
   </div>
+
+  <!-- ══════════ Background ══════════ -->
+  <div class="chapter-panel" id="panel-background">
+    <div class="chapter-header reveal">
+      <div class="chapter-label">Background Stories</div>
+      <h2 class="chapter-title-jp">背景譚</h2>
+      <p class="chapter-title-en">The Stories Behind the Story</p>
+      <p class="chapter-synopsis">物語の本筋には直接描かれない、登場人物たちの過去や日常。彼らが今ある姿になるまでの軌跡を、断片的な物語として綴る。</p>
+    </div>
+
+    <!-- 鏡牙 Background -->
+    <div class="bg-section reveal">
+      <div class="bg-section-label">Character Background — 鏡牙 / Kyoga</div>
+      <div class="bg-character-header">
+        <div class="bg-character-badge">鏡牙</div>
+        <div class="bg-character-info">
+          <p class="bg-character-name-en">Kyoga — The Swordsman Between Worlds</p>
+          <div class="bg-character-tags">
+            <span class="bg-character-tag">半人半妖</span>
+            <span class="bg-character-tag">黒刀・影断</span>
+            <span class="bg-character-tag">孤高</span>
+            <span class="bg-character-tag">中立</span>
+          </div>
+          <p class="bg-character-quote">「俺に居場所はない。だからこそ、どちらの世界も見える」</p>
+        </div>
+      </div>
+
+      <div class="scene scene-with-img">
+        <div class="scene-img-wrap">
+          <img src="images/img15.png" alt="竹林の求道者 — The Seeker" loading="lazy">
+        </div>
+        <div class="scene-content">
+          <div class="scene-meta">
+            <span class="scene-label">Background 01</span>
+          </div>
+          <h3 class="scene-title-jp">竹林の求道者</h3>
+          <p class="scene-title-en">The Seeker of the Bamboo Path</p>
+          <div class="scene-divider"></div>
+          <div class="lang-tabs">
+            <button class="lang-tab active" data-lang="jp">日本語</button>
+            <button class="lang-tab" data-lang="en">English</button>
+          </div>
+          <div class="story-panel active" id="s-bg-kyoga-1-jp">
+            <div class="scene-story">
+              <p>夜明け前の竹林は、静かだ。</p>
+              <p>鏡牙は毎朝、人里から離れたこの場所に来る。竹の間に差し込む薄明かりの中で素振りを繰り返し、息が整ったら目を閉じる。右目で現世の気配を、左目で影世の気配を——同時に感じる練習。どちらの目も持て余すことなく、どちらの世界も等しく見る。それが彼なりの「鍛錬」だった。</p>
+              <p>人間の村で育ちかけたことがある。七歳の頃まで。左目が金色に光ることを村の子どもたちが恐れ始め、ある夜、村の男たちが松明を持って来た。母は鏡牙の手を引いて走った。どこへ逃げるとも言わず、ただ走った。</p>
+              <p>影世の集落に拾われたのはそれから半年後のことだ。妖怪たちは最初こそ受け入れてくれた。しかし人間の血が混じっていることは、やがて隠しきれなくなった。「半端者」「境界の化け物」。子どもの残酷さは、人間も妖怪も変わらない。</p>
+              <p>十二歳で一人になった。</p>
+              <p>それからは剣だけを拠り所に生きてきた。強くなれば、どちらの世界にも属さなくていい理由になる。強くなれば、誰かに必要とされなくても生きていける。そう思っていた。</p>
+              <p>竹がそよぐ。風が影世の側からも吹いてくる——鏡牙にはわかる。現世の風と影世の風が重なって、竹林の中でだけ、ほんの少し温かい。</p>
+              <p>今朝も、誰もいない。それでいい。</p>
+              <p>刀を鞘に収め、鏡牙は次の場所へ歩き出した。</p>
+            </div>
+          </div>
+          <div class="story-panel" id="s-bg-kyoga-1-en">
+            <div class="scene-story en">
+              <p>Before dawn, the bamboo grove is quiet.</p>
+              <p>Every morning, Kyoga comes to this place — far from any village. He practices his forms in the thin light filtering between the stalks, and when his breathing steadies, he closes his eyes. With his right eye, he feels the presence of the living world. With his left, the presence of the shadow world. Both at once. The practice is to hold neither eye in excess — to see both worlds as equal. This is his discipline.</p>
+              <p>He once lived in a human village. Until he was seven. When the other children began to fear the gold light in his left eye, the men came one night with torches. His mother took his hand and ran — without saying where, without looking back. She simply ran.</p>
+              <p>He was taken in by a shadow-world settlement six months later. The yokai accepted him at first. But the human blood in him eventually became impossible to hide. Half-breed. Boundary creature. Children's cruelty is the same whether they are human or yokai.</p>
+              <p>He was alone by the time he was twelve.</p>
+              <p>Since then, he had lived with nothing but his blade. If he became strong enough, he would not need a reason to belong to either world. If he became strong enough, he could survive without being needed by anyone. That was what he had told himself.</p>
+              <p>The bamboo sways. Wind comes from the shadow side too — Kyoga can feel it. The wind of this world and the wind of the other, overlapping. Only in places like this, between the two, is there a strange warmth.</p>
+              <p>No one here again this morning. That was fine.</p>
+              <p>He sheathed his blade and walked on.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /background -->
 
 </main>
 

@@ -37,6 +37,8 @@ const GALLERY = [
     story_jp: "竹の幹にもたれた玲の目が細くなった。飄々とした笑いが消え、代わりに何か重いものが宿った。「境界が薄くなってる。この半年、ずっと。影世の古老たちは『世界の回帰』が始まったって言ってる——現世と影世が、元のひとつの世界に戻ろうとしてる」。青い狐火が静かに揺れ、満月が竹林の隙間から二重に重なって見えた。",
     story_en: "Rei's easy smile faded, replaced by something heavy. 'The boundary is thinning. For the past six months, without pause. The elders of the shadow world say it has begun — the Convergence. The world of light and the world of shadow, trying to become one again.' The blue fox-fires swayed in silence. Above, the full moon shimmered doubled through the bamboo — two moons failing to align."
   },
+  // ─── 以下は一時非表示 ───
+  /*
   {
     file: "images/img02.png",
     series: "II",
@@ -141,14 +143,17 @@ const GALLERY = [
     story_jp: "幼い頃から共に育った二人は、いつしか言葉にできない感情を胸に抱えるようになっていた。祭りの夜、隣を歩く彼女の横顔を、彼はそっと盗み見た。えんむすびの神が祀られるこの社では、祭りの夜に想いを伝えた者の縁は、来世まで続くという言い伝えがある。花火が夜空に大きく咲いた。今夜こそ、言わなければ——彼は静かに、手を伸ばした。",
     story_en: "They had grown up side by side since childhood, and somewhere along the way, feelings neither could name had begun to take root. On the night of the festival, he stole a quiet glance at her face as she walked beside him. At this shrine — home to the god of bonds — there is a legend that those who speak their feelings on festival nights will be bound together across lifetimes. A great firework bloomed in the dark sky above. Tonight, at last, he had to say it. Slowly, he reached out his hand."
   },
+  */
   {
     file: "images/img15.png",
-    series: "XV",
+    series: "Background",
     title_jp: "竹林の求道者",
     title_en: "Seeker of the Bamboo Path",
     story_jp: "師は死の床でこう言った。剣の極みは、斬ることではない。斬らずに済む道を見つけることだ。その言葉の意味が、十年経った今もわからなかった。国を追われ、仲間を失い、ただ剣だけを拠り所に生きてきた。しかし今、この静寂の竹林に立つと、風が竹をそよがせるその音の中に、何かが聞こえる気がした。師の声ではない。もっと深いところから来る、何か——彼はゆっくりと、門へと歩み出した。",
     story_en: "On his deathbed, his master had said: the pinnacle of the sword is not in the act of cutting, but in finding the path where no cut is needed. Ten years had passed, and still those words held no meaning for him. Driven from his homeland, stripped of his companions, he had survived with nothing but his blade. Yet now, standing in the stillness of this bamboo grove, something in the sound of wind through the stalks seemed to reach him — not his master\'s voice, but something deeper, older. He took a slow step forward toward the gate."
   },
+  // ─── 以下は一時非表示 ───
+  /*
   {
     file: "images/img16.png",
     series: "XVI",
@@ -165,6 +170,7 @@ const GALLERY = [
     story_jp: "二人が旅を始めたのは、まだ雪が残る早春のことだった。侍・玄は巫女・澪を、遠い山の神殿まで送り届けるよう命じられた。当初は無言の道連れに過ぎなかった。しかし幾つもの峠を越え、嵐をくぐり抜け、共に飢えを凌いだ夜を経て、二人の間に言葉では表せない何かが生まれていた。そしてついに、雲海を見下ろすこの場所に辿り着いた今——玄は気づいてしまった。この旅が終われば、二人は別々の道を歩まねばならないと。それでも彼は、この景色を彼女と共に見られたことを、生涯忘れないだろう。",
     story_en: "Their journey had begun in early spring, when snow still clung to the mountain passes. The samurai Gen had been charged with escorting the shrine maiden Mio to a temple deep in the distant mountains — nothing more than a silent obligation. Yet as they crossed pass after pass, weathered storms together and shared nights of quiet hunger, something beyond words had grown between them. Now, at last standing here above the sea of clouds, Gen understood with a pang what he had been unwilling to face: when this journey ended, they would each walk separate paths. Even so, he knew he would carry this moment — this view, shared with her — for the rest of his life."
   }
+  */
 
   // =====================================================
   // 新しい画像を追加するときはここにコピーして追加：
