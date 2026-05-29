@@ -152,6 +152,12 @@ footer{background:var(--ink);border-top:1px solid rgba(139,26,47,.2);padding:2.5
 .footer-tagline{font-family:"Shippori Mincho B1",serif;font-size:.72rem;color:var(--ash);opacity:.35;letter-spacing:.1em;text-align:center}
 .footer-copy{font-family:"IM Fell English",serif;font-style:italic;font-size:.7rem;color:var(--ash);opacity:.35;letter-spacing:.1em}
 
+/* ─── ストーリーに戻るボタン ─── */
+.bg-return-bar{position:sticky;top:4.5rem;z-index:100;padding:.6rem 0 1rem;background:linear-gradient(to bottom,var(--ink) 70%,transparent);margin-bottom:.5rem}
+.bg-return-btn{font-family:"IM Fell English",serif;font-style:italic;font-size:.78rem;color:var(--ash);border:1px solid rgba(139,26,47,.4);background:rgba(10,6,8,.92);padding:.5rem 1.4rem;cursor:pointer;letter-spacing:.15em;transition:all .3s;display:inline-flex;align-items:center;gap:.6rem;backdrop-filter:blur(4px)}
+.bg-return-btn::before{content:"←";font-style:normal}
+.bg-return-btn:hover{border-color:var(--crimson-bright);color:var(--paper);background:rgba(139,26,47,.18)}
+
 /* ─── Backgroundタブ専用スタイル ─── */
 .chap-tab-bg{border-left:1px solid rgba(139,26,47,.2);margin-left:.5rem;color:var(--gold-dim)}
 .chap-tab-bg.active{color:var(--gold);border-bottom-color:var(--gold)}
@@ -462,6 +468,9 @@ footer{background:var(--ink);border-top:1px solid rgba(139,26,47,.2);padding:2.5
 
   <!-- ══════════ Background ══════════ -->
   <div class="chapter-panel" id="panel-background">
+    <div class="bg-return-bar" id="bg-return-bar" style="display:none">
+      <button class="bg-return-btn" onclick="returnFromBackground()">ストーリーに戻る / Return to Story</button>
+    </div>
     <div class="chapter-header reveal">
       <div class="chapter-label">Background Stories</div>
       <h2 class="chapter-title-jp">背景譚</h2>
@@ -543,7 +552,16 @@ footer{background:var(--ink);border-top:1px solid rgba(139,26,47,.2);padding:2.5
 
 <script>
 // ─── Backgroundリンク ───
+let bgReturnState = null;
+
 function openBackground(targetId) {
+  // 現在の状態を保存（戻り先）
+  const activeTab = document.querySelector(".chap-tab.active");
+  bgReturnState = {
+    chapter: activeTab ? activeTab.dataset.chapter : "prologue",
+    scrollY: window.scrollY
+  };
+
   // 全タブ・パネルをリセット
   document.querySelectorAll(".chap-tab").forEach(t => t.classList.remove("active"));
   document.querySelectorAll(".chapter-panel").forEach(p => p.classList.remove("active"));
@@ -552,15 +570,37 @@ function openBackground(targetId) {
   const bgPanel = document.getElementById("panel-background");
   bgPanel.classList.add("active");
   bgPanel.querySelectorAll(".reveal").forEach(el => obs.observe(el));
+  // 戻るボタンを表示
+  document.getElementById("bg-return-bar").style.display = "block";
   // 対象セクションにスクロール＆ハイライト
   setTimeout(() => {
     const target = document.getElementById(targetId);
     if (!target) return;
-    const offset = target.getBoundingClientRect().top + window.scrollY - 100;
+    const offset = target.getBoundingClientRect().top + window.scrollY - 110;
     window.scrollTo({ top: offset, behavior: "smooth" });
     target.classList.add("bg-highlight");
     setTimeout(() => target.classList.remove("bg-highlight"), 2000);
   }, 80);
+}
+
+function returnFromBackground() {
+  if (!bgReturnState) return;
+  // 元の章タブ・パネルを復元
+  document.querySelectorAll(".chap-tab").forEach(t => t.classList.remove("active"));
+  document.querySelectorAll(".chapter-panel").forEach(p => p.classList.remove("active"));
+  const returnTab = document.querySelector(`[data-chapter="${bgReturnState.chapter}"]`);
+  if (returnTab) returnTab.classList.add("active");
+  const returnPanel = document.getElementById(`panel-${bgReturnState.chapter}`);
+  if (returnPanel) {
+    returnPanel.classList.add("active");
+    returnPanel.querySelectorAll(".reveal").forEach(el => obs.observe(el));
+  }
+  // 元のスクロール位置に戻す
+  const savedY = bgReturnState.scrollY;
+  setTimeout(() => window.scrollTo({ top: savedY, behavior: "smooth" }), 60);
+  // 戻るボタンを非表示・状態をリセット
+  document.getElementById("bg-return-bar").style.display = "none";
+  bgReturnState = null;
 }
 
 // ─── 章タブ切り替え ───
