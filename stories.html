@@ -611,6 +611,147 @@ footer{background:var(--ink);border-top:1px solid rgba(139,26,47,.2);padding:2.5
       </div>
     </div>
 
+    <!-- 世界観 Background -->
+    <div class="bg-section reveal" id="bg-world" style="margin-top:5rem">
+      <div class="bg-section-label">World Background — 世界観 / The World</div>
+
+      <!-- World 01 : 現世 -->
+      <div class="scene reveal">
+        <div class="scene-img-wrap scene-img-wide">
+          <img src="images/bg_world_utsushiyo.png" alt="現世 — The World of Light" loading="lazy">
+        </div>
+        <div class="scene-meta"><span class="scene-label">World 01</span></div>
+        <h3 class="scene-title-jp">現世 — 光の世界</h3>
+        <p class="scene-title-en">Utsushiyo — The World of Light</p>
+        <div class="bg-return-wrap bg-return-bar" style="display:none">
+          <button class="bg-return-btn" onclick="returnFromBackground()">ストーリーに戻る</button>
+        </div>
+        <div class="scene-divider"></div>
+        <div class="lang-tabs">
+          <button class="lang-tab active" data-lang="jp">日本語</button>
+          <button class="lang-tab" data-lang="en">English</button>
+        </div>
+        <div class="story-panel active" id="s-bg-world-1-jp">
+          <div class="scene-story">
+            <p>人が生きる光の世界——現世（うつしよ）。</p>
+            <p>朱い鳥居、竹林のざわめき、夜祭りの灯火。季節が巡り、人が老い、子が生まれる。ここには確かな重さがある。この世界に生きる者のほとんどは、自分たちの世界が唯一の現実だと信じて死んでいく。</p>
+            <p>しかし現世は、この宇宙にひとつきりの世界ではない。</p>
+          </div>
+        </div>
+        <div class="story-panel" id="s-bg-world-1-en">
+          <div class="scene-story en">
+            <p>The world of light where humans live — Utsushiyo, the Living World.</p>
+            <p>Crimson torii gates, the rustle of bamboo groves, the glow of festival lanterns. Seasons turn, people age, children are born. There is a certain weight to this world. Most who live here die believing it is the only reality that exists.</p>
+            <p>But the Living World is not the only world there is.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="scene-separator"></div>
+
+      <!-- World 02 : 影世 -->
+      <div class="scene reveal">
+        <div class="scene-img-wrap scene-img-wide">
+          <img src="images/bg_world_kageyo.png" alt="影世 — The World of Shadow" loading="lazy">
+        </div>
+        <div class="scene-meta"><span class="scene-label">World 02</span></div>
+        <h3 class="scene-title-jp">影世 — 影の世界</h3>
+        <p class="scene-title-en">Kageyo — The World of Shadow</p>
+        <div class="scene-divider"></div>
+        <div class="lang-tabs">
+          <button class="lang-tab active" data-lang="jp">日本語</button>
+          <button class="lang-tab" data-lang="en">English</button>
+        </div>
+        <div class="story-panel active" id="s-bg-world-2-jp">
+          <div class="scene-story">
+            <p>現世の鳥居が朱ければ、影世では古びた石門になる。現世の祭りの裏で、百鬼が静かに列をなす夜がある。</p>
+            <p>しかしそれは、人間が想像するような「恐ろしい闇の世界」ではない。鬼の子が路地を駆け回り、河童が市場で客と値段を交渉し、老いた天狗が縁台で巻物を読む。太陽は昇らないが、石灯籠と青い狐火が、確かな温もりとともにこの世界を照らしている。</p>
+            <p>人間が影世を「闇」と呼ぶのは、見えないからだ。しかし影世に生きる者たちにとって、ここは紛れもなく「故郷」だ。</p>
+          </div>
+        </div>
+        <div class="story-panel" id="s-bg-world-2-en">
+          <div class="scene-story en">
+            <p>Where the Living World has crimson torii gates, the shadow world has crumbling stone. Where the Living World holds festivals, shadow processions move silently through the same streets.</p>
+            <p>But this is not the terrifying darkness that humans imagine. Oni children chase small spirits through stone alleyways. Kappa argue prices at market stalls. Elderly tengu sit on wooden benches, reading ancient scrolls. Stone lanterns and drifting blue fox-fires illuminate this world with a warmth all their own.</p>
+            <p>Humans call the shadow world darkness because they cannot see it. But for those who live here, this place is simply home.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="scene-separator"></div>
+
+      <!-- World 03 : 境界 (縦長・2カラム) -->
+      <div class="scene scene-with-img reveal">
+        <div class="scene-img-wrap">
+          <img src="images/bg_world_sakai.png" alt="境界 — The Boundary" loading="lazy">
+        </div>
+        <div class="scene-content">
+          <div class="scene-meta"><span class="scene-label">World 03</span></div>
+          <h3 class="scene-title-jp">境界 — 見えない壁</h3>
+          <p class="scene-title-en">Sakai — The Boundary</p>
+          <div class="scene-divider"></div>
+          <div class="lang-tabs">
+            <button class="lang-tab active" data-lang="jp">日本語</button>
+            <button class="lang-tab" data-lang="en">English</button>
+          </div>
+          <div class="story-panel active" id="s-bg-world-3-jp">
+            <div class="scene-story">
+              <p>二つの世界を隔てるのは「境界」と呼ばれる見えない壁だ。</p>
+              <p>普通の人間には影世は見えない。しかし特定の場所と時間——夜が深まり、満月が中天に昇り、祭りの宵が訪れるとき——その壁は薄くなる。そのとき、感の鋭い者なら気配を感じることができる。何かが、こちらを見ている気配を。</p>
+              <p>影世の住人は境界越しに現世に干渉できる。しかし完全には踏み込めない——それが長年のルールだった。</p>
+              <p>両方の血を引く者だけが、例外だ。</p>
+            </div>
+          </div>
+          <div class="story-panel" id="s-bg-world-3-en">
+            <div class="scene-story en">
+              <p>Between the two worlds stands an invisible barrier called the Boundary.</p>
+              <p>Ordinary humans cannot see the shadow world. But at certain places and times — when night deepens, when the full moon reaches the center of the sky, when the eve of a festival arrives — the wall grows thin. Those with sharp instincts may sense something then. The feeling that something is watching from the other side.</p>
+              <p>The inhabitants of the shadow world can reach through the Boundary to influence the living world. But they cannot fully cross over — that has been the rule for as long as anyone can remember.</p>
+              <p>Only those who carry the blood of both worlds are the exception.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="scene-separator"></div>
+
+      <!-- World 04 : 世界の回帰 -->
+      <div class="scene reveal">
+        <div class="scene-img-wrap scene-img-wide">
+          <img src="images/bg_world_kaiki.webp" alt="世界の回帰 — The Convergence" loading="lazy">
+        </div>
+        <div class="scene-meta"><span class="scene-label">World 04</span></div>
+        <h3 class="scene-title-jp">世界の回帰</h3>
+        <p class="scene-title-en">The Convergence</p>
+        <div class="scene-divider"></div>
+        <div class="lang-tabs">
+          <button class="lang-tab active" data-lang="jp">日本語</button>
+          <button class="lang-tab" data-lang="en">English</button>
+        </div>
+        <div class="story-panel active" id="s-bg-world-4-jp">
+          <div class="scene-story">
+            <p>太古の昔、現世と影世はひとつの世界だった。</p>
+            <p>人と妖怪が同じ空の下を歩き、神と人間が言葉を交わしていた頃。その世界はある出来事をきっかけに真っ二つに分かれ、光と影に引き裂かれた。以来、二つの世界は同じ場所に重なりながらも、決して交わることなく続いてきた——何百年もの間。</p>
+            <p>しかし今、その境界が揺らいでいる。</p>
+            <p>影世の古老たちはこれを「世界の回帰」と呼ぶ。かつてひとつだったものが、元に戻ろうとしている。</p>
+            <p>現世の人間はこれを滅びと呼ぶ。影世の妖怪はこれを救いと呼ぶ。</p>
+            <p>そして誰もが気づいていないことがある——どちらも真実の一部に過ぎないということを。</p>
+          </div>
+        </div>
+        <div class="story-panel" id="s-bg-world-4-en">
+          <div class="scene-story en">
+            <p>Long ago, the Living World and the Shadow World were one.</p>
+            <p>There was a time when humans and yokai walked beneath the same sky, when gods and people spoke in the same tongue. Then something happened — and the world split in two, torn into light and shadow. Since then, the two worlds have existed in the same space, overlapping but never touching, for hundreds upon hundreds of years.</p>
+            <p>But now, the Boundary is wavering.</p>
+            <p>The elders of the shadow world call this the Convergence — the great return of what was once whole.</p>
+            <p>The humans of the living world call it the end of everything. The yokai of the shadow world call it salvation.</p>
+            <p>And there is something that neither side has yet understood: both of them are only half right.</p>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /bg-world -->
+
   </div><!-- /background -->
 
 </main>
