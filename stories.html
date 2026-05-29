@@ -130,6 +130,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:1.5rem 4vw;display:f
 .scene-story p{margin-bottom:1.2em}
 .scene-story p:last-child{margin-bottom:0}
 
+/* ─── Backgroundリンク ─── */
+.bg-link{color:var(--gold);border-bottom:1px dotted var(--gold-dim);cursor:pointer;transition:color .2s,border-color .2s;position:relative;white-space:nowrap}
+.bg-link:hover{color:var(--paper);border-color:var(--gold)}
+.bg-link::after{content:"▶ 背景譚";position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);background:rgba(17,10,14,.95);border:1px solid rgba(200,169,110,.3);color:var(--gold);font-size:.58rem;letter-spacing:.12em;padding:3px 10px;white-space:nowrap;pointer-events:none;opacity:0;transition:opacity .2s;font-family:"IM Fell English",serif;font-style:italic}
+.bg-link:hover::after{opacity:1}
+@keyframes bgPulse{0%{box-shadow:0 0 0 0 rgba(200,169,110,.4)}70%{box-shadow:0 0 0 12px rgba(200,169,110,0)}100%{box-shadow:0 0 0 0 rgba(200,169,110,0)}}
+.bg-highlight{animation:bgPulse .8s ease 2;background:rgba(200,169,110,.06);outline:1px solid rgba(200,169,110,.2)}
+
 /* ─── 未公開場面 ─── */
 .scene-coming{border:1px solid rgba(139,26,47,.2);padding:3rem;text-align:center;background:rgba(139,26,47,.02)}
 .scene-coming-jp{font-family:"Shippori Mincho B1",serif;font-size:1rem;color:var(--ash);letter-spacing:.2em;opacity:.4;margin-bottom:.4rem}
@@ -254,7 +262,7 @@ footer{background:var(--ink);border-top:1px solid rgba(139,26,47,.2);padding:2.5
             <div class="scene-story">
               <p>朱色の鳥居が並ぶ神社は、昼間はただの古社だ。しかし夜が更け、月が中天に昇る頃、その姿は変わり始める。</p>
               <p>鳥居の朱は褪せ、石畳は苔むした古い岩肌を露わにする。参道の石灯籠はひとつ残らず消え、代わりに青白い光が宙に浮かぶ。影世——現世の裏に重なり合うもう一つの世界が、薄く透けて見えるようになる時間。</p>
-              <p>鏡牙は誰もいない参道を歩いていた。右目には現世の静寂を、左目には影世のかすかな揺らめきを映しながら。黒刀「影断」は鞘に収まったまま、しかしその手は柄の近くにある。</p>
+              <p><span class="bg-link" onclick="openBackground('bg-kyoga')">鏡牙</span>は誰もいない参道を歩いていた。右目には現世の静寂を、左目には影世のかすかな揺らめきを映しながら。黒刀「影断」は鞘に収まったまま、しかしその手は柄の近くにある。</p>
               <p>——今夜は、いつもと違う。</p>
               <p>境界が薄い。この一年で最も薄い夜だと、身体が告げていた。</p>
             </div>
@@ -263,7 +271,7 @@ footer{background:var(--ink);border-top:1px solid rgba(139,26,47,.2);padding:2.5
             <div class="scene-story en">
               <p>By day, the shrine with its rows of crimson torii is nothing more than an old place of worship. But as night deepens and the moon climbs to the center of the sky, it begins to change.</p>
               <p>The red of the torii fades. The stone path reveals ancient rock worn smooth by centuries. The stone lanterns vanish one by one, replaced by pale light drifting in the air. This is the hour when the shadow world — the other world that lies beneath this one — becomes visible, thin as gauze.</p>
-              <p>Kyoga walked the empty path alone, his right eye seeing the silence of the living world, his left catching the faint shimmer of the world beyond. His black blade, Kagekiri, sat sheathed at his side — but his hand stayed near the hilt.</p>
+              <p><span class="bg-link" onclick="openBackground('bg-kyoga')">Kyoga</span> walked the empty path alone, his right eye seeing the silence of the living world, his left catching the faint shimmer of the world beyond. His black blade, Kagekiri, sat sheathed at his side — but his hand stayed near the hilt.</p>
               <p>— Tonight is different.</p>
               <p>The boundary was thin. His body told him it was the thinnest it had been all year.</p>
             </div>
@@ -292,7 +300,7 @@ footer{background:var(--ink);border-top:1px solid rgba(139,26,47,.2);padding:2.5
         <div class="story-panel active" id="s-prologue-2-jp">
           <div class="scene-story">
             <p>竹林の奥に入ると、空気が変わった。現世の竹の青さの向こうに、枯れ果てた灰色の竹が透けて見える。影世だ。両方が重なっている場所。</p>
-            <p>何かが近づいてくる気配。影世の側から——霧のような輪郭を持つ影の獣が、境界を越えようとしていた。人間には見えない。感じることさえできない。しかし鏡牙には見えた。</p>
+            <p>何かが近づいてくる気配。影世の側から——霧のような輪郭を持つ影の獣が、境界を越えようとしていた。人間には見えない。感じることさえできない。しかし<span class="bg-link" onclick="openBackground('bg-kyoga')">鏡牙</span>には見えた。</p>
             <p>刀を抜いた瞬間、動いた。音もなく、迷いもなく。黒刀が宙を薙ぎ、影の獣は霧散した。</p>
             <p>「相変わらずね。挨拶より先に刀を抜くんだ」</p>
             <p>振り返ると、竹の影に白い着物の人影があった。銀の髪。狐の耳がかすかに揺れている。</p>
@@ -303,7 +311,7 @@ footer{background:var(--ink);border-top:1px solid rgba(139,26,47,.2);padding:2.5
         <div class="story-panel" id="s-prologue-2-en">
           <div class="scene-story en">
             <p>Deeper in the bamboo grove, the air shifted. Beyond the living green of the bamboo, grey and withered stalks shimmered faintly — the shadow world, overlapping with this one.</p>
-            <p>Something was approaching. From the shadow side — a creature of mist and darkness, pressing against the boundary, trying to cross through. Humans would never see it. Never feel it. But Kyoga saw it clearly.</p>
+            <p>Something was approaching. From the shadow side — a creature of mist and darkness, pressing against the boundary, trying to cross through. Humans would never see it. Never feel it. But <span class="bg-link" onclick="openBackground('bg-kyoga')">Kyoga</span> saw it clearly.</p>
             <p>The moment he drew his blade, he moved. Silent. Without hesitation. The black steel swept through the air, and the shadow creature dissolved into nothing.</p>
             <p>"Same as ever," said a voice. "You draw your sword before you even say hello."</p>
             <p>He turned. In the shadow of the bamboo stood a figure in white — silver hair, fox ears shifting faintly in the still air.</p>
@@ -341,7 +349,7 @@ footer{background:var(--ink);border-top:1px solid rgba(139,26,47,.2);padding:2.5
             <p>「境界が、薄くなってる。気づいてるでしょ」</p>
             <p>「ああ」</p>
             <p>「今夜だけじゃない。この半年、ずっと薄くなり続けてる。影世の古老たちは『世界の回帰』が始まったって言ってる。現世と影世が——元のひとつの世界に戻ろうとしてる」</p>
-            <p>鏡牙は月を見上げた。丸い月の輪郭が、わずかにぶれて見えた。現世の月と、影世の月が重なりきれていない。本来なら完全に重なって見えるはずのそれが、今夜はずれている。</p>
+            <p><span class="bg-link" onclick="openBackground('bg-kyoga')">鏡牙</span>は月を見上げた。丸い月の輪郭が、わずかにぶれて見えた。現世の月と、影世の月が重なりきれていない。本来なら完全に重なって見えるはずのそれが、今夜はずれている。</p>
             <p>「それで、お前は俺に何をしてほしい」</p>
             <p>玲はしばらく黙った。それから、静かに言った。</p>
             <p>「一緒に来て。現世へ。あんただけが、両方の声を聞ける」</p>
@@ -462,7 +470,7 @@ footer{background:var(--ink);border-top:1px solid rgba(139,26,47,.2);padding:2.5
     </div>
 
     <!-- 鏡牙 Background -->
-    <div class="bg-section reveal">
+    <div class="bg-section reveal" id="bg-kyoga">
       <div class="bg-section-label">Character Background — 鏡牙 / Kyoga</div>
       <div class="bg-character-header">
         <div class="bg-character-badge">鏡牙</div>
@@ -534,6 +542,27 @@ footer{background:var(--ink);border-top:1px solid rgba(139,26,47,.2);padding:2.5
 </footer>
 
 <script>
+// ─── Backgroundリンク ───
+function openBackground(targetId) {
+  // 全タブ・パネルをリセット
+  document.querySelectorAll(".chap-tab").forEach(t => t.classList.remove("active"));
+  document.querySelectorAll(".chapter-panel").forEach(p => p.classList.remove("active"));
+  // Backgroundタブをアクティブに
+  document.querySelector('[data-chapter="background"]').classList.add("active");
+  const bgPanel = document.getElementById("panel-background");
+  bgPanel.classList.add("active");
+  bgPanel.querySelectorAll(".reveal").forEach(el => obs.observe(el));
+  // 対象セクションにスクロール＆ハイライト
+  setTimeout(() => {
+    const target = document.getElementById(targetId);
+    if (!target) return;
+    const offset = target.getBoundingClientRect().top + window.scrollY - 100;
+    window.scrollTo({ top: offset, behavior: "smooth" });
+    target.classList.add("bg-highlight");
+    setTimeout(() => target.classList.remove("bg-highlight"), 2000);
+  }, 80);
+}
+
 // ─── 章タブ切り替え ───
 document.querySelectorAll(".chap-tab").forEach(tab => {
   tab.addEventListener("click", () => {
